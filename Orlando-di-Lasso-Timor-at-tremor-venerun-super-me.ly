@@ -1,10 +1,9 @@
 \version "2.18.2"
 
 \header {
-  title = "Timor at tremor venerun super me"
-  composer = "Orlando di Lasso"
+  % Удалить строку версии LilyPond 
+  tagline = ##f
 }
-
 global = {
   \key d \major
   \time 2/2
@@ -27,13 +26,16 @@ soprano = \relative c' {
   
   cis2 d~ | d d^\markup\italic"cresc." | d d | r1
   r2 a gis4^\markup\italic"molto cresc." a b2 a4 \breathe a4. a8 gis4 a4.(\< b8 c2) b1\fermata\ff \bar "||"
-  
+}
+
+sopranof = \relative c'' {
+  \global
   \tempo Adagio
   cis1\p | d2. d4 | e2 e | r2 c4.^\markup{\dynamic rf \italic marc.} c8 | c4\< c c c\! |
   c2 c | r1^\markup\italic"rall." | r4 b2^\markup{\dynamic p \italic "più lento"} b4 | b b gis gis | a2 ais~
   
   \mark #1 ais2 r | r1 r1 | r2 a!2^\markup\dynamic"rf" | a4 b b4. b8 | e,4 g2^> a4 \breathe |
-  gis2\> a~ | a\! r2 d2.\p\< d4\! | e2\< fis4\! d~(^\markup\italic"dolce canto" | d8 cis16 b cis4) d2 \breathe \mark #2 a2.^\markup{\dynamic p \italic "poco accel"} a4
+  gis2\> a~ | a\! r2 d2.\p\< d4\! | e2\< fis4\! d~(^\markup\italic"dolce canto" | d8[ cis16 b] cis4) d2 \breathe \mark #2 a2.^\markup{\dynamic p \italic "poco accel"} a4
   
   a1 | r4 e'2 cis4 | d d2 b4^\markup\italic"cresc." | r4 e a, d~( | d8\>[ cis] b2) ais4\! |
   b \breathe dis4.^\markup{\dynamic rf \italic "più accel."} e8 cis4 | b2 r | a ais4 b^\markup\italic"cresc." | b2 r | \mark #3 r4 b\< ais b\! |
@@ -49,7 +51,7 @@ altoOne = \relative c' {
   d1^\markup{\dynamic ppp \italic "molto sost."} d d2 fis~ fis gis~ gis r4 e
   e e a,2( d) d~ d\fermata \breathe g\pp fis1^\markup\italic "poco a poco cresc." dis4 dis e2
   
-  fis4 \breathe a a2~ a4 a a a~( a8[ gis16 fis]) gis4 a2 r4 d, fis2 fis4 cis( fis2)
+  fis4 \breathe a a2~ a4 a a a~( a8[ gis16 fis] gis4) a2 r4 d, fis2 fis4 cis( fis2)
   b, e~^\markup\italic"più cresc." e r4 cis~ cis fis e2 cis \breathe d4. d8 e4 cis( b8[ e,]) e'4 cis1\fermata\ff
   
   d4.\pp d8 d4 d | e2 cis | cis2.\< e4 | e2\fermata\! fis4.\pp fis8 | fis4 fis4 fis2 b, \breathe cis~ |
@@ -58,6 +60,10 @@ altoOne = \relative c' {
   a2 a | b g4 \breathe g~( g fis8 e fis2) | e4 \breathe e dis e
   fis2 e | r1 | r2 e2^^ e4\< e a2 gis1\fermata\! \bar "||"
   
+} 
+
+altoOnef = \relative c'' {
+  \global
   a1\pp | a2( fis) | e1 | f2^- f | e\f e4 e~ |
   e e e2 | cis\> d^\markup\italic"rall." | b\! \breathe dis4.\pp dis8 | dis4 fis b,2 | e r4 cis~( |
   
@@ -86,7 +92,10 @@ altoTwo = \relative c' {
   
   e2 fis | g r4 d | a'2.^\markup\italic"cresc." a4 | g2 fis4 b,4 |
   d2 cis4 \breathe cis | e^\markup\italic"molto cresc." e \breathe g2 | fis4 d cis( b | c8\<[ b c d] e2) | e1\fermata\!
-  
+} 
+
+altoTwof = \relative c' {  
+  \global
   e1\pp | fis2( a) | a1 | a2^- a4 \breathe a^\markup\dynamic"rf" | g\< g4. g8 g4 | 
   g\! g2^> g4 | r1^\markup\italic"rall." | r2 \breathe fis4.\pp fis8 | fis4 dis e4.( d8 | cis[ b] cis2) fis4 |
   
@@ -115,7 +124,10 @@ tenorOne = \relative c' {
   
   a1 | g4 b b2^\markup\italic"cresc." a1 r1
   r2 r4 a | e a g2 | a4 \breathe fis e e | e1\< | e\fermata\!
-  
+} 
+
+tenorOnef = \relative c' { 
+  \global
   a2^\markup{\dynamic p \italic " marc."} cis4 e | d2( a4. b8) | cis1 | r | c4.^\markup\dynamic"rf"\< c8 c4 c4  |
   g2 g | a4.\>( g8^\markup\italic"rall."\! fis[ e] fis4) | g2 \breathe fis4.\pp fis8 | fis4 fis e b' | a a r2 |
 
@@ -144,7 +156,10 @@ tenorTwo = \relative c {
   
   e4 \breathe e' d d | d2^\markup\italic"cresc." d~ | d1 | b2 b4^\markup\italic"molto cresc." gis |
   a2 a4 \breathe e | b' cis d2 | d4 \breathe a a b | a1\< b\fermata\! | \bar "||"
-  
+} 
+
+tenorTwof = \relative c' { 
+  \global
   r2 a\pp | a d | r2 a4.(^\markup{\dynamic rf \italic " marc."} b8 | c2^-) c | r1
   c4.\mf\< c8 c4 c | e\! e a,2^\markup\italic"rall."\> | d\! \breathe b\pp | b4 b2 e,4 | e e fis2~
   
@@ -173,8 +188,11 @@ bass = \relative c {
   
   a4 a d2 | g,4 g'^\markup\italic"cresc." g2 | d1 | e2 b4 e |
   d2 a | r1 | d2\f a4 e' | a,1\< e'\fermata\! \bar "||"
-  
-  a,1\pp | d | a' | f2^- f | r1 |
+} 
+
+bassf = \relative c {   
+  \global
+  a1\pp | d | a' | f2^- f | r1 |
   c4.\mf\< c8 c4 c\! | a a d2^\markup\italic"rall."\> | g,\! b4.\pp b8 | b4 b e2 | a, fis |
   
   fis r4 d'| g c, c4. e8 | d4 fis2 b,4 | e2 a, | r1 r1 |
@@ -187,75 +205,339 @@ bass = \relative c {
   d fis cis d | b d a \breathe a' | g d e2 | a,\pp a | d1\> a~ a\fermata\!
 }
 
-verse = \lyricmode {
-  % Набирайте слова здесь
-  
+versesf = \lyricmode {
+  Ti -- mor et tre -- mor, 
+  ti -- mor et tre -- mor
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me, __
+  et ca -- lí -- go ce -- ci -- dit su -- per me.
+  Mi -- se -- ré -- re me -- i, Do -- mi -- ne, __
+  mi -- se -- ré -- re me -- i;
+  quó -- ni -- am in te __ con -- fí -- dit
+  à -- ni -- ma me -- a,
+  à -- ni -- ma me -- a.
+}
+
+verseaof = \lyricmode {
+  Ti -- mor et tre -- mor, __
+  ti -- mor et tre -- mor __
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per __ me,
+  ve -- né -- runt su -- per me, __
+  et ca -- lí -- go ce -- ci -- dit su -- per me.
+  Mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i;
+  quó -- ni -- am in te __ con -- fí -- dit
+  à -- ni -- ma me -- a,
+  à -- ni -- ma me -- a.
+}
+
+verseatf = \lyricmode {
+  Ti -- mor et tre -- mor, __
+  ti -- mor et tre -- mor 
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me, __
+  et ca -- lí -- go ce -- ci -- dit,
+  ce -- ci -- dit su -- per me.
+  Mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i;
+  quó -- ni -- am in te __ con -- fí -- dit
+  à -- ni -- ma me -- a,
+  con -- fí -- dit à -- ni -- ma me -- a.
+}
+
+versetof = \lyricmode {
+  Ti -- mor et tre -- mor, __
+  ti -- mor et tre -- mor
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me,
+  et ca -- lí -- go ce -- ci -- dit su -- per me.
+  Mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i;
+  quó -- ni -- am in __ te con -- fí -- dit
+  à -- ni -- ma me -- a,
+  à -- ni -- ma me -- a.
+}
+
+versetsf = \lyricmode {
+  Ti -- mor et tre -- mor,
+  ti -- mor et __ tre -- mor
+  ve -- né -- runt, ve -- né -- run su -- per me,
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me. __
+  Mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i;
+  quó -- ni -- am in te con -- fí -- dit __
+  à -- ni -- ma me -- a,
+  à -- ni -- ma me -- a.
+}
+
+versebf = \lyricmode {
+  Ti -- mor et tre -- mor,
+  ti -- mor et tre -- mor
+  ve -- né -- runt su -- per me,
+  ve -- né -- runt su -- per me,
+  et ca -- lí -- go __ ce -- ci -- dit su -- per me.
+  Mi -- se -- ré -- re me -- i, Do -- mi -- ne,
+  mi -- se -- ré -- re me -- i;
+  quó -- ni -- am in te con -- fí -- dit
+  à -- ni -- ma me -- a,
+  à -- ni -- ma me -- a.
+}
+
+versess = \lyricmode {
+  Ex -- au -- di De -- us de -- pre -- ca -- ti -- ó -- nem me -- am,
+  de -- pre -- ca -- ti -- ó -- nem me -- am, __
+  qui -- a re -- fu -- gi -- um me -- um es tu, __
+  et ad -- jú -- tor for -- tis.
+  Dó -- mi -- ne, in -- vo -- cá -- vi te, 
+  in -- vo -- cá -- vi te,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar. __
+}
+
+verseaos = \lyricmode {
+  Ex -- au -- di De -- us de -- pre -- ca -- ti -- ó -- nem me -- am,
+  de -- pre -- ca -- ti -- ó -- nem me -- am,
+  qui -- a re -- fu -- gi -- um me -- um es tu,
+  qui -- a re -- fu -- gi -- um me -- um es tu,
+  et ad -- jú -- tor for -- tis.
+  Dó -- mi -- ne, in -- vo -- cá -- vi te, 
+  in -- vo -- cá -- vi te,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  con -- fún -- dar. __
+}
+
+verseats = \lyricmode {
+  Ex -- au -- di De -- us de -- pre -- ca -- ti -- ó -- nem me -- am,
+  de -- pre -- ca -- ti -- ó -- nem me -- am,
+  qui -- a re -- fu -- gi -- um me -- um es tu,
+  re -- fu -- gi -- um me -- um es tu,
+  et ad -- jú -- tor for -- tis.
+  Dó -- mi -- ne, Dó -- mi -- ne, __ in -- vo -- cá -- vi te, 
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar.
+}
+
+versetos = \lyricmode {
+  Ex -- au -- di De -- us de -- pre -- ca -- ti -- ó -- nem me -- am,
+  de -- pre -- ca -- ti -- ó -- nem me -- am,
+  qui -- a re -- fu -- gi -- um me -- um es __ tu,
+  et ad -- jú -- tor for -- tis.
+  Dó -- mi -- ne, Dó -- mi -- ne, __ in -- vo -- cá -- vi te, 
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non __ con -- fún -- dar. __
+}
+
+versetss = \lyricmode {
+  Ex -- au -- di De -- us de -- pre -- ca -- ti -- ó -- nem me -- am,
+  de -- pre -- ca -- ti -- ó -- nem me -- am,
+  qui -- a re -- fu -- gi -- um me -- um es tu,
+  et ad -- jú -- tor for -- tis.
+  Dó -- mi -- ne, in -- vo -- cá -- vi __ te, 
+  in -- vo -- cá -- vi te, 
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar. __
+}
+
+versebs = \lyricmode {
+  Ex -- au -- di De -- us de -- pre -- ca -- ti -- ó -- nem me -- am,
+  de -- pre -- ca -- ti -- ó -- nem me -- am,
+  qui -- a re -- fu -- gi -- um me -- um es tu,
+  et ad -- jú -- tor for -- tis.
+  Dó -- mi -- ne, __ Dó -- mi -- ne, in -- vo -- cá -- vi te, 
+  in -- vo -- cá -- vi te, 
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar,
+  non con -- fún -- dar. __
+}
+
+#(set-global-staff-size 18)
+\paper {
+  print-all-headers = ##t
+%  #(set-paper-size "a4landscape" )
+  top-margin = 10
+  left-margin = 15
+  right-margin = 10
+  bottom-margin = 10
+  %indent = 4
+  ragged-bottom = ##f
+  ragged-last-bottom = ##f
+  print-page-number = ##f
 }
 
 \score {
   \new ChoirStaff <<
     \new Staff \with {
       midiInstrument = "voice oohs"
-      instrumentName = "Сопрано"
-      shortInstrumentName = "Сопрано"
-      \consists "Ambitus_engraver"
+      instrumentName = "Soprano"
     } \new Voice = "soprano" \soprano
     \new Lyrics \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    } \lyricsto "soprano" \verse
+    } \lyricsto "soprano" \versesf
     \new Staff \with {
       midiInstrument = "voice oohs"
-      instrumentName = "Альт I"
-      shortInstrumentName = "Альт I"
-      \consists "Ambitus_engraver"
+      instrumentName = "Alto I"
     } \new Voice = "alto1" \altoOne
     \new Lyrics \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    } \lyricsto "alto1" \verse
+    } \lyricsto "alto1" \verseaof
     \new Staff \with {
       midiInstrument = "voice oohs"
-      instrumentName = "Альт II"
-      shortInstrumentName = "Альт II"
-      \consists "Ambitus_engraver"
+      instrumentName = "Alto II"
     } \new Voice = "alto2" \altoTwo
     \new Lyrics \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    } \lyricsto "alto2" \verse
+    } \lyricsto "alto2" \verseatf
     \new Staff \with {
       midiInstrument = "voice oohs"
-      instrumentName = "Тенор I"
-      shortInstrumentName = "Тенор I"
-      \consists "Ambitus_engraver"
+      instrumentName = "Tenor I"
     } {
       \clef "treble_8"
       \new Voice = "tenor1" \tenorOne
     }
     \new Lyrics \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    } \lyricsto "tenor1" \verse
+    } \lyricsto "tenor1" \versetof
     \new Staff \with {
       midiInstrument = "voice oohs"
-      instrumentName = "Тенор II"
-      shortInstrumentName = "Тенор II"
-      \consists "Ambitus_engraver"
+      instrumentName = "Tenor II"
     } {
       \clef "treble_8"
       \new Voice = "tenor2" \tenorTwo
     }
     \new Lyrics \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    } \lyricsto "tenor2" \verse
+    } \lyricsto "tenor2" \versetsf
     \new Staff \with {
       midiInstrument = "voice oohs"
-      instrumentName = "Бас"
-      shortInstrumentName = "Бас"
-      \consists "Ambitus_engraver"
+      instrumentName = "Bass"
     } {
       \clef bass
       \new Voice = "bass" \bass
     }
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+     } \lyricsto "bass" \versebf
   >>
-  \layout { }
+\header {
+  title = "Timor at tremor venerun super me"
+  subtitle = "First part"
+  composer = "Orlando di Lasso"
+}
+  \layout {}
+  \midi {
+    \tempo 4=100
+  }
+}
+
+\score {
+  \new ChoirStaff <<
+    \new Staff \with {
+      midiInstrument = "voice oohs"
+      instrumentName = "Soprano"
+    } \new Voice = "soprano" \sopranof
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    } \lyricsto "soprano" \versess
+    \new Staff \with {
+      midiInstrument = "voice oohs"
+      instrumentName = "Alto I"
+    } \new Voice = "alto1" \altoOnef
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    } \lyricsto "alto1" \verseaos
+    \new Staff \with {
+      midiInstrument = "voice oohs"
+      instrumentName = "Alto II"
+    } \new Voice = "alto2" \altoTwof
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    } \lyricsto "alto2" \verseats
+    \new Staff \with {
+      midiInstrument = "voice oohs"
+      instrumentName = "Tenor I"
+    } {
+      \clef "treble_8"
+      \new Voice = "tenor1" \tenorOnef
+    }
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    } \lyricsto "tenor1" \versetos
+    \new Staff \with {
+      midiInstrument = "voice oohs"
+      instrumentName = "Tenor II"
+    } {
+      \clef "treble_8"
+      \new Voice = "tenor2" \tenorTwof
+    }
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    } \lyricsto "tenor2" \versetss
+    \new Staff \with {
+      midiInstrument = "voice oohs"
+      instrumentName = "Bass"
+    } {
+      \clef bass
+      \new Voice = "bass" \bassf
+    }
+    \new Lyrics \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    } \lyricsto "bass" \versebs
+  >>
+\header {
+  subtitle = "Second part"
+}
+  \layout {}
   \midi {
     \tempo 4=100
   }
