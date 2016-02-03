@@ -13,7 +13,7 @@
   %indent = 4
   ragged-bottom = ##f
   ragged-last-bottom = ##f
-  print-page-number = ##f
+  %print-page-number = ##f
 }
 
 \header {
