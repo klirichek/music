@@ -1,5 +1,8 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+
 \header {
   title = "Трисвятое"
   % Удалить строку версии LilyPond 
@@ -156,7 +159,7 @@ verse = \lyricmode {
   ragged-last-bottom = ##f
   print-page-number = ##f
 }
-
+\book {
 \score {
 
   \new ChoirStaff \with {
@@ -180,9 +183,7 @@ verse = \lyricmode {
   >>
   \layout {   indent = 20
   }
-  \midi {
-    \tempo 4=60
-  }
+%  \midi { \tempo 4=60 }
 }
 
 \score {
@@ -207,7 +208,6 @@ verse = \lyricmode {
     >>
   >>
   \layout { }
-  \midi {
-    \tempo 4=60
-  }
+%  \midi { \tempo 4=60 }
+}
 }

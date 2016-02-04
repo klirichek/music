@@ -1,5 +1,8 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+
 global = {
   \key f \major
   \time 4/4
@@ -144,7 +147,8 @@ textbass = \lyricmode {
   ragged-last-bottom = ##f
 }
 
-\bookpart {
+\book {
+  \bookOutputSuffix "Choir"
 \score {
   \new ChoirStaff
   <<
@@ -192,7 +196,8 @@ textbass = \lyricmode {
 } 
 }
 
-\bookpart {
+\book {
+    \bookOutputSuffix "Violini"
 \header { piece = "Violini" }
 \paper { indent = 10\mm }
 \score {
@@ -243,8 +248,6 @@ textbass = \lyricmode {
   \layout { 
     %#(layout-set-staff-size 19)
   }
-  \midi {
-    \tempo 4=120
-  }
+%  \midi { \tempo 4=120 }
 }
 }
