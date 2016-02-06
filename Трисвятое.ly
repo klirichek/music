@@ -2,9 +2,13 @@
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 #(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+
 
 \header {
   title = "Трисвятое"
+  % FIXME! Кто автор?
+  % author = ?
   % Удалить строку версии LilyPond 
   tagline = ##f
 }
@@ -148,7 +152,7 @@ verse = \lyricmode {
   \versez
 }
 
-  \paper {
+\paper {
 %  #(set-paper-size "a4landscape" )
   top-margin = 10
   left-margin = 15
@@ -175,7 +179,7 @@ verse = \lyricmode {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
     } \lyricsto "sopranoz" \verse
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
     } <<
       \clef bass
       \new Voice = "tenorz" { \oneVoice \tenorz }
@@ -189,7 +193,7 @@ verse = \lyricmode {
 \score {
   \new ChoirStaff <<
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "С" "А" }
     } <<
       \new Voice = "soprano" { \voiceOne \soprano }
@@ -199,7 +203,7 @@ verse = \lyricmode {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
     } \lyricsto "soprano" \verse
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "Т" "Б" }
     } <<
       \clef bass
@@ -207,7 +211,9 @@ verse = \lyricmode {
       \new Voice = "bass" { \voiceTwo \bass }
     >>
   >>
-  \layout { }
+  \layout { 
+
+  }
 %  \midi { \tempo 4=60 }
 }
 }

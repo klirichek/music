@@ -1,5 +1,9 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+
 \header {
   title = "Херувимская песнь"
   subtitle = "Софрониевская"
@@ -188,7 +192,7 @@ rehearsalMidi = #
 \score {
   \new ChoirStaff <<
     \new Staff = "sa" \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "S." "A." }
     } <<
       \new Voice = "soprano" { \voiceOne \soprano }
@@ -200,7 +204,7 @@ rehearsalMidi = #
     } \lyricsto "soprano" \sopranoVerse
     \new Lyrics \lyricsto "alto" \altoVerse
     \new Staff = "tb" \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "T." "B." }
     } <<
       \clef bass

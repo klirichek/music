@@ -1,5 +1,8 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
 
 
 \header {
@@ -156,7 +159,7 @@ verse = \lyricmode {
 \score {
   \new ChoirStaff <<
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "С" "А" }
     } <<
       \new Voice = "soprano" { \voiceOne \soprano }
@@ -166,7 +169,7 @@ verse = \lyricmode {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
     } \lyricsto "soprano" \verse
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "Т" "Б" }
     } <<
       \clef bass

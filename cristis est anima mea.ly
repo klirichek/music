@@ -1,5 +1,7 @@
 \version "2.18.2"
 
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
 
 #(set-default-paper-size "a4")
 #(set-global-staff-size 16)
@@ -390,14 +392,14 @@ rehearsalMidi = #
     <<
     \set ChoirStaff.systemStartDelimiter = #'SystemStartSquare
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = "Soprano I"
     } \new Voice = "soprano1" \sopranoOne
     \new Lyrics \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
     } \lyricsto "soprano1" \versesi
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = "Soprano II"
     } \new Voice = "soprano2" \sopranoTwo
     \new Lyrics \with {
@@ -405,7 +407,7 @@ rehearsalMidi = #
     } \lyricsto "soprano2" \versesii
     >>
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = "Alto"
     } \new Voice = "alto" \alto
     \new Lyrics \with {
@@ -414,7 +416,7 @@ rehearsalMidi = #
     \new ChoirStaff <<
       \set ChoirStaff.systemStartDelimiter = #'SystemStartSquare
       \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
         instrumentName = "Tenor I"
       } {
         \clef "treble_8"
@@ -424,7 +426,7 @@ rehearsalMidi = #
         \override VerticalAxisGroup #'staff-affinity = #CENTER
       } \lyricsto "tenor1" \verseti
       \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
         instrumentName = "Tenor II"
       } {
         \clef "treble_8"
@@ -435,7 +437,7 @@ rehearsalMidi = #
       } \lyricsto "tenor2" \versetii
     >>
     \new Staff \with {
-      midiInstrument = "voice oohs"
+      midiInstrument = "choir aahs"
       instrumentName = "Bass"
     } {
       \clef bass
