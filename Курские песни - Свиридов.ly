@@ -649,7 +649,7 @@ altosoloVI = \relative c' {
   \tempo 8=72 \time 8/8 R1 | \time 2/4 R2^\markup\italic "poco tenuto" |
   \time 4/8 R2^\markup\italic "a tempo" | \time 2/4 R2 | \time 4/4 R1^\markup\italic "poco rit." |
   \time 6/4 \mark #26 \tempo "con moto" 4 = 52 r2 c,8\p\< c d e a\> g4.\!  \breathe |
-  \time 4/4 \tempo 4 = 40 - 42 f8\p\< bes4. a8[ f] bes4\! | bes(\>^\markup\italic "poco rit." g2~ g8)\! r |
+  \time 4/4 \tempo 4 = 40 - 42 f8\p\< bes4. a8[ f] bes4\! | a(\>^\markup\italic "poco rit." g2~ g8)\! r |
   \time 5/8 \tempo 8 = 72 R1*5/8 |
   \time 2/4 R2^\markup\italic "poco ten." | \time 4/8 R2^\markup\italic "a tempo" | \time 2/4 R2 | \time 4/4 R1^\markup\italic "poco rit." |
   \time 6/4 \mark #27 \tempo "con moto" 4 = 52 r2 c,8\p\< c d e a\> g4.\! \breathe | 
