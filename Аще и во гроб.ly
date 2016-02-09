@@ -1,4 +1,10 @@
- \version "2.18.0"
+\version "2.18.0"
+ 
+ % закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+#(set-default-paper-size "a4")
+%#(set-global-staff-size 16)
 
 keyTime = { \time 2/4 \key bes \major }
 
@@ -109,9 +115,15 @@ lyralto = \lyricmode {
       \new Voice = "Tenor" { \voiceOne \keyTime \tenor }
       \new Voice = "Bass" { \voiceTwo \bass }
     >>
-    
+    \new Lyrics \lyricsto "Bass" { \lyrsoprano }
   >>
   \layout { 
   }
   \midi { \tempo 4=120 }
 }
+
+
+%{
+convert-ly (GNU LilyPond) 2.18.2  convert-ly: Processing `'...
+Applying conversion:     Файл не был изменен
+%}
