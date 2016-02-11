@@ -1,5 +1,10 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+
+
 global = {
   \key a \minor
   \time 4/4
@@ -161,24 +166,24 @@ text = \lyricmode {
  
 \bookpart {
   \header {
-  title = "Приидите, ублажим Иосифа"
-  opus = "№ 140"
-  composer = "Дм. Бортнянского"
-  %arranger = "перелож для см. хора"
-  % Удалить строку версии LilyPond 
-  tagline = ##f
-}
+    title = "Приидите, ублажим Иосифа"
+    opus = "№ 140"
+    composer = "Дм. Бортнянского"
+    %arranger = "перелож для см. хора"
+    % Удалить строку версии LilyPond 
+    tagline = ##f
+  }
 
-\paper {
-  #(set-default-paper-size "a4")
-  top-margin = 10
-  left-margin = 20
-  right-margin = 15
-  bottom-margin = 15
-  indent = 0
-  ragged-bottom = ##f
-  ragged-last-bottom = ##f
-}
+  \paper {
+    #(set-default-paper-size "a4")
+    top-margin = 10
+    left-margin = 20
+    right-margin = 15
+    bottom-margin = 15
+    indent = 0
+    ragged-bottom = ##f
+    ragged-last-bottom = ##f
+  }
 
 \score {
   \new ChoirStaff
