@@ -6,7 +6,7 @@
 #(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 
-#(set-global-staff-size 19.4)
+
 
 \paper {
   #(set-default-paper-size "a4")
@@ -14,8 +14,9 @@
   left-margin = 20
   right-margin = 15
   bottom-margin = 15
-  ragged-bottom = ##f
-  ragged-last-bottom = ##f
+  indent=4
+  %ragged-bottom = ##f
+  %ragged-last-bottom = ##f
   #(include-special-characters)
 }
 
@@ -39,25 +40,25 @@ sopvoice =  \relative c'' {
   bes4 bes4 a2 |
   g2 a4 bes4 |
   c2 bes4( a4) |
-  g2 f2 |
+  g2 f2 | \break
   c'2 d4 c4 |
   a2 c2 |
   bes4 bes4 a2 |
   g2 a4 bes4 |
   c2 bes4( a4) |
-  g2 f2 |
+  g2 f2 | \break
   f2 g4 a4 |
   bes2 g2 |
   a4 g4 f2 |
   f2 a4 bes4 |
   c2 d2 |
-  a4 b4 c2 |
+  a4 b4 c2 | \break
   a2 c4 d4 |
   c4 a4 bes2 |
   a2 d2 |
   d4 d4 g,2 |
   c2 bes4( g4) |
-  a2 g2 |
+  a2 g2 | \break
   bes2 a4 g4 |
   f2 g2 |
   e4( f4) d2|
@@ -102,7 +103,7 @@ altvoice =  \relative f' {
 }
 
 verseone =  \lyricmode {
-  \set stanza = "1" Вот Аг -- нец жерт -- вен -- ный не -- сёт грех ми -- ра на рас -- пла -- ту. 
+  \set stanza = "1." Вот Аг -- нец жерт -- вен -- ный не -- сёт грех ми -- ра на рас -- пла -- ту. 
   В_сми -- ре -- ни -- и Он при -- нял гнёт чтоб стать Хрис -- том Рас -- пя -- тым.
   Пусть боль при -- но -- сит каж -- дый шаг, 
   Он го -- во -- рит: &flqq;Да бу -- дет так, 
@@ -174,20 +175,19 @@ verseseven =  \lyricmode {
 \score {
     <<
       \new Staff = #"sa" \with {
-        instrumentName = \markup { \right-column { "Сопрано" "Альт"  } }
-        shortInstrumentName = \markup { \column { "C" "А"  } }
+        instrumentName = \markup { \right-column { "С" "А"  } }
         midiInstrument = "voice oohs"
       } <<
-        \new Voice = "soprano" { \global \voiceOne \sopvoice \bar "||"}
-        \new Voice  = "alto" { \global \voiceTwo \altvoice }
+        \new Voice = "soprano" { \global \voiceOne \sopvoice \bar "||" \pageBreak \sopvoice \bar "|."}
+        \new Voice  = "alto" { \global \voiceTwo \altvoice \altvoice }
       >> 
-      \new Lyrics \lyricsto "soprano" \verseone
-      \new Lyrics \lyricsto "soprano" \versetwo
-      \new Lyrics \lyricsto "soprano" \versethree
-      \new Lyrics \lyricsto "soprano" \versefour
-      \new Lyrics \lyricsto "soprano" \versefive
-      \new Lyrics \lyricsto "soprano" \versesix
-      \new Lyrics \lyricsto "soprano" \verseseven
+      \new Lyrics \lyricsto "soprano" { \verseone \versefive }
+      \new Lyrics \lyricsto "soprano" { \versetwo \versesix }
+      \new Lyrics \lyricsto "soprano" { \versethree \verseseven }
+      \new Lyrics \lyricsto "soprano" { \versefour }
+      %\new Lyrics \lyricsto "soprano" \versefive
+      %\new Lyrics \lyricsto "soprano" \versesix
+      %\new Lyrics \lyricsto "soprano" \verseseven
 
     >>
   \layout {}
