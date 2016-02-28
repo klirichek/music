@@ -21,8 +21,6 @@
 }
 
 \header {
-  encodingsoftware = "Noteflight version 0.3.2"
-  encodingdate = "2016-02-28"
   title = "Ягнёнок"
   tagline = ##f
 }
@@ -35,71 +33,73 @@ global = {
 }
 
 sopvoice =  \relative c'' {
-  c2 d4 c4 |
-  a2 c2 |
-  bes4 bes4 a2 |
-  g2 a4 bes4 |
-  c2 bes4( a4) |
-  g2 f2 | \break
-  c'2 d4 c4 |
-  a2 c2 |
-  bes4 bes4 a2 |
-  g2 a4 bes4 |
-  c2 bes4( a4) |
-  g2 f2 | \break
-  f2 g4 a4 |
-  bes2 g2 |
-  a4 g4 f2 |
-  f2 a4 bes4 |
-  c2 d2 |
-  a4 b4 c2 | \break
-  a2 c4 d4 |
-  c4 a4 bes2 |
-  a2 d2 |
-  d4 d4 g,2 |
-  c2 bes4( g4) |
-  a2 g2 | \break
-  bes2 a4 g4 |
-  f2 g2 |
-  e4( f4) d2|
-  c2 c2 |
-  f4 g4 a4 bes4 |
-  c4. ( bes8 a4 bes4 g1) f1
+  c2 d4 c |
+  a2 c |
+  bes4 bes a2 |
+  g a4 bes |
+  c2 bes4( a) |
+  g2 f | \break
+  c' d4 c |
+  a2 c |
+  bes4 bes a2 |
+  g a4 bes |
+  c2 bes4( a) |
+  g2 f | \break
+  f g4 a |
+  bes2 g |
+  a4 g f2 |
+  f a4 bes |
+  c2 d |
+  a4 b c2 | \break
+  a c4 d |
+  c a bes2 |
+  a d |
+  d4 d g,2 |
+  c bes4( g) |
+  a2 g | \break
+  bes a4 g |
+  f2 g |
+  e4( f) d2|
+  c c |
+  f4 g a bes |
+  c4. ( bes8 a4 bes |
+  g1) |
+  f
 }
 
 altvoice =  \relative f' {
-  f2 f4 a4 |
-  f2 g2 |
-  f4 e4 f2 |
-  e2 f4 d4 |
-  f2 f4( c4) |
-  c4( e4) f2 |
-  f2 f4 a4 |
-  f2 g2 |
-  f4 e4 f2 |
-  e2 f4 d4 |
-  f2 f4 ( c4) |
-  c4 ( e4) f2 |
-  d2 e4 e4 |
-  f2 e2 |
-  f4 e4 d2 |
-  d2 f4 f4 |
-  a4( g4) f2|
-  f4 f4 e2 |
-  f2 e4 d4 |
-  e4 f4 f4( e4) |
-  f2 f2 |
-  f4 f4 es4( d4) |
-  es2 d2 |
-  d4( c4) bes2 |
-  d2 c4 c4 |
-  d4( c4) bes2 |
-  c4( d4) b2 |
-  c2 a2 |
-  d4 c4 f4 d4 |
-  c4. ( e8 f4 d4 |
-  c2 e2) |
-  f1 
+  f2 f4 a |
+  f2 g |
+  f4 e f2 |
+  e f4 d |
+  f2 f4( c) |
+  c( e) f2 |
+  f f4 a |
+  f2 g |
+  f4 e f2 |
+  e f4 d |
+  f2 f4 ( c) |
+  c ( e) f2 |
+  d e4 e |
+  f2 e |
+  f4 e d2 |
+  d f4 f |
+  a( g) f2|
+  f4 f e2 |
+  f e4 d |
+  e f f( e) |
+  f2 f |
+  f4 f es( d) |
+  es2 d |
+  d4( c) bes2 |
+  d c4 c |
+  d( c) bes2 |
+  c4( d) b2 |
+  c a |
+  d4 c f d |
+  c4. ( e8 f4 d |
+  c2 e) |
+  f1
 }
 
 verseone =  \lyricmode {
