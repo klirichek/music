@@ -1,4 +1,8 @@
-\version "2.18.0"
+\version "2.18.2"
+
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
 
 keyTime = { \key des \major \time 4/4 }
 
@@ -65,39 +69,35 @@ verse = \lyricmode {
   left-margin = 15
   right-margin = 10
   bottom-margin = 15
+  ragged-bottom = ##f
+  ragged-last-bottom = ##f
 }
 
 \header {
 	  title = #"6. Многая лета"
 	subtitle = #" "
 	  composer = "С. Прокофьев"
-%	  tagline = ##f
-	  tagline = \markup {
-	    Engraved at
-	    \simple #(strftime "%Y-%m-%d" (localtime (current-time)))
-	    with \with-url #"http://lilypond.org/"
-	    \line { LilyPond \simple #(lilypond-version) (http://lilypond.org/) }
-	  }
+	  tagline = ##f
 	}
 	
 \score { 
   <<
   \new ChoirStaff  <<
-     \new Staff \with { instrumentName = #"S" shortInstrumentName = #"S" } <<
+     \new Staff \with { instrumentName = "С" } <<
       \new Voice = "sopranoone" { \tempo "Allegro moderato" \keyTime \soprano }
       >>
     \new Lyrics \lyricsto "sopranoone" { \verse }
-    \new Staff \with { instrumentName = #"A" shortInstrumentName = #"A" } <<
+    \new Staff \with { instrumentName = "А" } <<
       \new Voice = "altoone" { \keyTime \voiceOne \altoone }
       \new Voice = "altotwo" { \voiceTwo \altotwo }
     >>
-    \new Staff \with { instrumentName = #"T" shortInstrumentName = #"T" } <<
+    \new Staff \with { instrumentName = "Т" } <<
 		\clef "G_8"
       \new Voice = "tenorone" { \keyTime \voiceOne \tenorone }
       \new Voice = "tenortwo" { \voiceTwo \tenortwo }
     >>
 	\new Lyrics \lyricsto "tenorone" { \verse }
-	\new Staff \with { instrumentName = #"B" shortInstrumentName = #"B" } <<
+	\new Staff \with { instrumentName = "Б" } <<
 		\clef bass
       \new Voice = "baritone" { \voiceOne \baritone }
       \new Voice = "bass" { \keyTime \voiceTwo \bass }

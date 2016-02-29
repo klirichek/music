@@ -996,21 +996,24 @@ leftTwo = \relative c {
 choirPart = \new ChoirStaff <<
   \new Staff \with {
     midiInstrument = "choir aahs"
-    instrumentName = "S."
+    instrumentName = "С"
+    shortInstrumentName = "С"
   } \new Voice = "soprano" \soprano
   \new Lyrics \with {
     \override VerticalAxisGroup #'staff-affinity = #CENTER
   } \lyricsto "soprano" \verses
   \new Staff \with {
     midiInstrument = "choir aahs"
-    instrumentName = "A."
+    instrumentName = "А"
+    shortInstrumentName = "А"
   } \new Voice = "alto" \alto
   \new Lyrics \with {
     \override VerticalAxisGroup #'staff-affinity = #CENTER
   } \lyricsto "alto" \versea
   \new Staff \with {
     midiInstrument = "choir aahs"
-    instrumentName = "T."
+    instrumentName = "Т"
+    shortInstrumentName = "Т"
   } {
     \clef "treble_8"
     \new Voice = "tenor" \tenor
@@ -1020,7 +1023,8 @@ choirPart = \new ChoirStaff <<
   } \lyricsto "tenor" \verset
   \new Staff \with {
     midiInstrument = "choir aahs"
-    instrumentName = "B."
+    instrumentName = "Б"
+    shortInstrumentName = "Б"
   } {
     \clef bass
     \new Voice = "bass" \bass

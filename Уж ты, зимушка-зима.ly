@@ -1,5 +1,10 @@
 \version "2.18.2"
 
+
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+
 global = { \time 2/4 \key d \minor \autoBeamOff \partial 4}
 
 sopvoice = \relative c' {
