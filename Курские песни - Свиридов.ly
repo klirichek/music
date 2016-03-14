@@ -1,5 +1,9 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+
 \header {
   title = "Курские песни"
   composer = "Георгий Свиридов"

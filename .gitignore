@@ -23,6 +23,8 @@ christina/.*
 *.zip
 *.gz
 *.wav
+._*
+*.log
 
 *~
 *.swp

@@ -4,7 +4,7 @@
 #(ly:set-option 'midi-extension "mid")
 
 #(set-default-paper-size "a4")
-#(set-global-staff-size 16)
+#(set-global-staff-size 15)
 \paper {
 %  #(set-paper-size "a4landscape" )
   system-separator-markup = \slashSeparator
@@ -19,9 +19,9 @@
 }
 
 \header {
-  title = "Cristis est anima mea"
+  title = "Trístis est ánima méa"
   subtitle = "From Responsoria (1611)"
-  composer = "Jacob Carlo Gesualdo, di Venosa (c. 1561 - 1613)"
+  composer = \markup\right-column{"Jacob Carlo Gesualdo, di Venosa" "(c. 1561 - 1613)" }
   % Удалить строку версии LilyPond 
   tagline = ##f
 }
@@ -29,7 +29,7 @@
 global = {
   \key c \major
   \time 2/2
-    \numericTimeSignature
+  \numericTimeSignature
   \autoBeamOff
 }
 
@@ -171,7 +171,7 @@ bass = \relative c {
 }
 
 versesi = \lyricmode {
-  Tri -- _ stis est á -- ni -- ma mé -- a,
+  Trí -- _ stis est á -- ni -- ma mé -- a,
   á -- ni -- ma mé -- a,
   us -- que,
   us -- que ad mór -- _ tem,
@@ -204,7 +204,7 @@ versesi = \lyricmode {
 }
 
 versesii = \lyricmode {
-  Tri -- _ stis est á -- ni -- ma mé -- _ a, __
+  Trí -- _ stis est á -- ni -- ma mé -- _ a, __
   us -- que ad mór -- tem, á -- ni -- ma mé -- _ _ _ a
   us -- que ad mór -- _ _ tem, ad mór -- _ _ tem,
   us -- que ad mór -- _ _ tem: __
@@ -231,7 +231,7 @@ versesii = \lyricmode {
 }
 
 versea = \lyricmode {
-  Tri -- _ stis est, tri -- _ stis est
+  Trí -- _ stis est, tri -- _ stis est
   á -- ni -- ma, __ á -- ni -- ma mé -- _ _ a
   us -- que ad mór -- tem, __ ad mór -- _ _ _ tem: __
   su -- sti -- né -- te hic,
@@ -259,7 +259,7 @@ versea = \lyricmode {
 }
 
 verseti = \lyricmode {
-  Tri -- _ stis est 
+  Trí -- _ stis est 
   á -- ni -- ma mé -- a, 
   á -- ni -- ma mé -- a,
   á -- ni -- ma mé -- a
@@ -295,8 +295,8 @@ verseti = \lyricmode {
 }
 
 versetii = \lyricmode {
-  Tri -- _ stis est, __ 
-  tri -- _ stis est
+  Trí -- _ stis est, __ 
+  trí -- _ stis est
   á -- ni -- ma mé -- a, 
   á -- ni -- ma mé -- a
   us -- que,
@@ -333,8 +333,8 @@ versetii = \lyricmode {
 }
 
 verseb = \lyricmode {
-  Tri -- _ stis est, __ 
-  tri -- _ stis est á -- ni -- ma mé -- _ _ a 
+  Trí -- _ stis est, __ 
+  trí -- _ stis est á -- ni -- ma mé -- _ _ a 
   us -- que ad mór -- tem: __
   su -- sti -- né -- te hic,
   su -- sti -- né -- te hic,
@@ -346,7 +346,7 @@ verseb = \lyricmode {
   ca -- pi -- é -- tis,
   et é -- go vá -- dam,
   et é -- go vá -- dam
-  im -- mo -- lá -- ri __ pro vó -- bis,
+  im -- mo -- lá -- ri pro vó -- bis,
   pro vó -- bis,
   pro vó -- bis.
   Éc -- ce ap -- pro -- pín -- quat hó -- ra,
@@ -356,7 +356,7 @@ verseb = \lyricmode {
   ca -- pi -- é -- tis,
   et é -- go vá -- dam,
   et é -- go vá -- dam
-  im -- mo -- lá -- ri __ pro vó -- bis,
+  im -- mo -- lá -- ri pro vó -- bis,
   pro vó -- bis,
   pro vó -- bis.
 }
