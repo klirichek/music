@@ -3,6 +3,7 @@
 #(set-default-paper-size "a4")
 #(set-global-staff-size 16.6)
 %#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
 
 italicas=\override LyricText.font-shape = #'italic
 rectas=\override LyricText.font-shape = #'upright
@@ -1717,6 +1718,7 @@ incipitbassus=\markup{
 	\new Staff <<\global
 	\new Voice="v1" {
 		\set Staff.instrumentName=\incipitcantus
+		\set Staff.midiInstrument = "choir aahs"
 		\clef "treble"
 		\cantus }
 	\new Lyrics \lyricsto "v1" {\textocantus }
@@ -1725,6 +1727,7 @@ incipitbassus=\markup{
 	\new Staff <<\global
 	\new Voice="v5" {
 		\set Staff.instrumentName=\incipitcantusdos
+		\set Staff.midiInstrument = "choir aahs"
 		\clef "treble"
 		\cantusdos }
 	\new Lyrics \lyricsto "v5" {\textocantusdos }
@@ -1734,6 +1737,7 @@ incipitbassus=\markup{
 	\new Staff << \global
 	\new Voice="v2" {
 		\set Staff.instrumentName=\incipitaltus
+		\set Staff.midiInstrument = "choir aahs"
 		\clef "G_8" 
 		\altus}
 	\new Lyrics \lyricsto "v2" {\textoaltus }
@@ -1743,6 +1747,7 @@ incipitbassus=\markup{
 	\new Staff <<\global
 	\new Voice="v3" {
 		\set Staff.instrumentName=\incipittenor
+		\set Staff.midiInstrument = "choir aahs"
 		\clef "G_8"
 		\tenor }
 	\new Lyrics \lyricsto "v3" {\textotenor }
@@ -1751,6 +1756,7 @@ incipitbassus=\markup{
 	\new Staff <<\global
 	\new Voice="v6" {
 		\set Staff.instrumentName=\incipittenordos
+		\set Staff.midiInstrument = "choir aahs"
 		\clef "bass"
 		\tenordos }
 	\new Lyrics \lyricsto "v6" {\textotenordos }
@@ -1759,6 +1765,7 @@ incipitbassus=\markup{
 	\new Staff <<\global
 	\new Voice="v4" {
 		\set Staff.instrumentName=\incipitbassus
+		\set Staff.midiInstrument = "choir aahs"
 		\clef "bass" 
 		\bassus }
 	\new Lyrics \lyricsto "v4" {\textobassus }
@@ -1796,7 +1803,7 @@ incipitbassus=\markup{
 	}
 }
 
-%\midi { \mtempo }
+\midi { }
 
 }
 

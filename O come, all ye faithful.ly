@@ -1,4 +1,7 @@
-\version "2.16.2"
+\version "2.18.0"
+
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
 
 keyTime = { \key g \major \time 4/4 }
 
@@ -151,7 +154,7 @@ violintwo = \relative d' {
 viola = \relative d' {
   b4 | b2 b4 b | c2 a | g4 a g g | g2 fis4 g | g2 a4 a |
   a g fis d | a'2( g4.) fis8 | fis2. r4 | b2 c4 d | c2 d |
-  d4 g, b c | a4. g8 f4 b | b a b c | b2. r4| r1 | r2 r4 d | d d a a | r1 | g2 fis4.\startTrillSpan g8\stopTrillSpan | g1 |
+  d4 g, b c | a4. g8 fis4 b | b a b c | b2. r4| r1 | r2 r4 d | d d a a | r1 | g2 fis4.\startTrillSpan g8\stopTrillSpan | g1 |
   
   d'2 d | d d | d e | g4 g fis2 | e fis4 e |
   fis e e8 d cis b | d4 fis g e | a4. g8 fis4 d8 fis | g2 g4 g | e2 dis |
@@ -384,3 +387,10 @@ instrPart = <<
     \tempo 4=120
   }
 }
+
+%{
+convert-ly (GNU LilyPond) 2.18.2  convert-ly: Processing `'...
+Applying conversion: 2.17.0, 2.17.4, 2.17.5, 2.17.6, 2.17.11, 2.17.14,
+2.17.15, 2.17.18, 2.17.19, 2.17.20, 2.17.25, 2.17.27, 2.17.29,
+2.17.97, 2.18.0
+%}
