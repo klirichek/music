@@ -504,31 +504,7 @@ textb = \lyricmode {
   дин, дон, дин, дон, дин…
 }
 
-\bookpart {
-  \header {
-    title = "Коляда-колядка"
-    composer = "муз. Л. Кабiльника"
-    poet = "сл. Лазурко"
-     % Удалить строку версии LilyPond 
-    tagline = ##f
-  }
-
-  \paper {
-    #(set-default-paper-size "a4")
-    top-margin = 10
-    left-margin = 20
-    right-margin = 15
-    bottom-margin = 15
-    indent = 0
-    %ragged-bottom = ##f
-    %ragged-last-bottom = ##f
-  }
-  \markup { \column { \line { " "} 
-      \fill-line { \null \italic {"Буква «о» везде звучит как о,"} } 
-      \fill-line { \null \italic {"буквы «э», «ы» звучат мягче"} } } }
-    
-\score {
-  
+fdurmusic = \transpose f f {
   <<
     
       \new Staff \with {
@@ -569,16 +545,45 @@ textb = \lyricmode {
     \context Lyrics = "tenort" {
       \lyricsto "tenor" { \textt } }
   >> >>
-  \layout {
+}
+
+  \paper {
+    #(set-default-paper-size "a4")
+    top-margin = 10
+    left-margin = 20
+    right-margin = 15
+    bottom-margin = 15
+    indent = 0
+    %ragged-bottom = ##f
+    %ragged-last-bottom = ##f
+  }
+
+\bookpart {
+  \header {
+    title = "Коляда-колядка"
+    composer = "муз. Л. Кабiльника"
+    poet = "сл. Лазурко"
+     % Удалить строку версии LilyPond 
+    tagline = ##f
+  }
+
+  \markup { \column { \line { " "} 
+      \fill-line { \null \italic {"Буква «о» везде звучит как о,"} } 
+      \fill-line { \null \italic {"буквы «э», «ы» звучат мягче"} } } }
+    
+  \score {
+    \fdurmusic
+    \layout {
       \context {
-    \Staff \RemoveEmptyStaves
-    \override VerticalAxisGroup.remove-first = ##t
+        \Staff \RemoveEmptyStaves
+        \override VerticalAxisGroup.remove-first = ##t
+      }
     }
-%    #(layout-set-staff-size 15)
-  }
-  \midi {
-    \tempo 4=84
+    \midi {
+      \tempo 4=84
+    }
   }
 }
-}
+
+
 
