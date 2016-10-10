@@ -56,7 +56,7 @@ sopvoice = \relative c'' {
   es4. es8  es4 c | \abr
   bes2 bes4 as |
   g2( f4) f |
-  es1 \bar "||" \mark \markup { \musicglyph #"scripts.segno" \musicglyph #"scripts.coda" }
+  es1 \mark \markup { \musicglyph #"scripts.segno" \musicglyph #"scripts.coda" } \bar "||" 
   \break
   \thirdv 
   c'4.\mf-> c8 bes4 bes |
@@ -74,7 +74,7 @@ sopvoice = \relative c'' {
   f4\< g a( c\! |
   bes) a g g\> |
   f1 |
-  f2\! r2\fermata \bar "||"
+  f2\! r2\fermata \mark \markup { \musicglyph #"scripts.segno" \musicglyph #"scripts.coda" } \bar "||"
 }
 
 altvoice = \relative c' {
