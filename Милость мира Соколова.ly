@@ -1,10 +1,10 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-%#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
-#(set-global-staff-size 17.4)
+#(set-global-staff-size 17)
 
 \header {
   title = "Милость мира"
@@ -32,7 +32,7 @@ global = {
 }
 
 abr = { \break }
-%abr = {}
+abr = {}
 
 % once place text markup below dynamic
 swp = \once \override TextScript.outside-staff-priority = #1
@@ -87,7 +87,7 @@ soprano = \relative c'' {
   g2 r4 <bes d> |
   <d f>2 <bes d>4 r \abr
   
-  r2 r4\f <bes es> |
+  r2 r4 <bes es>\f |
   <es g>2 <bes es>4 r |
   r2 r4 es |
   es2 es |
@@ -97,7 +97,7 @@ soprano = \relative c'' {
   
   R1 |
   R1 |
-  r2 r4\f bes |
+  r2 r4 bes\f |
   d4.( bes8) c4 d |
   es2 d4( c) |
   d2( c4 bes | \abr
@@ -429,12 +429,63 @@ bass = \relative c' {
 }
 
 verse = \lyricmode {
- 
+  \repeat unfold 67 \skip 1
+  и -- сполнь не -- бо
+  \repeat unfold 29 \skip 1
+  в_вы -- шних
+    \repeat unfold 17 \skip 1
+    и мо -- ли -- мти -- ся,
+}
+
+
+
+versealto = \lyricmode {
+  Ми -- лость ми -- ра, же -- ртву хва -- ле -- ни -- я. И со ду -- хом тво -- им.
+  И -- ма -- мы ко Го -- спо -- ду. До -- сто -- йно и пра -- ве -- дно есть
+  по -- кла -- ня -- ти -- ся От -- цу и Сы -- ну и Свя -- то -- му Ду -- ху,
+  Тро -- йце е -- ди -- но -- су -- щней и не -- ра -- зде -- льней.
+  Свят, Свят, Свят, Го -- сподь Са -- ва -- оф и -- сполнь не -- бо
+  и __ зе -- мля сла -- вы, сла -- вы Тво -- е -- я:
+  О -- сан -- на, о -- сан -- на, о -- сан -- на в_вы -- шних, 
+  бла -- го -- сло -- вен __ гря -- дый во и -- мя Го -- спо -- дне:
+  о -- сан -- на, о -- сан -- на, о -- сан -- на в_вы -- шних. А -- минь. А -- минь
+  Те -- бе по -- ем, Те -- бе бла -- го -- сло -- вим, 
+  Те -- бе по -- ем, Те -- бе бла -- го -- да -- рим, __
+  Гос -- по -- ди, и __ мо -- ли -- мти -- ся, 
+  и __ мо -- ли -- мти -- ся, __ Бо -- же наш, __ Бо -- же наш, Бо -- же наш.
+}
+
+versetenor = \lyricmode {
+  \repeat unfold 31 \skip 1
+  по -- кла -- ня -- ти -- ся  и
+  \repeat unfold 28 \skip 1
+  и -- сполнь не -- бо,
+  \repeat unfold 5 \skip 1
+   сла -- вы, сла -- вы
+  \repeat unfold 40 \skip 1
+  Те -- бе бла -- го -- да -- рим, Го -- спо -- ди
+
+}
+
+versebass = \lyricmode {
+  \repeat unfold 23 \skip 1
+  по -- кла -- ня -- ти -- ся О -- тцу и
+  \repeat unfold 28 \skip 1
+  и -- сполнь не -- бо, не -- бо,
+  и зе -- мля сла -- вы, сла -- вы, сла -- вы Тво -- е -- я:
+  О -- сан -- на, о -- сан -- на, 
+  \repeat unfold 5 \skip 1
+  бла -- го -- сло -- вен гря -- дый во и -- мя Го -- спо -- дне:
+  о -- сан -- на, о сан -- на в_вы -- шних.
+  \repeat unfold 4 \skip 1
+  Те -- бе по -- ем, Те -- бе бла -- го -- сло -- вим, __
+  Те -- бе бла -- го -- да -- рим,
+  и __ мо -- ли -- мти -- ся, 
 }
 
 \score {
   \new ChoirStaff <<
-    \new Staff \with {
+    \new Staff = "sa" \with {
       midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "С" "А" }
     } <<
@@ -442,9 +493,10 @@ verse = \lyricmode {
       \new Voice = "alto" { \voiceTwo \alto }
     >>
     \new Lyrics \with {
-      \override VerticalAxisGroup #'staff-affinity = #CENTER
+      alignAboveContext = "sa"
     } \lyricsto "soprano" \verse
-    \new Staff \with {
+    \new Lyrics \lyricsto "alto" \versealto
+    \new Staff = "tb" \with {
       midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "Т" "Б" }
     } <<
@@ -452,6 +504,11 @@ verse = \lyricmode {
       \new Voice = "tenor" { \voiceOne \tenor }
       \new Voice = "bass" { \voiceTwo \bass }
     >>
+    \new Lyrics \with {
+      alignAboveContext = "tb"
+    } \lyricsto "tenor" \versetenor
+    \new Lyrics \lyricsto "bass" \versebass
+
   >>
   \layout { }
   \midi {
