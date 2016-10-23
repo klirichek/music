@@ -465,6 +465,8 @@ texta = \lyricmode {
   М…
     \repeat unfold 30 \skip 1
   на ву -- стах из ти -- ста
+    \repeat unfold 91 \skip 1
+    на си -- ни у яс -- лах
 }
 
 textt = \lyricmode {
