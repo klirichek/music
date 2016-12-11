@@ -2,6 +2,9 @@
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 #(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+#(set-default-paper-size "a4")
+#(set-global-staff-size 19)
 
 global = { \time 3/4 \key c \major }
 
@@ -34,7 +37,7 @@ altbegin = \relative c' {
 sopvoice = \relative c'' {
   \autoBeamOff
   \set Score.markFormatter = #format-mark-box-alphabet
-  \mark \markup { \musicglyph #"scripts.segno" }
+  \mark \markup { \musicglyph #"scripts.segno" \italic "Весь хор"}
   f2 f4 | e8. d16 e4 g | d2 c4 | b8. a16 b4 b | c8. <b d>16 <c e>4 <d f> | <c g'>2 e8[ d] | << c2. {s8 s s s s \mark \markup { \musicglyph #"scripts.coda" } s } >> \break 
   \set Score.markFormatter = #format-mark-box-numbers
   \mark \default
@@ -46,7 +49,9 @@ sopvoice = \relative c'' {
   \mark \markup { \musicglyph #"scripts.segno" \musicglyph #"scripts.coda" }
   c8. \mark \default d16 e4 f | g2 a8[ g] | f8. e16 f4 a | g e2 |
   c'8. b16 c4 d | e2 f8[ e] | d8. c16 d4 f | e c2 |
-  f2 f4 | e8. d16 e4 g | d2 c4 | b8. a16 b4 g | c8. <b d>16 <c e>4 <d f> | <e g>2 e8[ d] | c2. \mark \markup { \musicglyph #"scripts.segno" \musicglyph #"scripts.coda" } \bar "|."
+  f2 f4 | e8. d16 e4 g | d2 c4 | b8. a16 b4 g | c8. <b d>16 <c e>4 <d f> | <e g>2 e8[ d] | c2. \bar "||" \break 
+  
+  f2 f4 | e8. d16 e4 g | d2 c4 | b8. a16 b4 g | c8. d16 e4 f g2 e8[ d] c2. \bar "|."
 }
 
 altvoice = \relative c' {
@@ -63,6 +68,8 @@ altvoice = \relative c' {
   e8. d16 e4 f | g2 a8[ g] f8. e16 f4 a | g e2 |
   b' b4 | g8. g16 g4 g | a2 a4 | g8. g16 g4 g |
   g8. g16 g4 g | g2 g8[ f] e2.
+  
+  b'2 b4 | c8. c16 c4 c | fis,2 a4 | g8. g16 g4 g | c,8. d16 e4 f g2 g8[ f] e2.
 }
 
 tenorvoice = \relative c'' {
@@ -80,6 +87,8 @@ tenorvoice = \relative c'' {
   c8. c16 c4 c | c2 c4 | b8. b16 b4 b | c c2 | 
   d d4 | c8. c16 c4 e | d2 d4 | d8. c16 d4 b |
   c8. c16 c4 c | c2 c8[ b] g2.
+  
+  g'2 g4 | g8. f16 g4 e | d2 d4 | d8. c16 d4 b | c8. d16 e4 f | g2 c,8[ b] c2.
  
 }
 
@@ -99,54 +108,63 @@ bassvoice = \relative c' {
     g' g4 g8. g16 g4 g | fis2 fis4 | g8. g16 g4 g |
     c,8. c16 c4 c | c2 g4 | c2.
     
+    g'4( a) b | c8. c16 c4 c | d,4( e) fis | g8. g16 g4 g | c,8. d16  e4 f g2 g,4 c2.
+    
 }
 
 verseone = \lyricmode {
   Хэй, в_Дж'ень на -- ро -- дзэ -- н'а __ Сы -- на Йе -- ды -- нэ -- го
   Ой -- ца Пше -- дв'е -- чнэ -- го, __ Бо -- га Пра -- вдж'и -- вэ -- го
-  Вэ -- со -- ўа щп'е -- вай -- мы хва -- \markup{ "ўэ"\tiny"н"} Бо -- гу дай -- мы. Хэй, ко -- \markup{ "л'э"\tiny"н"} -- да, 
-  ко -- \markup{ "л'э"\tiny"н"} -- да!
+  Вэ -- со -- ўа щп'е -- вай -- мы хва -- \markup{ "ўэ"\super"н"} Бо -- гу дай -- мы. Хэй, ко -- \markup{ "л'э"\super"н"} -- да, 
+  ко -- \markup{ "л'э"\super"н"} -- да!
 }
  
 kolenda= \lyricmode {
-  Хэй, __ ко -- \markup{ "л'э"\tiny"н"} -- да!
+  Хэй, __ ко -- \markup{ "л'э"\super"н"} -- да!
   
 }
 
 versesop = \lyricmode {
-  Вэ -- со -- ўа щп'е -- вай -- мы хва -- \markup{ "ўэ"\tiny"н"} Бо -- гу дай -- мы. Хэй, ко -- \markup{ "л'э"\tiny"н"} -- да, 
-  ко -- \markup{ "л'э"\tiny"н"} -- да!   
+  Вэ -- со -- ўо щп'е -- вай -- мы хва -- \markup{ "ўэ"\super"н"} Бо -- гу дай -- мы. Хэй, ко -- \markup{ "л'э"\super"н"} -- да, 
+  ко -- \markup{ "л'э"\super"н"} -- да!   
 
-  Пан -- на по -- ро -- дж'и -- ўа н'е -- б'ес -- к'е Дж'е -- \markup{"ч'е"\tiny"н""т"} -- ко
-  В_жўо -- б'е по -- ўо -- жы -- ўа ма -- ўэ Па -- хо -- \markup{"л'о"\tiny"н""т"} -- ко
+  Пан -- на по -- ро -- дж'и -- ўа н'е -- б'ес -- к'е Дж'е -- \markup{"ч'е"\super"н""т"} -- ко
+  В_жўо -- б'е по -- ўо -- жы -- ўа ма -- ўэ Па -- хо -- \markup{"л'о"\super"н""т"} -- ко
   
   Па -- стэ -- жэ гра -- йон. 
-  Хэй, ко -- \markup{ "л'э"\tiny"н"} -- да, ко -- \markup{ "л'э"\tiny"н"} -- да!
+  Хэй, ко -- \markup{ "л'э"\super"н"} -- да, ко -- \markup{ "л'э"\super"н"} -- да!
   
   Ско -- ро па -- сту -- шко -- в'е о тым у -- сўы -- шэ -- л'и.
-  За раз до Бэт -- л'э -- йем чым \markup{ "прэ"\tiny"н"} -- дзэй -- б'я -- жэ -- л'и.
-  Ви -- та -- йён Дж'е -- \markup{"ч'е"\tiny"н""т"} -- ко Ма -- ўэ Па -- хо --  \markup{"л'о"\tiny"н""т"} -- ко
+  За раз до Бэт -- л'э -- йем чым \markup{ "прэ"\super"н"} -- дзэй -- б'я -- жэ -- л'и.
+  Ви -- та -- йён Дж'е -- \markup{"ч'е"\super"н""т"} -- ко Ма -- ўэ Па -- хо --  \markup{"л'о"\super"н""т"} -- ко
   
-  Хэй, ко -- \markup{ "л'э"\tiny"н"} -- да, ко -- \markup{ "л'э"\tiny"н"} -- да!
+  Хэй, ко -- \markup{ "л'э"\super"н"} -- да, ко -- \markup{ "л'э"\super"н"} -- да!
+  
+  Вэ -- со -- ўо щп'е -- вай -- мы хва -- \markup{ "ўэ"\super"н"} Бо -- гу дай -- мы. Хэй, ко -- \markup{ "л'э"\super"н"} -- да, 
+  ко -- \markup{ "л'э"\super"н"} -- да!   
 }
 
 versesecond = \lyricmode {
   \repeat unfold 12 \skip 1
-  Хэй, __ ко -- \markup{ "л'э"\tiny"н"} -- да!
+  Хэй, __ ко -- \markup{ "л'э"\super"н"} -- да!
    \repeat unfold 27 \skip 1 
-   щп'е -- ва -- \markup{ "йо"\tiny"н"}
+   щп'е -- ва -- \markup{ "йо"\super"н"}
 }
 
 versetenor = \lyricmode {
-   \repeat unfold 39 \skip 1 
-  На муль -- тан -- ках гра -- йон
+   \repeat unfold 38 \skip 1 
+   \set associatedVoice = "bass"
+   \skip 1
+   гра -- йон.
+  
 }
 
 versebass=\lyricmode { 
   \repeat unfold 16 \skip 1
   Ла -- ла, ла -- ла. Ла -- ла, ла -- ла, ла -- ла, ла -- ла.
   Ла -- ла, ла -- ла, ла -- ла, ла -- ла.
-  Па -- стэ -- жэ гра -- йон.
+  Па -- стэ -- \set associatedVoice = "tenor"  % must be set one syllable early 
+  жэ На муль -- тан -- ках гра -- йон.
 }
 
 %#(set-global-staff-size 19)
@@ -184,7 +202,7 @@ versebass=\lyricmode {
       \new Voice  = "sopranoi" { \voiceOne \sopIvoice }
       \new Voice  = "sopranoii" { \voiceTwo \sopIIvoice }
     >>
-    \new Lyrics \lyricsto "sopranoi" { \kolenda }
+    \new Lyrics = "sopranoi"
     
     \new Staff = #"sa" \with {
       shortInstrumentName = \markup { \column { "S" "A"  } }
@@ -193,8 +211,9 @@ versebass=\lyricmode {
       \new Voice  = "soprano"  { \clef treble \global s2.*15 \voiceOne \sopvoice }
       \new Voice = "alto" { \global s2.*15 \voiceTwo \altvoice }
     >>
-    \new Lyrics \lyricsto "soprano" { \versesop }
-    \new Lyrics \lyricsto "alto" {\versesecond }
+    
+    \new Lyrics = "soprano"
+    \new Lyrics = "alto"
     
      \new Staff = #"asii" \with {
       shortInstrumentName = "A"
@@ -203,7 +222,7 @@ versebass=\lyricmode {
     } <<
       \new Voice = "altobegin" { \oneVoice \altbegin }
     >> 
-    \new Lyrics \lyricsto "altobegin" { \verseone }
+    \new Lyrics = "altobegin"
     
     \new Staff \with {
       shortInstrumentName = \markup { \column { "T" "B" } }
@@ -212,10 +231,16 @@ versebass=\lyricmode {
         \new Voice = "tenor" { \voiceOne \clef bass \tenorvoice }
         \new Voice = "bass" {  \voiceTwo \bassvoice }
     >>
-        \new Lyrics \lyricsto "tenor" { \versetenor }
-        \new Lyrics \lyricsto "bass" { \versebass }
-
-
+    \new Lyrics = "tenor "
+    \new Lyrics = "bass"
+    
+     %lyrics
+     \context Lyrics = "sopranoi" { \lyricsto "sopranoi" { \kolenda }}
+     \context Lyrics = "soprano" { \lyricsto "soprano" { \versesop }}
+     \context Lyrics = "alto" { \lyricsto "alto" {\versesecond }}
+     \context Lyrics = "altobegin" {\lyricsto "altobegin" { \verseone }}
+     \context Lyrics = "tenor" { \lyricsto "tenor" { \versetenor }}
+     \context Lyrics = "bass" { \lyricsto "bass" { \versebass }}
   >>
   \layout { 
     %#(layout-set-staff-size 17)

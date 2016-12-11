@@ -1,7 +1,8 @@
 \version "2.18.0"
-
 #(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
+#(set-default-paper-size "a4")
+%#(set-global-staff-size 18)
 
 keyTime = { \key g \major \time 4/4 }
 
@@ -338,53 +339,57 @@ instrPart = <<
 %	    \line { LilyPond \simple #(lilypond-version) (http://lilypond.org/) }
 %	  }
 	}
-	
-\score { 
-  \header { piece = "Choir" }
-  \choirPart
-  \layout {
-  \context {
-    \Staff \RemoveEmptyStaves
-    \override VerticalAxisGroup.remove-first = ##t
-    }
-  }
-  \midi {
-    \tempo 4=120
-  }
-}
 
-\pageBreak
-
-\score { 
-  \header { piece = "Instruments" }
-  \instrPart
-  \layout {
-  \context {
-    \Staff \RemoveEmptyStaves
-    \override VerticalAxisGroup.remove-first = ##t
-    }
-  }
-  \midi {
-    \tempo 4=120
-  }
-}
-
-\pageBreak
-
-\score { 
-    \header { piece = "Full" }
-  <<
+\bookpart {
+  \header { piece = "Хор" }
+  \score { 
     \choirPart
-    \instrPart
-  >>
-  \layout {
-  \context {
-    \Staff \RemoveEmptyStaves
-    \override VerticalAxisGroup.remove-first = ##t
+    \layout {
+    \context {
+      \Staff \RemoveEmptyStaves
+      \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+    \midi {
+      \tempo 4=120
     }
   }
-  \midi {
-    \tempo 4=120
+}
+
+\bookpart {
+  \header { piece = "Instruments" }
+  \score { 
+  
+    \instrPart
+    \layout {
+    \context {
+      \Staff \RemoveEmptyStaves
+      \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+    \midi {
+      \tempo 4=120
+    }
+  }
+}
+
+\bookpart {
+  \header { piece = "Full" }
+  \score { 
+  
+    <<
+      \choirPart
+      \instrPart
+    >>
+    \layout {
+    \context {
+      \Staff \RemoveEmptyStaves
+      \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+    \midi {
+      \tempo 4=120
+    }
   }
 }
 

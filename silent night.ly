@@ -1,5 +1,11 @@
 \version "2.18.2"
 
+% закомментируйте строку ниже, чтобы получался pdf с навигацией
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+#(set-default-paper-size "a4")
+%#(set-global-staff-size 18)
+
 global = {
   \key c \major
   \time 3/4
@@ -11,7 +17,7 @@ sopvoice = \relative c'' {
   \dynamicUp
   \set Score.markFormatter = #format-mark-box-numbers
   \mark \default g4.( a8) g4 | e2. | g4. a8 g4 | e2. | d'2 d4 | b2. | c2 c4 | g2 r4 |
-  a2 a4 | c2 b8 a | g4. a8 g4 | e2. | a2 a4 | c4. b8 a4 | g4. a8 g4 | e2 r4 |
+  a2 a4 | c4. b8 a4 | g4. a8 g4 | e2. | a2 a4 | c4. b8 a4 | g4. a8 g4 | e2 r4 |
   d'2 d4 | f4. d8 b4 | c2.( e2.) | c4( g) e | g4. f8 d4 | c2 r4 | R2. |
   
   \mark \default g'4.( a8) g4 | e2. | g4.( a8) g4 | e2. | d'2 d4 | b( a g) | c2 c4 | g2 r4 |
@@ -26,7 +32,7 @@ sopvoice = \relative c'' {
 altvoice = \relative c' {
   \autoBeamOff
   e4.( f8) e4 | c2. | e4. f8 e4 | c2. | f2 f4 | f2. | e2 e4 | e2 r4 |
-  f2 f4 | a2 g8 f | e4. f8 e4 | c2. | f2 f4 | a4. g8 f4 | e4. f8 e4 | c2 r4 |
+  f2 f4 | a4. g8 f4 | e4. f8 e4 | c2. | f2 f4 | a4. g8 f4 | e4. f8 e4 | c2 r4 |
   f2 f4 | g4. f8 f4 | e2.( | g2.) | e2 c4 | b4. b8  b4 | c2 r4 | R2. |
   
   e4.( f8) e4 | c2. | e4.( f8) e4 | c2. | f2 f4 | f2. | e4( f) e | e2 r4 |
@@ -44,7 +50,7 @@ tenorvoice = \relative c' {
   \dynamicUp
   
   c2 c4 | g2. | c4. c8 c4 | g2. | b2 b4 | d2. | c2 g4 | c2 r4 |
-  c2 c4 | c2 c8 c | c4. c8 c4 | g2. | c2 c4 | c4. c8 c4 | c4. c8 c4 | g2 r4 |
+  c2 c4 | c4. c8 c4 | c4. c8 c4 | g2. | c2 c4 | c4. c8 c4 | c4. c8 c4 | g2 r4 |
   b2 b4 | d4. b8 d4 | c2.~ | c | c2 c4 | g4. g8 f4 | e2 r4 | R2. |
   
   c'2 c4 | g( a g) | c2 c4 | g2. | b2 b4 | d( c b) | c2 g4 | c2 r4 |
@@ -60,7 +66,7 @@ tenorvoice = \relative c' {
 bassvoice = \relative c {
   \autoBeamOff
   c2 c4 | c2. | c4. c8 c4 | c2. | g'2 g4 | g2. | c,2 c4 | c2 r4 |
-  f2 f4 | f2 f8 f | c4. c8 c4 | c( e g) | f2 f4 | f4. f8 f4 | c4. c8 c4 | c2 r4 |
+  f2 f4 | f4. f8 f4 | c4. c8 c4 | c( e g) | f2 f4 | f4. f8 f4 | c4. c8 c4 | c2 r4 |
   g2 g4 | b4. g8 g4 | c2.~ | c | c2 c4 | g4. g8 g4 | c2 r4 | R2. |
   
   c2 c4 | c2. | c2 c4 | c2. | g'2 g4 | g2. | c,2 c4 | c2 r4
@@ -73,8 +79,8 @@ bassvoice = \relative c {
 }
 
 verseone = \lyricmode {
-  Sti -- lle Nacht, hei -- li -- ge Nacht, A -- lles schläft, ein -- sam wacht 
-  Nur das trau -- te, ho -- chhei -- li -- ge Paar, Hol -- der Kna -- be im lo -- cki -- gen Haar 
+  Sti -- lle Nacht, hei -- li -- ge Nacht, A -- lles schläft, ein -- sam wacht.
+  Nur das trau -- te, ho -- chhei -- li -- ge Paar, Hol -- der Kna -- be im lo -- cki -- gen Haar.
   Schlaf in hi -- mmli -- scher Ruh, Schlaf in hi -- mmli -- scher Ruh... 
 
   Si -- lent night, ho -- ly night. All is calm, __ all is bright. 
@@ -89,8 +95,8 @@ verseone = \lyricmode {
 versetwo = \lyricmode {
   \override LyricHyphen.minimum-distance = #1.0
   [Шти -- ле нáхт, хáй -- ли -- ге нáхт, á -- лес шлефт, áйн -- зам вáхт.
-  Нýр дас трáу -- те, хо -- хáй -- ли -- ге пáр, __ Хóль -- дэр кнá -- бэ им лё -- ки -- ген хáр.
-  Шлáф ин хи -- мли -- шер рý, __ Шлáф ин хи -- мли -- шер рý]
+  Нýр дас трáу -- те, хо -- хáй -- ли -- ге пáр, __ хóль -- дэр кнá -- бэ им лё -- ки -- ген хáр.
+  Шлáф ин хи -- мли -- шер рý, __ шлáф ин хи -- мли -- шер рý]
 }
 
 violinone = \relative c'' {
@@ -293,7 +299,7 @@ scoreALeft = \relative g {
       shortInstrumentName = \markup { \column { "Т" "Б" } }
       midiInstrument = "voice oohs"
       } <<
-        \new Voice = "tenor" { \shift R2. \voiceOne \clef bass \tenorvoice }
+        \new Voice = "tenor" { \clef bass \shift R2. \voiceOne \tenorvoice }
         \new Voice = "bass" { \shift R2. \voiceTwo \bassvoice }
       >>
     >>
