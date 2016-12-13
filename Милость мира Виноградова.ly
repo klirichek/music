@@ -68,14 +68,14 @@ sopvoice = \relative c'' {
   f'?2 e4 d |
   c a\> g2\! | \abr
   g4( e'2 d4 |
-  c g'2) f4 |
+  c g'2) f4 | \break
   e2 d |
   e r4 g, |
-  <b d>2-> b | \abr
+  <b d>2 b | \abr
   <c e>-> <b d>4 r |
   R1*2 |
   a2 b4 c | \abr
-  d2 c |
+  d2 c | \break
   b c4(\cresc d) |
   e2 d4 d |
   c2\< d4 e\! | \abr
@@ -87,11 +87,11 @@ sopvoice = \relative c'' {
   g1\p |
   a2 r\fermata \bar "||" \abr
   a1 |
-  g2 r\fermata \bar "||"
-  \tempo "Медленно" \cadenzaOn g4 g2 \bar ""|
-  g4 a2 \bar "" a4 c2 \bar "" a4\> a\! a \bar "" \abr
-  g2\! \bar "" g4 c2\> \bar "" b4\!  a g\! g2( f4) \bar "" a2( g4) f \bar "" \abr
-  e1\pp \bar "" r2 r4 gis( a) b2 a4 gis gis \bar "" c2(\> b4 a2)\! \bar "" \abr
+  g2 r\fermata \bar "||" \break
+  \tempo "Медленно" \cadenzaOn g4 g2. \bar ""|
+  g4 a2. \bar "" a4 c2. \bar "" a4\> a\! a \bar "" \abr
+  g2.\! \breathe \bar "" g4 c2.\> \bar "" b4\!  a g\! g2(\< f4) \bar "" a2(\! g4) f \bar "" \abr
+  e1\pp \bar "|" r2 r gis4( a) b2 a4 gis gis \bar "" c2(\> b4 a2)\! \bar "" \abr
   gis!2 a1\fermata\p \bar "" r4 a bes2-> a4 \nat g f1 \bar "" <f a>2-> <f g>2 <e g>1\fermata \cadenzaOff \bar "|."  
 }
 
@@ -108,7 +108,7 @@ altvoice = \relative c'' {
   e2 r |
   g4. g8 g4 g |
   b4. c8 g2 |
-  r2\fermata r |
+  r2 r |
   r4 e\p f-> e8 e |
   a4-> g8 f e4 g8 g |
   g4.-> f8 a4 a |
@@ -148,9 +148,9 @@ altvoice = \relative c'' {
   f2 r
   f1 |
   d2 r|
-  e4\p e2 f4 f2 f4 a2 f4 f f
-  e2 e4 e2 r4 e e e( cis d) f2( e4) d
-  c1 r2 r4 e2\p e4( gis) a e e e2. e2
+  e4\p e2. e4 f2. f4 a2. f4 f f
+  e2. \breathe e4 e2. e4 e e e( cis d) f2( e4) d
+  c1 r2 r e2\p e4( gis) a e e e2. e2
   e4( d) c1 r4 c4 cis2 cis4 e d1 d2 d \nat c1
 }
 
@@ -168,7 +168,7 @@ tenorvoice = \relative c' {
   c2 r |
   b4. c8 d4 e | \abr
   f4. e8 d2 |
-  r\fermata r |
+  r r |
   r4 c b c8 c | \abr
   a4 b8 b c4 e8 d | 
   cis4. d8 e4 cis | \abr
@@ -209,9 +209,9 @@ tenorvoice = \relative c' {
   c2 r
   c1 |
   b2 r|
-  g4 c2 bes4 a2 c4 c2 c4 c c
-  c2 c4 e2 d4 c bes! a2. b2. b4
-  c1r2 r4 b4( c) d2 c4 b b e2( d4 c2)
+  g4 c2. bes4 a2. c4 c2. c4 c c
+  c2. \breathe c4 e2. d4 c bes! a2. b2. b4
+  c1 r2 r b4( c) d2 c4 b b e2( d4 c2)
   b2 a1 r4 a4 g2 a4 bes8[( a]) a1 b2 b c1
 }
 
@@ -269,10 +269,10 @@ bassvoice = \relative c {
   c,1 f2 r\fermata |
   f1 |
   g2 r\fermata |
-  <c, c,>4\p q2 q4 <f f,>2 q4 q2 q4 f, a
-  c2 c4 a2 b4 c cis d2. g,2. g4
+  <c, c,>4\p q2. q4 <f f,>2. q4 q2. q4 f, a
+  c2. \breathe c4 a2. b4 c cis d2. g,2. g4
   \nat c1\pp
-  <c c,>4( <d d,>) <e e,>2.\p~ q2 q4 q q q2.~ q2
+  <c c,>4( <d d,>) <e e,>1\p~ q2 q4 q q q2.~ q2
   q2 <f f,>1\p\fermata r4 f4 e2 e4 cis4 d1 g,2 g \nat c1\fermata
 }
 

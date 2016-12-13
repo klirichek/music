@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-%#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 %#(set-global-staff-size 18)
@@ -31,7 +31,7 @@ secondbar = {
 abr = { \break }
 
 % uncommend next line when finished
-%abr = {}
+abr = {}
 
 %once hide accidental (runaround for cadenza
 nat = { \once \hide Accidental }
@@ -82,7 +82,7 @@ sopvoicethree = \relative c'' {
   \partialfour <b d>4 |
   <c e>2 <b d>4 |
   <c e>2 <c f>4 |
-  << {c4(} \new Voice {\voiceThree e8.[ d16]} >> <g, c>4 <g b>) |
+  << {\shiftOnn c4(} \new Voice {\voiceThree e8.[ d16]} >> <g, c>4 <g b>) |
   <g c>2. |
   <e g>4 q8 q q q |
   <f a>2 r4 | \abr
@@ -90,7 +90,7 @@ sopvoicethree = \relative c'' {
   <g c>2 <b d>4 |
   <c e>4 q <b d>8 q |
   <c e>2 <c f>4 |
-  << {c} \new Voice { \voiceThree e8.[( d16]) } >> <g, c>4 <g b> |
+  << {\shiftOnn c} \new Voice { \voiceThree e8.[( d16]) } >> <g, c>4 <g b> |
   <g c>2 \bar "|."
 }
 
@@ -196,7 +196,7 @@ bassvoicethree = \relative c' {
   \dynamicUp
   \partialfour g4 |
   c2 g4 |
-  c4 c f, |
+  c2 f,4 |
   g2. |
   c, |
   c4 c8 c c c |
@@ -210,16 +210,28 @@ bassvoicethree = \relative c' {
 }
 
 lyricscore = \lyricmode {
-  Хри -- стос а -- нэ -- сти эк нэ -- крон,
-  фа -- на -- то фа -- на -- тон па -- ти -- сас,
-  кэ -- тис эн -- тис мни -- ма -- си зо -- ин
-  ха -- ри -- са -- мэ -- нос.
+  Хри -- сто́с а -- нэ́ -- сти эк нэ -- кро́н,
+  фа -- на́ -- то фа́ -- на -- тон па -- ти́ -- сас,
+  кэ́ ти́с эн ти́с мни́ -- ма -- си зо -- и́н
+  ха -- ри -- са́ -- мэ -- нос.
+}
+
+lyricscoregreek = \lyricmode {
+  [Χρι -- στός α̉ -- νέ -- στη ε̉κ νε -- κρω̂ν, 
+  θα -- νά -- τω θά -- να -- τον πα -- τή -- σας, 
+  καὶ τοὶς ε̉ν τοὶς μνή -- μα -- σι ζω -- ὴν χα -- ρι -- σά -- με -- νος.]
 }
 
 lyricscoretwo = \lyricmode {
-  Хрис -- тус рэ -- зу -- рек -- сит э мо -- рту -- ис,
-  мор -- тэ, мор -- тэм каль -- ка -- вит,
-  эт эн -- ти -- бус ин сэ -- пуль -- хрис ви -- там до -- на -- вит.
+  Хри́ -- стус рэ -- зу -- ре́ -- ксит э мо́ -- рту -- ис,
+  мо́ -- ртэ мо́ -- ртэм ка -- лька́ -- вит,
+  эт э́ -- нти -- бус и́н сэ -- пу́ -- льхрис ви́ -- там до -- на́ -- вит.
+}
+
+lyricscoretwolatin = \lyricmode {
+  [Chri -- stus re -- sur -- re -- xit e mo -- rtu -- is,
+  mo -- rte mo -- rtem ca -- lca -- vit
+  et e -- nti -- bus in se -- pu -- lchris vi -- tam do -- na -- vit.]
 }
 
 lyricscorethree = \lyricmode {
@@ -250,9 +262,7 @@ lyricscorethree = \lyricmode {
       >> 
       
       \new Lyrics = "sopranos"
-      % or: \new Lyrics \lyricsto "soprano" { \lyricscore }
-      % alternative lyrics above up staff
-      %\new Lyrics \with {alignAboveContext = "upstaff"} \lyricsto "soprano" \lyricst
+      \new Lyrics = "sopranoso"
       
       \new Staff = "downstaff" \with {
         midiInstrument = "voice oohs"
@@ -262,6 +272,11 @@ lyricscorethree = \lyricmode {
       \context Lyrics = "sopranos" {
         \lyricsto "soprano" {
           \lyricscore
+        }
+      }
+      \context Lyrics = "sopranoso" {
+        \lyricsto "soprano" {
+          \lyricscoregreek
         }
       }
     >>
@@ -281,6 +296,7 @@ lyricscorethree = \lyricmode {
       >> 
       
       \new Lyrics = "sopranos"
+      \new Lyrics = "sopranoso"
       % or: \new Lyrics \lyricsto "soprano" { \lyricscore }
       % alternative lyrics above up staff
       %\new Lyrics \with {alignAboveContext = "upstaff"} \lyricsto "soprano" \lyricst
@@ -293,6 +309,11 @@ lyricscorethree = \lyricmode {
       \context Lyrics = "sopranos" {
         \lyricsto "soprano" {
           \lyricscoretwo
+        }
+      }
+            \context Lyrics = "sopranoso" {
+        \lyricsto "soprano" {
+          \lyricscoretwolatin
         }
       }
     >>

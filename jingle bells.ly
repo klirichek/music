@@ -267,6 +267,96 @@ violinone = \relative c'' {
   \bar "|."
 }
 
+violinfirst = \relative c'' {
+  \global
+  e8^\markup\italic"Вступление" e4 e8 e d4 d8 |
+  d d e fis g r d4 |
+  d,8^\markup\italic"I куплет" b' a g d4. d8 |
+  d b' a g e4. e8 | \abr
+  e c' b a d4. d8 |
+  e d c a b4. d,8 |
+  d b' a g d4. d8 |
+  d b' a g e4. e8 |
+  e c' b a d d d d | \abr
+  e d c a g8 r d'4 |
+  b8^\markup\italic"Припев" b b4 b8 b b4 |
+  b8 d g,8. a16 b4 r |
+  c8 c c8. c16 c8 b b b16 b | \abr
+  b8 a a b a r d4 |
+  b8 b b4 b8 b b4 |
+  b8 d g,8. a16 b2 |
+  c8 c c8. c16 c8 b b b |
+  d d e fis g4 r | \abr
+  b,4.^\markup\italic"II куплет" b8 b2 |
+  b4. b8 c2 |
+  c4. c8 d2 |
+  d4 c8 a b2 | \abr
+  b4. b8 b2 |
+  b4. b8 c4 e |
+  e4. e8 fis2 |
+  d4 e8[ fis] g4 r \abr
+  \break
+  \repeat volta 2 {
+  b,8^\markup\italic"Припев tutti" b b4 b8 b b4 |
+  b8 d g,8. a16 b2 |
+  c8 c c8. c16 c8 b b b | \abr
+  b8 a a b a4 d |
+  b8 b b4 b8 b b4 |
+  b8 d g,8. a16 b4 d | \abr
+  
+  }
+  \alternative {
+    { e8 e e8. e16 e8 d d8 d | d8 d e fis g2}
+    { e8 e e8. e16 e8 d d8 d | d4 d e fis | g2. r4}  
+  }
+  \bar "|."
+}
+
+violinsecond = \relative c'' {
+  \global
+  c8^\markup\italic"Вступление" c4 c8 c b4 b8 |
+  c c c c b r a4 |
+  d,8^\markup\italic"I куплет" b' a g d4. d8 |
+  d b' a g e4. e8 | \abr
+  e c' b a d4. d8 |
+  e d c a b4. d,8 |
+  d b' a g d4. d8 |
+  d b' a g e4. e8 |
+  e c' b a d d d d | \abr
+  e d c a g8 r d'4 |
+  b8^\markup\italic"Припев" b b4 b8 b b4 |
+  b8 d g,8. a16 b4 r |
+  c8 c c8. c16 c8 b b b16 b | \abr
+  b8 a a b a r d4 |
+  b8 b b4 b8 b b4 |
+  b8 d g,8. a16 b2 |
+  c8 c c8. c16 c8 b b b |
+  d d e fis g4 r | \abr
+  g,4.^\markup\italic"II куплет" g8 g2 |
+  g4. g8 g2 |
+  g4. g8 a2 |
+  d4 c8 a b2 | \abr
+  g4. g8 g2 |
+  g4. g8 g4 c |
+  c4. c8 d2 |
+  d4 e8[ fis] d4 r \abr
+  \break
+  \repeat volta 2 {
+  g,8^\markup\italic"Припев tutti" g g4 g8 g g4 |
+  g8 a d,8. fis16 g2 |
+  g8 g g8. g16 g8 g g g | \abr
+  g4 g fis4 fis |
+  g8 g g4 g8 g g4 |
+  g8 a d,8. fis16 g4 b | \abr
+  
+  }
+  \alternative {
+    { c8 c c8. c16 c8 b b8 b | d8 d c fis d2}
+    { c8 c c8. c16 c8 b b8 b | d4 d e c | g2. r4}  
+  }
+  \bar "|."
+}
+
 violintwo = \relative c'' {
   \global
   <g c>8 q4 q8 q8 <g b>4 q8 |
@@ -302,6 +392,52 @@ violintwo = \relative c'' {
   d b8. c16 d2 |
   e8 e e8. e16 d8 d d d |
   <e g>4 <cis g'> d8 d e fis |
+  d d d4 d8 d d4 |
+  d b8. c16 d4 g |
+  
+  }
+  \alternative {
+    { g8 g g8. g16 g8 g g g | c8 c d4 b2 }
+    { g8 g g8. g16 g8 g g g | c4 c c d | <b d>2. r4 }
+  }
+  
+}
+
+violinthird = \relative c'' {
+  \global
+  g8^\markup\italic"Вступление" g4 g8 g8 g4 g8 |
+  fis4 d g8 r fis4 |
+  d8^\markup\italic"I куплет" d d d d4. d8 |
+  d d d d c4. c8 |
+  c e e e fis4. fis8 |
+  fis fis fis fis g4. d8 |
+  d d d d d4. d8 |
+  d d d d c4. c8 |
+  c e e e fis fis fis fis |
+  fis fis fis fis g r a4 |
+  g8^\markup\italic"Припев" g g4 g8 g g4 |
+  g8 a d,8. fis16 g4 r |
+  e8 e e8. e16 e8 d d g16 g |
+  g8 g g g fis r fis4 |
+  g8 g g4 g8 g g4 |
+  g8 a d,8. fis16 g2 |
+  e8 e e8. e16 e8 d d g |
+  c c c c b4 r |
+  
+  d,4.^\markup\italic"II куплет" d8 d2 |
+  d4. d8 e2 |
+  e4. e8 fis2 |
+  <fis a> 2 g8 d e fis |
+  d4. d8 d2 |
+  d4. d8 e4 g |
+  a4. a8 a2 |
+  d4. a8 b4 r |
+  
+  \repeat volta 2 {
+  d,8^\markup\italic"Припев tutti" d d4 d8 d d4 |
+  d b8. c16 d2 |
+  e8 e e8. e16 d8 d d d |
+  e4 cis d8 d e fis |
   d d d4 d8 d d4 |
   d b8. c16 d4 g |
   
@@ -445,6 +581,25 @@ violinPart = \new Staff \with {
      \new Voice { \voiceTwo \violintwo }
   >>
 
+violinfirstPart = \new Staff \with {
+  instrumentName = "Vn. 1"
+  shortInstrumentName = "V1"
+  midiInstrument = "violin"
+} { \oneVoice \violinfirst }
+
+violinsecondPart = \new Staff \with {
+  instrumentName = "Vn. 2"
+  shortInstrumentName = "V2"
+  midiInstrument = "violin"
+} { \oneVoice \violinsecond }
+
+violinthirdPart = \new Staff \with {
+  instrumentName = "Vn. 3"
+  shortInstrumentName = "V3"
+  midiInstrument = "violin"
+} { \oneVoice \violinthird }
+
+
 pianoPart = \new PianoStaff \with {
   instrumentName = "Piano"
   shortInstrumentName = "P-no"
@@ -557,6 +712,30 @@ childpart = \new ChoirStaff
     <<
       \violinsoloPart
       \violinPart
+    >>
+    \layout { 
+      \context {
+      \Staff \RemoveEmptyStaves
+      \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+  }
+}
+
+\bookpart {
+  \paper {
+  ragged-bottom = ##f
+  ragged-last-bottom = ##f
+}
+  \header {
+    piece = "Violini"
+  }
+  \score {
+    <<
+      \violinsoloPart
+      \violinfirstPart
+      \violinsecondPart
+      \violinthirdPart
     >>
     \layout { 
       \context {

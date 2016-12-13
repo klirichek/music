@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-%#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 %#(set-global-staff-size 18)
@@ -31,7 +31,7 @@ secondbar = {
 abr = { \break }
 
 % uncommend next line when finished
-%abr = {}
+abr = {}
 
 %once hide accidental (runaround for cadenza
 nat = { \once \hide Accidental }
@@ -82,7 +82,7 @@ sopvoicethree = \relative c'' {
   \partialfour <b d>4 |
   <c e>2 <b d>4 |
   <c e>4 q <c f>4 |
-  << {c4(} \new Voice {\voiceThree e8.[ d16]} >> <g, c>4 <g b>) |
+  << {\shiftOnn c4(} \new Voice {\voiceThree e8.[ d16]} >> <g, c>4 <g b>) |
   <g c>2. |
   <e g>4 q8 q q q |
   <f a>2 r4 | \abr
@@ -90,7 +90,7 @@ sopvoicethree = \relative c'' {
   <g c>2 <b d>4 |
   <c e>4 q <b d>8 q |
   <c e>2 <c f>4 |
-  << {c} \new Voice { \voiceThree e8.[( d16]) } >> <g, c>4 <g b> |
+  << {\shiftOnn c} \new Voice { \voiceThree e8.[( d16]) } >> <g, c>4 <g b> |
   <g c>2 \bar "|."
 }
 
@@ -212,13 +212,13 @@ bassvoicethree = \relative c' {
 lyricscore = \lyricmode {
   Хри -- стос а -- нэ -- сти эк нэ -- крон,
   фа -- на -- то фа -- на -- тон па -- ти -- сас,
-  кэ -- тис эн -- тис мни -- ма -- си зо -- ин
+  кэ тис эн тис мни -- ма -- си зо -- ин
   ха -- ри -- са -- мэ -- нос.
 }
 
 lyricscoretwo = \lyricmode {
   Хрис -- тус рэ -- зу -- рек -- сит э мо -- рту -- ис,
-  мор -- тэ, мор -- тэм каль -- ка -- вит,
+  мор -- тэ мор -- тэм каль -- ка -- вит
   эт эн -- ти -- бус ин сэ -- пуль -- хрис ви -- там до -- на -- вит.
 }
 
