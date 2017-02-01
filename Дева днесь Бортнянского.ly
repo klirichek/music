@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-%#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 %#(set-global-staff-size 18)
@@ -159,7 +159,7 @@ devadnes = \lyricmode {
   \markup { \footnote " " \italic "* Тенора поют с дискантами" }
 
   \score {
-    \header { piece = "Bes-dur" }
+    \header { piece = "Be-dur" }
     \transpose c bes, {
     \new ChoirStaff
     <<

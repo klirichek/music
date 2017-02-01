@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-%#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 %#(set-global-staff-size 16)
@@ -84,6 +84,16 @@ soptwo = \relative c'' {
   }
 }
 
+alter = \markup { \italic "2к" {
+	\score {
+	  { \new RhythmicStaff { \voiceOne \cadenzaOn d'4. f'8  } } 
+	  \layout { indent = 0 
+	  \context { \RhythmicStaff
+	             \remove "Time_signature_engraver" 
+	             \remove "Clef_engraver" 
+	  } }
+	}
+    }}
 
 altvoice = \relative c' {
   \global
@@ -101,9 +111,9 @@ altvoice = \relative c' {
     des4 c2 \bar "||" | \abr \break
    
     es4^\markup\italic"Припев" es as |
-    f f4. es8 |
-    des4 des f |
-    f es2 |
+    f f4. es8
+    des4_\alter des4 f4 |
+    f8[( es]) es2 |
     c4 c c | \abr
     des des4. c8 |
     bes4 es4. des8 |
@@ -125,10 +135,11 @@ altvoice = \relative c' {
 
 pripev = \lyricmode {
   \repeat volta 3 {
-    Лу -- лай -- же, Йе -- зу -- нью, лу -- лай -- же, лу -- лай, а ты го,
-    ма -- ту -- лу пўа -- чу у -- ту -- лай.
+    Лу -- лай -- же, Йе -- зу -- нью, 
+    лу -- лай -- же, лу -- лай, а ты го,
+    ма -- ту -- лу ф_пўа -- чу у -- ту -- лай.
     Лу -- лай -- же Йе -- зу -- нью, лу -- лай -- же, лу -- лай,
-    а ты го, ма -- ту -- лу пўа -- чу у -- }
+    а ты го, ма -- ту -- лу ф_пўа -- чу у --  }
   \alternative { { ту -- лай. } {ту -- лай. } }
 }
 
@@ -139,14 +150,14 @@ verseone = \lyricmode {
 }
 
 versetwo = \lyricmode {
-  \set stanza = "2." Лу -- лай -- же, пень -- кью -- хны мой а -- ньё -- лэ -- чку.
-  Лу -- лай же, ма -- лю -- хны свя -- та квя -- тэ -- чку.
+  \set stanza = "2." Лу -- лай -- же, пье -- нькью -- хны муй а -- ньё -- ўэ -- чку.
+  Лу -- лай же, в_дже -- нчьн'ю -- хны щвя -- та квя -- тэ -- чку.
 }
 
 versethree = \lyricmode {
   \set stanza = "3."
-  Цыт, цыт, цыт, вшыс -- цы ще спачь за -- би -- ра -- че
-  Мо -- е -- го Дже -- чён -- тка нэ пшэ -- бу -- дзай -- че.
+  Цыт, цыт, цыт, вшыс -- цы ще спачь за -- бе -- ра -- йче
+  Мо -- е -- го Дже -- чён -- тка не пшэ -- бу -- дзай -- че.
 }
 
 
@@ -383,7 +394,7 @@ ViolaPart = {
 ChoirPart = {
   \new ChoirStaff <<
     
-    \new Staff = "choirdown" \with {
+    \new Staff = "choirup" \with {
         instrumentName = "С"
         shortInstrumentName = "С"
         midiInstrument = "voice oohs"
@@ -394,16 +405,18 @@ ChoirPart = {
       
       \new Lyrics = "textup"
       
-      \new Staff = "choirup" \with {
+      \new Staff = "choirdown" \with {
         instrumentName = "А"
         shortInstrumentName = "А"
         midiInstrument = "voice oohs"
       } <<
         \new Voice = "alto" { \oneVoice \altvoice }
-      >> 
+      >>
+
       \new Lyrics = "textdown"
       \new Lyrics = "textdowntwo"
       \new Lyrics = "textdownthree"
+      
       \context Lyrics = "textup" { \lyricsto "alto" { \koledaup }}
       \context Lyrics = "textdown" { \lyricsto "alto" { \verseone \pripev }}
       \context Lyrics = "textdowntwo" { \lyricsto "alto" { \versetwo }}
@@ -565,7 +578,7 @@ PianoPart = {
   \bookOutputSuffix "A-dur"
     \bookpart {
   \header {
-      piece = "Хор"
+      piece = "Хор A-dur"
   }
   \score {
     \transpose as a {
@@ -587,7 +600,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-      piece = "Instruments"
+      piece = "Instruments A-dur"
   }
   \score {
     \transpose as a {
@@ -615,7 +628,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-    piece = "Flute + Violini"
+    piece = "Flute + Violini A-dur"
   }
   \score {
     \transpose as a {
@@ -639,7 +652,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-      piece = "Ф-но"
+      piece = "Ф-но A-dur"
   }
   \score {
     \transpose as a {
@@ -661,7 +674,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-      piece = "Full"
+      piece = "Full A-dur"
   }
   \score {
     \transpose as a {
@@ -688,10 +701,10 @@ PianoPart = {
 }
 
 \book {
-  \bookOutputSuffix "Bes-dur"
+  \bookOutputSuffix "Be-dur"
     \bookpart {
   \header {
-      piece = "Хор"
+      piece = "Хор Be-dur"
   }
   \score {
     \transpose as bes {
@@ -713,7 +726,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-      piece = "Instruments"
+      piece = "Instruments Be-dur"
   }
   \score {
     \transpose as bes {
@@ -741,7 +754,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-    piece = "Flute + Violini"
+    piece = "Flute + Violini Be-dur"
   }
   \score {
     \transpose as bes {
@@ -765,7 +778,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-      piece = "Ф-но"
+      piece = "Ф-но Be-dur"
   }
   \score {
     \transpose as bes {
@@ -787,7 +800,7 @@ PianoPart = {
 
 \bookpart {
   \header {
-      piece = "Full"
+      piece = "Full Be-dur"
   }
   \score {
     \transpose as bes {

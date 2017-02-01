@@ -47,16 +47,16 @@ sopvoice = \relative c'' {
   a2 a4. a8 |
   g2 r\fermata \bar "||"
   g4. a8 b4 c | \abr
-  d4.\> c8\! b2 |
+  d2.\> c4\! b1 |
   r2\fermata r \tempo "Умеренно"|
-  r4 g4\p a-> g8 g | \abr
-  c4-> b8 a g4 c8 d |
-  e4.-> d8 cis4 a | \abr
+  r4 g4\p a g8 g | \abr
+  c4 b8 a g4 c8 d |
+  e4.-- d8 cis4 a | \abr
   
   f'4\> e d\! c? |
   b c e4. d8 |
   d4.( c8) c4 r | \abr
-  b8 b b b d4 b |
+  b8 b b b c4 b |
   d(\> c)\! b2 |
   c e4 d | \abr
   d2( b |
@@ -107,11 +107,11 @@ altvoice = \relative c'' {
   f2 f4. f8 |
   e2 r |
   g4. g8 g4 g |
-  b4. c8 g2 |
+  b2. c4 g1 |
   r2 r |
-  r4 e\p f-> e8 e |
-  a4-> g8 f e4 g8 g |
-  g4.-> f8 a4 a |
+  r4 e\p f e8 e |
+  a4 g8 f e4 g8 g |
+  g4.-- f8 a4 a |
   a4 a a a |
   g g g4. g8 |
   g2 g4 r |
@@ -167,8 +167,8 @@ tenorvoice = \relative c' {
   c2 c4. c8 |
   c2 r |
   b4. c8 d4 e | \abr
-  f4. e8 d2 |
-  r r |
+  f2. e4 d1 |
+  r2 r |
   r4 c b c8 c | \abr
   a4 b8 b c4 e8 d | 
   cis4. d8 e4 cis | \abr
@@ -228,8 +228,8 @@ bassvoice = \relative c {
   f2 f,4. a8 |
   c2 r\fermata |
   g'4. g8 g4 g |
-  g4. g8 g2 |
-  r\fermata r4
+  g2. g4 g1 |
+  r2\fermata r4
   g,\p c2 c4 c |
   c c8 c c4 c8 b |
   a4. a8 a4 a |

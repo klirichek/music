@@ -2,11 +2,16 @@
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 #(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+#(set-default-paper-size "a4")
+%#(set-global-staff-size 15.1)
 
 global = {
   \key f \major
   \time 4/4
   \autoBeamOff
+  \set Score.skipBars = ##t
+  \set Score.markFormatter = #format-mark-box-numbers
 }
 
 sopvoice = \relative c {
@@ -58,50 +63,130 @@ bassvoice = \relative c {
   c2\>\lheel | f\! \bar "|."
 }
 
-sopvoicev = \relative c {
+sopvoicev = \relative c'' {
   \global
   \tempo "Andante con moto"
-  \partial 2 f'4. g8 |  a4 
-  a4
-  a4 a | a2\< c4 a | g2\!\lheel \breathe f4.\< g8\! |
-  a4 a8 a c4 a | g2\>\lheel r4 a8\! bes\< | c4 c8\! c d4 d | c2\>\lheel a\! |
-  g4\mf g f2 | g4\mp g f2 \breathe | f4.\mf g8 a4 a | c 
-  a
-  g2\>\lheel | f\! \bar "|."
+  
+  R1*12
+  
+  r2 \repeat volta 2 {a4.( bes8)\< | 
+  c4 c8\! c d4 d | c2\>\lheel a\! |
+  g4\mf g f2 | 
+  g4\mp g f2 \breathe | 
+  f4.(\mf g8) a4 a | 
+  c a g2\>\lheel | 
+  f\p^\markup\italic"Fine" \bar "||"
+  
+   f4.( g8) |  
+  a4 a4 a4 a | 
+  a2\< c4( a) |
+  g2\!\lheel \breathe f4.(\< g8)\! |
+  a4 a8 a c4 a | 
+  g2\>\lheel 
+  
+  r4\! a8( bes)\< | 
+  c4 c8\! c d4 d | c2\>\lheel a\! |
+  g4\mf g f2 | 
+  g4\mp g f2 \breathe | 
+  f4.(\mf g8) a4 a | 
+  c a g2\>\lheel | 
+  f\p }
+  
+  
 }
 
-altvoicev = \relative c {
+altvoicev = \relative c' {
   \global
-  \partial 2  f'4. e8 | f4 f f4 f 
-  f2\< a4 f f\lheel(\! e) \breathe
-  d4.\< e8\! | 
-  f4 
-  f8 f
-  a4 f | e2\>\lheel r4 f8\! g\< | a4 a8\! a bes4 bes | g2\>\lheel f\! | 
-  bes,4\mf c c2 | f4\mp e c2 \breathe | d4.\mf e8 f4 f | a 
-  f
-  f4\>(\lheel e) | c2\! \bar "|."
+  
+  R1*12
+  
+  r2 \repeat volta 2 {f4.( g8)\< | 
+  a4 a8\! a bes4 bes | 
+  g2\>\lheel f\! | 
+  bes,4\mf c c2 | 
+  f4\mp e c2 \breathe | 
+  d4.(\mf e8) f4 f | 
+  a f f4\>(\lheel e) | 
+  c2\p
+  
+   f4.( e8) | 
+  f4 f f4 f 
+  f2\< a4( f) |
+  f\lheel(\! e) \breathe d4.(\< e8)\! | 
+  f4  f8 f a4 f | 
+  e2\>\lheel 
+  
+  r4\! f8( g)\< | 
+  a4 a8\! a bes4 bes | 
+  g2\>\lheel f\! | 
+  bes,4\mf c c2 | 
+  f4\mp e c2 \breathe | 
+  d4.(\mf e8) f4 f | 
+  a f f4\>(\lheel e) | 
+  c2\p }
 }
 
 
-tenorvoicev = \relative c {
+tenorvoicev = \relative c' {
   \global  
-  \partial 2 r2 | c'4 
-c  c4 c
-  c2\< f4 c | c2\lheel\!
-  \breathe d4.\< c8\! | 
-  c4 c8 c c4 d | e2\>\lheel f4 r4\< | f f8 f f4 f\! | f\>(\lheel e) d2\! | 
-  bes4\mf c a2 | bes4\mp c a2 \breathe | d4.\mf e8 c4 c | f 
-c  c2\>\lheel | a\! \bar "|."
+  
+  R1*12
+  
+  r2 \repeat volta 2 { f2 | 
+  f4\< f8 f f4 f\! | 
+  f\>(\lheel e) d2\! | 
+  bes4\mf c a2 | 
+  bes4\mp c a2 \breathe | 
+  d4.(\mf e8) c4 c | 
+  f c c2\>\lheel | 
+  a\p 
+  
+   r2 | 
+  c4 c c c |
+  c2\< f4( c) | 
+  c2\lheel\! \breathe d4.(\< c8)\! | 
+  c4 c8 c c4 d | 
+  e2(\>\lheel 
+  
+  f4)\! r4 | 
+  f\< f8 f f4 f\! | 
+  f\>(\lheel e) d2\! | 
+  bes4\mf c a2 | 
+  bes4\mp c a2 \breathe | 
+  d4.(\mf e8) c4 c | 
+  f c c2\>\lheel | 
+  a\p }
 }
 
 bassvoicev = \relative c {
   \global
-  \partial 2 r2 | f4 
-f  f4 f | f2\< f,4 a | c2\!\lheel \breathe d4.\< e8\! | 
-  f4 f8 f f4 f | c2\>\lheel f4 r4\< | f f8 f bes,4 bes\! | c2\>\lheel d\! | 
-  d4\mf e f2 | d4\mp e f2 \breathe | d4.\mf c8 a4 f | a 
-bes  c2\>\lheel | f\! \bar "|."
+  
+  R1*12
+  r2 \repeat volta 2 { f2 | 
+   f4\< f8 f bes,4 bes\! | 
+  c2\>\lheel d\! | 
+  d4\mf e f2 | 
+  d4\mp e f2 \breathe | 
+  d4.(\mf c8) a4 f | 
+  a bes  c2\>\lheel | 
+  f\p 
+  
+  
+  r2 | 
+  f4 f f f | 
+  f2\< f,4( a) | 
+  c2\!\lheel \breathe d4.(\< e8)\! | 
+  f4 f8 f f4 f | 
+  c2(\>\lheel 
+  
+  f4)\! r4 | 
+  f\< f8 f bes,4 bes\! | 
+  c2\>\lheel d\! | 
+  d4\mf e f2 | 
+  d4\mp e f2 \breathe | 
+  d4.(\mf c8) a4 f | 
+  a bes  c2\>\lheel | 
+  f\p }
 }
 
 texta = \lyricmode {
@@ -145,55 +230,6 @@ textbass = \lyricmode {
   indent = 5\mm
   ragged-bottom = ##f
   ragged-last-bottom = ##f
-}
-
-\book {
-  \bookOutputSuffix "Choir"
-\score {
-  \new ChoirStaff
-  <<
-    \new Staff \with {
-      instrumentName = \markup { \column { "С" "А"  } }
-      midiInstrument = "voice oohs"
-    } <<
-      \new Voice = "soprano" { \voiceOne \dynamicUp \sopvoice }
-      \new Voice  = "alto" { \voiceTwo \altvoice }
-    >> 
-    \new Lyrics \lyricsto "soprano" { \set stanza = #"1. "\texta }
-    \new Lyrics \lyricsto "soprano" { \set stanza = #"2. "\textb }
-    \new Lyrics \lyricsto "soprano" { \set stanza = #"3. "\textc }
-  
-    \new Staff \with {
-      instrumentName = \markup { \column { "Т" "Б" } }
-      midiInstrument = "voice oohs"
-    } <<
-        \new Voice = "tenor" { \voiceOne \dynamicUp \clef bass \tenorvoice }
-        \new Voice = "bass" { \voiceTwo \dynamicDown \bassvoice }
-    >>
-    \new Lyrics \lyricsto "bass" { \textbass }
-  >>
-  \layout { 
-    %#(layout-set-staff-size 19)
-  }
-  \midi {
-    \tempo 4=120
-  }
-}
-
-\markup { 
-    \column { 
-      "gli = [л'] (tiglio, giglio)"
-      "gi = [дж'и] (giglio, piangi)     "
-      "gio = [дж'о] (regio)"
-      "gie = [дж'е] (giel)"
-    }
-     \column { 
-      "cio = [чо] (baccio)"
-      "cie = [дче] (ciel)"
-      "chiu = [кью] (chiudi)"
-      "ti, di = как в греч. языке" 
-    }
-} 
 }
 
 \book {
@@ -248,6 +284,56 @@ textbass = \lyricmode {
   \layout { 
     %#(layout-set-staff-size 19)
   }
-%  \midi { \tempo 4=120 }
+  \midi { \tempo 4=120 }
 }
 }
+
+\book {
+  \bookOutputSuffix "Choir"
+\score {
+  \new ChoirStaff
+  <<
+    \new Staff \with {
+      instrumentName = \markup { \column { "С" "А"  } }
+      midiInstrument = "voice oohs"
+    } <<
+      \new Voice = "soprano" { \voiceOne \dynamicUp \sopvoice }
+      \new Voice  = "alto" { \voiceTwo \altvoice }
+    >> 
+    \new Lyrics \lyricsto "soprano" { \set stanza = #"1. "\texta }
+    \new Lyrics \lyricsto "soprano" { \set stanza = #"2. "\textb }
+    \new Lyrics \lyricsto "soprano" { \set stanza = #"3. "\textc }
+  
+    \new Staff \with {
+      instrumentName = \markup { \column { "Т" "Б" } }
+      midiInstrument = "voice oohs"
+    } <<
+        \new Voice = "tenor" { \voiceOne \dynamicUp \clef bass \tenorvoice }
+        \new Voice = "bass" { \voiceTwo \dynamicDown \bassvoice }
+    >>
+    \new Lyrics \lyricsto "bass" { \textbass }
+  >>
+  \layout { 
+    %#(layout-set-staff-size 19)
+  }
+  \midi {
+    \tempo 4=120
+  }
+}
+
+\markup { 
+    \column { 
+      "gli = [л'] (tiglio, giglio)"
+      "gi = [дж'и] (giglio, piangi)     "
+      "gio = [дж'о] (regio)"
+      "gie = [дж'е] (giel)"
+    }
+     \column { 
+      "cio = [чо] (baccio)"
+      "cie = [дче] (ciel)"
+      "chiu = [кью] (chiudi)"
+      "ti, di = как в греч. языке" 
+    }
+} 
+}
+

@@ -637,6 +637,26 @@ pianoPart = \new PianoStaff \with {
 }
 
 \book {
+  \bookOutputSuffix "violini"
+  \paper {
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \violinPart
+      \celloPart
+ %     \pianoPart
+    >>
+    \layout { 
+      \context {
+      \Staff \RemoveEmptyStaves
+      \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "choir"
   \score {
     \new ChoirStaff <<
@@ -658,7 +678,7 @@ pianoPart = \new PianoStaff \with {
           \globalv
           \repeat volta 3  { 
             \amelody 
-            \refrain 
+            \refraina
           }
         }
       >>

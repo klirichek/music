@@ -89,7 +89,7 @@ sopvoicethree = \relative c'' {
   <g b>4 q8 q q q |
   <g c>2 <b d>4 |
   <c e>4 q <b d>8 q |
-  <c e>2 <c f>4 |
+  <c e>2( <c f>4) |
   << {\shiftOnn c} \new Voice { \voiceThree e8.[( d16]) } >> <g, c>4 <g b> |
   <g c>2 \bar "|."
 }
@@ -148,7 +148,7 @@ altvoicethree = \relative c'' {
   f4 f8 f f f |
   e2 g4 |
   g g g8 g |
-  g2 a4 |
+  g2( a4) |
   g8.[( f16]) e4 d |
   e2
 }
@@ -204,7 +204,7 @@ bassvoicethree = \relative c' {
   d4 d8 d d d |
   c2 g'4 |
   c c g8 g |
-  c2 f,4 |
+  c2( f,4) |
   g <g g,> q |
   c,2
 }
@@ -217,7 +217,7 @@ lyricscore = \lyricmode {
 }
 
 lyricscoregreek = \lyricmode {
-  [Χρι -- στός α̉ -- νέ -- στη ε̉κ νε -- κρω̂ν, 
+  [Χρισ -- τός α̉ -- νέ -- στη ε̉κ νεκ -- ρω̂ν, 
   θα -- νά -- τω θά -- να -- τον πα -- τή -- σας, 
   καὶ τοὶς ε̉ν τοὶς μνή -- μα -- σι ζω -- ὴν χα -- ρι -- σά -- με -- νος.]
 }
@@ -229,16 +229,16 @@ lyricscoretwo = \lyricmode {
 }
 
 lyricscoretwolatin = \lyricmode {
-  [Chri -- stus re -- sur -- re -- xit e mo -- rtu -- is,
-  mo -- rte mo -- rtem ca -- lca -- vit
-  et e -- nti -- bus in se -- pu -- lchris vi -- tam do -- na -- vit.]
+  [Chri -- stus re -- sur -- re -- xit e mor -- tu -- is,
+  mor -- te mor -- tem cal -- ca -- vit
+  et en -- ti -- bus in se -- pul -- chris vi -- tam do -- na -- vit.]
 }
 
 lyricscorethree = \lyricmode {
   Хри -- стос во -- скрес из мё -- ртвых,
-  сме -- рти -- ю смерть по -- прал,
-  сме -- рти -- ю смерть по -- прал.
-  И су -- щим во гро -- бах всем жизнь да -- ро -- вал.
+  сме -- рти -- ю смерть по -- прав,
+  сме -- рти -- ю смерть по -- прав,
+  и су -- щим во гро -- бах __ жизнь да -- ро -- вав.
 }
 
 
