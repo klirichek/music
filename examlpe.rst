@@ -1,37 +1,57 @@
-1. Installing Sphinx on Windows
+1. Sphinx deprecations and changes in default configuration
 -------------------
-Installing Sphinx on a Windows server is often easier than installing on a Linux environment;
-unless you are preparing code patches, you can use the pre-compiled binary files from the Downloads
-area on the website.
 
-1.  
-    Extract everything from the .zip file you have downloaded -
-    ``sphinx-2.3.2-beta-win32.zip``,
-    or ``sphinx-2.3.2-beta-win32-pgsql.zip`` if you need PostgresSQL support as well.
-    (We are using version 2.3.2-beta here for the sake of example only;
-    be sure to change this to a specific version you're using.)
-    You can use Windows Explorer in Windows XP and up to extract the files,
-    or a freeware package like 7Zip to open the archive.
 
-    For the remainder of this guide, we will assume that the folders are unzipped into ``C:\Sphinx``,
-    such that ``searchd.exe`` can be found in ``C:\Sphinx\bin\searchd.exe``. If you decide
-    to use any different location for the folders or configuration file, please change it accordingly.
-2.  
-    Edit the contents of sphinx.conf.in - specifically entries relating to @CONFDIR@ - to paths suitable for your system.
-3.  
-    Install the ``searchd`` system as a Windows service:
+Changes are as follows:
+-  32-bit document IDs are now deprecated. Our binary releases
+are now all built with 64-bit IDs by default. Note that they can still
+load older indexes with 32-bit IDs, but that support will eventually be
+removed. In fact, that was deprecated awhile ago, but now we just want to
+make it clear: we don't see any sense in trying to save your server's RAM
+this way.
+-  dict=crc is now deprecated. It has a bunch of limitations,
+the most important ones being keyword collisions, and no (good) wildcard
+matching support. You can read more about those limitations in our
+documentation.
+-  charset_type=sbcs is now deprecated, we're slowly switching
+to UTF-only. Even if your database is SBCS (likely for legacy reasons
+too, eh?), this should be absolutely trivial to workaround, just add a
+pre-query to fetch your data in UTF-8 and you're all set. Also, in fact,
+our current UTF-8 tokenizer is even faster than the SBCS one.
+-  custom sort (@custom) is now removed from Sphinx. This
+feature was introduced long before sort by expression became a reality
+and it has been deprecated for a very long time.
+-  hit_format is deprecated. This is a hidden configuration
+key - it's not mentioned in our documentation. But, it's there and it's
+possible that someone may use it. And now we're urging you: don't use it.
+The default value is 'inline' and it's a new standard. 'plain' hit_format
+is obsolete and will be removed in the near future.
+-  docinfo=inline is deprecated. You can now use
+ondisk_attrs or
+ondisk_attrs_default instead.
 
-    **C:\Sphinx\bin> C:\Sphinx\bin\searchd --install --config C:\Sphinx\sphinx.conf.in --servicename SphinxSearch**
-4.  
-    The ``searchd`` service will now be listed in the Services panel
-    within the Management Console, available from Administrative Tools. It will not have been
-    started, as you will need to configure it and build your indexes with ``indexer``
-    before starting the service. A guide to do this can be found under
-    Quick tour.
+-  workers=threads is a new default for all OS now.
+We're gonna get rid of other modes in future.
+-  mem_limit=128M is a new default.
+-  rt_mem_limit=128M is a new default.
+-  ondisk_dict is deprecated. No need to save RAM this way.
 
-    During the next steps of the install (which involve running indexer pretty much as
-    you would on Linux) you may find that you get an error relating to libmysql.dll not being found.
-    If you have MySQL installed, you should find a copy of this library in your Windows directory,
-    or sometimes in Windows\System32, or failing that in the MySQL core directories. If you
-    do receive an error please copy libmysql.dll into the bin directory.
+-  ondisk_dict_default is deprecated. No need to save RAM this way.
+
+
+
+
+None of the different querying methods are deprecated, but SphinxQL is the most advanced method.
+We plan to remove SphinxAPI and Sphinx SE someday so it would be a good idea to
+start using SphinxQL.
+
+
+-  The SetWeights() API call has been deprecated for a long
+time and has now been removed from official APIs.
+-  The default matching mode for the API is now 'extended'.
+Actually, all other modes are deprecated. We recommend using the
+extended query syntax instead.
+
+
+
 
