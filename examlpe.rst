@@ -1,5 +1,6 @@
+
 1. Sphinx deprecations and changes in default configuration
--------------------
+===========================================================
 
 Changes are as follows:
 
