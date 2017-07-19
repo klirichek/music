@@ -4,8 +4,7 @@ Installing Sphinx on a Windows server is often easier than installing on a Linux
 unless you are preparing code patches, you can use the pre-compiled binary files from the Downloads
 area on the website.
 
-
--  
+1.  
     Extract everything from the .zip file you have downloaded -
     ``sphinx-2.3.2-beta-win32.zip``,
     or ``sphinx-2.3.2-beta-win32-pgsql.zip`` if you need PostgresSQL support as well.
@@ -17,16 +16,13 @@ area on the website.
     For the remainder of this guide, we will assume that the folders are unzipped into ``C:\Sphinx``,
     such that ``searchd.exe`` can be found in ``C:\Sphinx\bin\searchd.exe``. If you decide
     to use any different location for the folders or configuration file, please change it accordingly.
-
--  
+2.  
     Edit the contents of sphinx.conf.in - specifically entries relating to @CONFDIR@ - to paths suitable for your system.
-
--  
+3.  
     Install the ``searchd`` system as a Windows service:
 
     **C:\Sphinx\bin> C:\Sphinx\bin\searchd --install --config C:\Sphinx\sphinx.conf.in --servicename SphinxSearch**
-
--  
+4.  
     The ``searchd`` service will now be listed in the Services panel
     within the Management Console, available from Administrative Tools. It will not have been
     started, as you will need to configure it and build your indexes with ``indexer``
