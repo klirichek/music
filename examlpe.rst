@@ -19,7 +19,7 @@ area on the website.
     Edit the contents of sphinx.conf.in - specifically entries relating to @CONFDIR@ - to paths suitable for your system.
 -  
     Install the ``searchd`` system as a Windows service:
-    C:\Sphinx\bin> C:\Sphinx\bin\searchd --install --config C:\Sphinx\sphinx.conf.in --servicename SphinxSearch
+    **C:\Sphinx\bin> C:\Sphinx\bin\searchd --install --config C:\Sphinx\sphinx.conf.in --servicename SphinxSearch**
 -  
     The ``searchd`` service will now be listed in the Services panel
     within the Management Console, available from Administrative Tools. It will not have been
