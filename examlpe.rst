@@ -40,6 +40,7 @@ Changes are as follows:
 
 
 
+
 None of the different querying methods are deprecated, but SphinxQL is the most advanced method. We plan to remove SphinxAPI and Sphinx SE someday so it would be a good idea to start using SphinxQL.
 
 
@@ -53,6 +54,7 @@ None of the different querying methods are deprecated, but SphinxQL is the most 
 
 
 
+
 If the table contains document IDs from 1 to, say, 2345, then sql_query would be run three times:
 
 1.  with$startreplaced with 1 and$endreplaced with 1000;
@@ -60,6 +62,7 @@ If the table contains document IDs from 1 to, say, 2345, then sql_query would be
 2.  with$startreplaced with 1001 and$endreplaced with 2000;
 
 3.  with$startreplaced with 2001 and$endreplaced with 2345.
+
 Obviously, that's not much of a difference for 2000-row table, but when it comes to indexing 10-million-row MyISAM table, ranged queries might be of some help.
 
 
