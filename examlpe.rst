@@ -69,18 +69,18 @@ Obviously, that's not much of a difference for 2000-row table, but when it comes
 
 ::
 
-     
+    ... 
 
-      
+     sql_query = SELECT id, title, content, \ 
 
-      
+         author_id, forum_id, post_date FROM my_forum_posts 
 
-      
+     sql_attr_uint = author_id 
 
-      
+     sql_attr_uint = forum_id 
 
-      
+     sql_attr_timestamp = post_date 
 
-      
+     ... 
 
  
