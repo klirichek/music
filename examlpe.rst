@@ -6,18 +6,21 @@ matching mode:
 
 - operator OR:
 ::
+
   hello | world
 
 
  
 - operator MAYBE:
 ::
+
   hello MAYBE world
 
 
  
 - operator NOT:
 ::
+
   
   hello -world
   hello !world
@@ -27,18 +30,21 @@ matching mode:
  
 - field search operator:
 ::
+
   @title hello @body world
 
 
  
 - field position limit modifier:
 ::
+
   @body[50] hello
 
 
  
 - multiple-field search operator:
 ::
+
   @(title,body) hello world
 
 
@@ -46,6 +52,7 @@ matching mode:
 - ignore field search operator (will ignore any matches of 'hello world' from field 
   'title'):
 ::
+
   @!title hello world
 
 
@@ -53,6 +60,7 @@ matching mode:
 - ignore multiple-field search operator (if we have fields title, subject and body 
   then @!(title) is equivalent to @(subject,body)):
 ::
+
   @!(title,body) hello world
 
 
@@ -60,54 +68,63 @@ matching mode:
   
 - all-field search operator:
 ::
+
   @* hello
 
 
  
 - phrase search operator:
 ::
+
   "hello world"
 
 
  
 - proximity search operator:
 ::
+
   "hello world"~10
 
 
  
 - quorum matching operator:
 ::
+
   "the world is a wonderful place"/3
 
 
  
 - strict order operator (aka operator "before"):
 ::
+
   aaa << bbb << ccc
 
 
  
 - exact form modifier:
 ::
+
   raining =cats and =dogs
 
 
  
 - field-start and field-end modifier:
 ::
+
   ^hello world$
 
 
  
 - keyword IDF boost modifier:
 ::
+
   boosted^1.234 boostedfieldend$^1.234
 
 
  
 - NEAR, generalized proximity operator:
 ::
+
   hello NEAR/3 world NEAR/4 "my test"
 
 
@@ -115,24 +132,28 @@ matching mode:
   
 - SENTENCE operator:
 ::
+
   all SENTENCE words SENTENCE "in one sentence"
 
 
  
 - PARAGRAPH operator:
 ::
+
   "Bill Gates" PARAGRAPH "Steve Jobs"
 
 
  
 - ZONE limit operator:
 ::
+
   ZONE:(h3,h4)
 
 only in these titles
  
 - ZONESPAN limit operator:
 ::
+
   ZONESPAN:(h2)
 
 only in a (single) title
@@ -140,6 +161,7 @@ only in a (single) title
 
 Here's an example query that uses some of these operators: Extended matching mode: query example
 ::
+
   
   "hello world" @title "example program"~5 @body python -(php|perl) @* code
   
@@ -170,6 +192,7 @@ will fail with an error message if given field name does not exist in the search
 index. However, that can be suppressed by specifying "@@relaxed" option at the very 
 beginning of the query: 
 ::
+
   
   @@relaxed @nosuchfield my query
   
@@ -198,6 +221,7 @@ but notthe "that cat was black" document. Order operator has the lowest priority
 be applied both to just keywords and more complex expressions, ie. this is a valid 
 query: 
 ::
+
   
   (bag of words) << "exact phrase" << red|green|blue
   
@@ -212,6 +236,7 @@ used within operators such as phrase, proximity, and quorum operators. It is pos
 to apply an exact form modifier to the phrase operator. It's really just syntax sugar 
 - it adds an exact form modifier to all terms contained within the phrase. 
 ::
+
   
   ="exact phrase"
   
@@ -225,6 +250,7 @@ that has exactly these two keywords.
 Arbitrarily nested brackets and negations are allowed. However, the query must be 
 possible to compute without involving an implicit list of all documents: 
 ::
+
   
   // correct query
   aaa -(bbb -(ccc ddd))
@@ -240,6 +266,7 @@ the phrase operator are position significant. When the 'match any term' modifier
 is implemented, the position of the subsequent terms from that phrase query will 
 be shifted. Therefore, 'match any' has no impact on search performance. 
 ::
+
   
   "exact * phrase * * for terms"
   
@@ -260,6 +287,7 @@ with NEAR is less restrictive: it would allow for up to 6 words between 'one' an
 same paragraph of text, respectively. The arguments can be either keywords, or phrases, 
 or the instances of the same operator. Here are a few examples: 
 ::
+
   
   one SENTENCE two
   one SENTENCE "two three"
@@ -274,6 +302,7 @@ Refer to the index_spdirective documentation for the notes on what's considered 
 zone or a list of zones. Note that the subsequent subexpressions are notrequired to match in a single contiguous span of a given zone, and may match in multiple 
 spans. For instance, (ZONE:th hello world)query willmatch this example document: 
 ::
+
   
   <th>Table 1. Local awareness of Hello Kitty brand.</th>
   .. some table data goes here ..
