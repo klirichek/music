@@ -235,7 +235,7 @@ This can be helpful when searching through heterogeneous indexes with different 
 
 
 Field position limit additionally restricts the searching to first N position within 
-given field (or fields). For example, "@body[50] hello" will  **not** match the documents where the keyword 'hello' occurs at position 51 and below in 
+given field (or fields). For example, "@body[50] hello" will **not** match the documents where the keyword 'hello' occurs at position 51 and below in 
 the body. 
 
 Proximity distance is specified in words, adjusted for word count, and applies to 
@@ -315,7 +315,7 @@ be shifted. Therefore, 'match any' has no impact on search performance.
 
  
 
-  **NEAR operator** is a generalized version of a proximity operator. The syntax is  ``NEAR/N`` , it is case-sensitive, and no spaces are allowed between the NEAR keyword, the slash 
+ **NEAR operator** is a generalized version of a proximity operator. The syntax is ``NEAR/N`` , it is case-sensitive, and no spaces are allowed between the NEAR keyword, the slash 
 sign, and the distance value. 
 
 The original proximity operator only worked on sets of keywords. NEAR is more generic 
@@ -323,13 +323,13 @@ and can accept arbitrary subexpressions as its two arguments, matching the docum
 when both subexpressions are found within N words of each other, no matter in which 
 order. NEAR is left associative and has the same (lowest) precedence as BEFORE. 
 
-You should also note how a  ``(one NEAR/7 two NEAR/7 three)`` query using NEAR is not really equivalent to a  ``("one two three"~7)`` one using keyword proximity operator. The difference here is that the proximity operator 
+You should also note how a ``(one NEAR/7 two NEAR/7 three)`` query using NEAR is not really equivalent to a ``("one two three"~7)`` one using keyword proximity operator. The difference here is that the proximity operator 
 allows for up to 6 non-matching words between all the 3 matching words, but the version 
 with NEAR is less restrictive: it would allow for up to 6 words between 'one' and 
 'two' and then for up to 6 more between that two-word matching and a 'three' keyword. 
 
 
-  **SENTENCE and PARAGRAPH operators** matches the document when both its arguments are within the same sentence or the 
+ **SENTENCE and PARAGRAPH operators** matches the document when both its arguments are within the same sentence or the 
 same paragraph of text, respectively. The arguments can be either keywords, or phrases, 
 or the instances of the same operator. Here are a few examples: 
 ::
@@ -342,12 +342,12 @@ or the instances of the same operator. Here are a few examples:
 
 The order of the arguments within the sentence or paragraph does not matter. These 
 operators only work on indexes built with index_sp(sentence and paragraph indexing feature) enabled, and revert to a mere AND otherwise. 
-Refer to the  ``index_sp`` directive documentation for the notes on what's considered a sentence and a paragraph. 
+Refer to the ``index_sp`` directive documentation for the notes on what's considered a sentence and a paragraph. 
 
 
-  **ZONE limit operator** is quite similar to field limit operator, but restricts matching to a given in-field 
+ **ZONE limit operator** is quite similar to field limit operator, but restricts matching to a given in-field 
 zone or a list of zones. Note that the subsequent subexpressions are notrequired to match in a single contiguous span of a given zone, and may match in multiple 
-spans. For instance,  ``(ZONE:th hello world)`` query willmatch this example document: 
+spans. For instance, ``(ZONE:th hello world)`` query willmatch this example document: 
 ::
 
    
@@ -359,10 +359,10 @@ spans. For instance,  ``(ZONE:th hello world)`` query willmatch this example doc
 ZONE operator affects the query until the next field or ZONE limit operator, or the 
 closing parenthesis. It only works on the indexes built with zones support (see ) and will be ignored otherwise. 
 
-  **ZONESPAN limit operator** is similar to the ZONE operator, but requires the match to occur in a single contiguous 
-span. In the example above,  ``(ZONESPAN:th hello world)>`` would not match the document, since "hello" and "world" do not occur within the same 
+ **ZONESPAN limit operator** is similar to the ZONE operator, but requires the match to occur in a single contiguous 
+span. In the example above, ``(ZONESPAN:th hello world)>`` would not match the document, since "hello" and "world" do not occur within the same 
 span. 
 
-  **MAYBE** operator works much like | operator but doesn't return documents which match only 
+ **MAYBE** operator works much like | operator but doesn't return documents which match only 
 right subtree expression. 
 
