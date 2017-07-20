@@ -179,7 +179,12 @@ only in a (single) title
  
 
 
-Here's an example query that uses some of these operators: Extended matching mode: query example
+Here's an example query that uses some of these operators: 
+0. Extended matching mode: query example
+----------------------------------------
+
+
+
 ::
 
    
