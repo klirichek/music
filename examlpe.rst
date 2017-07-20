@@ -3,6 +3,7 @@
 
 The following special operators and modifiers can be used when using the extended 
 matching mode: 
+
 - operator OR:
   ::
 
@@ -186,6 +187,7 @@ Here's an example query that uses some of these operators: Extended matching mod
    
 
 The full meaning of this search is: 
+
 - Find the words 'hello' and 'world' adjacently in any field in a document;
 
  
