@@ -8,7 +8,7 @@
 
 \header {
   title = "Французская колядка"
-  composer = "Обр. и текст м. Иулиании"
+  composer = "Обр. и текст м. Иулиании (Денисовой)"
   % Удалить строку версии LilyPond 
   tagline = ##f
 }
@@ -287,7 +287,7 @@ bassvoice = \relative c {
   e4 a, b2 |
   e e | \abr
   a,4 b e a,16 b cis d] \bar "||" \mark 1
-  e4 a, e'4. b8 |
+  e4 a, e'4. d8 |
   cis4 b e b8 d | \abr
   e4 a, e'4. d8 |
   cis4 b e d8 b |

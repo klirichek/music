@@ -29,7 +29,7 @@ altbegin = \relative c' {
   \autoBeamOff
   \set Score.markFormatter = #format-mark-box-numbers
   \mark \default 
-  c8 d e4 f | g2 a8[ g] | f8. e16 f4 a | g e2 | \break
+  c8. d16 e4 f | g2 a8[ g] | f8. e16 f4 a | g e2 | \break
   c8. d16 e4 f | g2 a8[ g] | f8. e16 f4 a | g e2 | \break
   f2 f4 | e8. d16 e4 g | d2 c4 | b8. a16 b4 g | c8. d16 e4 f | g2 e8[ d] | <c e>2.
 }

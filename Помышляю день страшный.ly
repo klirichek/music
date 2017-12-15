@@ -226,7 +226,7 @@ tenor = \relative c' {
   c2 c4 g\p | % 25
   as4. ( g8) as4 bes | % 26
   g4.  ( as8) bes4 c  | % 27
-  des  ( c) bes( as)  | % 28
+  des  ( c bes) as  | % 28
   g2 g4 r4 r2 r4 <c f> | \barNumberCheck #30
   e8\> ( [ f ] des4 )\! c r r2 r4 <c f>\p | % 32
   e8 ( [ f ] des4 ) c r | % 33
@@ -319,7 +319,7 @@ bass = \relative c {
   r2 r4 e' | % 25
   f4. ( e8) f4 g | % 26
   e4.\< ( f8) g4 as\! | % 27
-  bes \> ( as) g( f) \! | % 28
+  bes \> ( as g) f \! | % 28
   e2 e4 r | % 29
   r2 r4 as | \barNumberCheck #30
   <g bes>8 ( [ <as c> <f as> <g bes>)] <e g>4 r | % 31
@@ -404,7 +404,7 @@ verset = \lyricmode {
   по -- мы -- шля -- ю день стра -- шный,
   по -- мы -- шля -- ю день стра -- шный
   и пла -- чу де -- я -- ний лу -- ка -- вых 
-  и пла -- чу де -- я -- ний мо -- их лу -- ка -- вых.
+  и пла -- чу де -- я -- ний мо -- их __ лу -- ка -- вых.
   
   \repeat unfold 6 \skip 1
   пла -- чу пла -- чу

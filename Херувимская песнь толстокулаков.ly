@@ -356,7 +356,7 @@ bassvoice = \relative c' {
   f2 e4 d |
   e8[( d] e2) d4 c2 |
   f2.( e4) |
-  d2 e4( f) e d8[( e]) |
+  d2( e4 f) e d8[( e]) |
   a2( <e a,>~ |
   q) q |
   <d d,>1~ |
@@ -477,6 +477,8 @@ textt = \lyricmode {
 textb = \lyricmode {
   \repeat unfold 29 \skip 1
   и Жи -- во -- тво -- ря -- щей
+    \repeat unfold 13 \skip 1
+  песнь, песнь при -- пе -- ва -- ю -- ще __
 }
 
 

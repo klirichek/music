@@ -1298,7 +1298,7 @@ texts = \lyricmode {
 %  }  % transposeµ
   \layout {}
   \midi {
-    \tempo 4=120
+    \tempo 2=90
   }
 }
 
