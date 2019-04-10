@@ -25,7 +25,10 @@ christina/.*
 *.wav
 ._*
 *.log
-
+*.JPG
+*.jpg
+*.eps
+*.mp3
 *~
 *.swp
 /.idea
