@@ -25,6 +25,7 @@ global = {
 co = \cadenzaOn
 cof = \cadenzaOff
 cb = { \cadenzaOff \bar "|" }
+nat = { \once \hide Accidental }
 
 sopvoice = \relative c'' {
   \global
@@ -36,11 +37,11 @@ sopvoice = \relative c'' {
   \co f4( ees) bes8[( c] d4) d2 bes \cb
   \co ees2( f4 d f) ees2 \cb
   \co c8[ d] ees4( c8[ d]) \bar"" c[ bes] c2 c4 bes2 \cb
-  \co bes4 bes aes c bes(\< c) d ees2\! \cb
+  \co bes4 bes aes! c bes(\< c) d ees2\! \cb
   \co ees8[^\markup { \italic "Замедляя" } f] g2 f4 ees ees ees8[ d] \bar"" f4( ees) ees d8[( c] d4 c bes) c2 \breathe \cb
   \co c8[ bes] c[ d] ees2 \bar"" \time 9/4 f8[ ees d ees] f4 ees2 \cb
   \co <d f>4 <c f> <ees f> << {f4} \new Voice { \voiceThree d8[ ees] } >> <d f>4( <c f>) d2 \cb
-  \co c8[(^\markup { \italic Замедляя } bes] a4) d ees8[ d] \bar"" c[( d] ees4) d d c2\fermata \cof \bar "|."
+  \co c8[(^\markup { \italic Замедляя } bes] \nat a4) d ees8[ d] \bar"" c[( d] ees4) d d c2\fermata \cof \bar "|."
 }
 
 altvoice = \relative c' {
@@ -50,7 +51,7 @@ altvoice = \relative c' {
   f4 f ees( bes') \bar"" f8[( g] f4) bes bes( aes8[ g]) | f4( g) f2 ees8[ g f ees]  d2 |
   ees4( g bes2.) g2 | g8( f) ees4( ees8[ f]) g4 g2 f8[ ees] d2 | ees4 ees c ees f2 f4 g( ees) |
   g8[\f bes] bes2 bes4 bes ees, ees8[ f] f4( g) g f8[( g] f2 d4) f2 | 
-  ees8[ g] g[ f] ees4( aes8[ g]) f4( f8[ g]) f[ aes] g2 | f4 f g bes8[ g] f2 f | ees4( c) d g g8[( f] ees4) f f f2 | \bar "|." 
+  ees8[ g] g[ f] ees4( aes!8[ g]) f4( f8[ g]) f[ aes!] g2 | f4 f g bes8[ g] f2 f | ees4( c) d g g8[( f] ees4) f f f2 | \bar "|." 
 }
 
 tenorvoice = \relative c' {
@@ -60,8 +61,8 @@ tenorvoice = \relative c' {
   a8[ g] a4 c2 bes! c4( a) |
   bes bes bes2 bes4( g) a2 |
   a8[ g] a[ bes] bes4.( c8) d[( ees] bes[ c]) d4 bes2 |
-  bes bes8([ a] bes4) g( a) f2 |
-  bes4.( a8 bes2.) bes2 |
+  bes bes8([ \nat a] bes4) g( a) f2 |
+  bes4.( c8 bes2.) bes2 |
   bes4 bes2 bes4 bes2 a4 f2 |
   g8[ aes] bes4 f g f( aes?) aes8[ bes] bes2 |
   c8[\f d] ees4( d) d bes bes8[ c] bes4 bes2 bes4 bes8([ ees] d[ bes] a4 g) a2 |
@@ -81,7 +82,7 @@ bassvoice = \relative c {
   g'4( ees d f ees8[ d]) ees2 |
   ees8[ f] g4( g8[ f]) ees[ d] ees2 f4 bes,2 |
   ees8[ f] g4 f ees d(\< f) f ees(\! g) |
-  c8[ bes] g4( bes) aes g g8[ aes] g[ f] d4( ees) g bes2( f4 g) f2 \breathe |
+  c8[ bes] g4( bes) aes! g g8[ aes!] g[ f] d4( ees) g bes2( f4 g) f2 \breathe |
   c8[ d] ees[ f] g4( f8[ ees]) d[ c f ees] d4 ees2 |
   d4 c ees bes8[ c] d4( f) bes,2 |
   c4( f) bes,8[ bes'] g[ f] ees[( f] g4) bes d, f2\fermata \bar "|."    
@@ -125,15 +126,15 @@ sopdevo = \relative c'' {
   \co c8[ d] c[ bes] a[( bes] c4) bes8[( a] bes4) a2(\< bes8[ c])\! \cb
   \co d4->\f d-> d2-> d8[( c] bes4) c8[ d] \bar"" ees4 d8[( c] d4 c <bes d>) <c f>2 \cb
   \co << { 
-    \aside #'(-3 . 2 ) "Д.I." f!4 (\mf g^\markup { \italic "Несколько медленней" } f) f f( ees?) } 
-    \new Voice { \voiceThree \aside #'(-1 . 1 ) "Д.II." d!2 c8[ d] c[ bes] c2 } >> \cb
+    \aside #'(-3 . 2 ) "С.I." f!4 (\mf g^\markup { \italic "Несколько медленней" } f) f f( ees!) } 
+    \new Voice { \voiceThree \aside #'(-1 . 1 ) "С.II." d!2 c8[ d] c[ bes] c2 } >> \cb
   \co 
-    \asidecol #'( -2 . 5 ) "Д.P" "Д.U" <bes! d>4( d)
+    \asidecol #'( -2 . 5 ) "С.I" "С.II" <bes! d>4( d)
     << { f4 f f f \bar"" f2~ f} 
        \new Voice { \voiceThree c4 c8[ bes] c[ d] c[ bes] a[ bes] c4 bes8[ a] bes4 } 
     >> <a f'>2\>( <a c>\! {  
     \once \override Accidental.whiteout = ##t
-    \aside #'( -3 . -0.5 ) "Д.I." f!1->)~\fermata }  \cb 
+    \aside #'( -3 . -0.5 ) "C.I." f!1->)~\fermata }  \cb 
   \co f4~ \cb
   \co f1~ f~ f(\< f4.\! g8) \cb
   \co a4\< g\! bes8[\f c d c] \bar "" d4 c8[ bes] c4( bes) a2 \cb
@@ -157,7 +158,7 @@ altdevo = \relative c' {
   \aside #'( -3 . -3.5 ) "Ал." bes!4( f8[ g] a[ bes]) a[ g] a4( g) |
   \aside #'( -2 . -2 ) "Ал." f!2 f4 f f f f8[( g] ees[ f] g[ f]~ f[ g]) f2~ f r1
   r4 r1 r1 r1 r2 |
-  ees?4 ees f4.( ees8) d4 g f2 f |
+  ees!4 ees f4.( ees8) d4 g f2 f |
   \aside #'( -2 . -2 ) "Ал."  f!4 f <d f> g8[( f c g']) f4\< c\! d( c d8[ c]) d4 c1\fermata | \bar "|."
     
 }
@@ -169,9 +170,9 @@ tenordevo = \relative c' {
   bes2( a g8[ a]) bes8[ g] a2 |
   g8[ a] bes4 bes bes bes8[( a] bes4) a g8[ a] bes8[( a] bes4 g8[ a] bes4) a2 |
   g4 g g2 g8[( a] g4) a2( g8[ a]) |
-  bes4\f bes bes2 bes bes4 bes bes4.( g8 a4 g) a2 |
+  bes4\f bes bes2 bes bes4 bes bes4.( g8 \nat a4 g) a2 |
   \aside #'( -3 . 0 ) "T.I." bes!4( d8[ e] f4) c4 f,( c') |
-  \asidecol #'( -3 . 0 ) "T.I" "T.II" f!2 ees8[ f] ees[ d] <c ees>[ <d f>] ees[ d]
+  \asidecol #'( -3 . 0 ) "T.I" "T.II" f!2 \nat ees8[ f] ees[ d] <c ees>[ <d f>] ees[ d]
   << { c4( c d8[ c] d) } \new Voice { \voiceThree c4 f,8[ a] bes4 bes } >> a2 r2 r1
   \asidecol #'( -3 . 3 ) "T.I" "T.II"  <g! bes>8\p[ <a c>]
   <bes d>4 q <a d>4 q <bes d>8[( <a c>] <g bes>4) <a c>8[ <bes d>] <c ees>4 <bes d>8[ <a c>] <a d>4( <a c>) bes <a c>4.( <bes d>8) |
@@ -238,6 +239,8 @@ devab = \lyricmode {
       \new Staff \with {
         instrumentName = \markup { \column { "Дискант I" \line { "Тенор I" } \line { "Альт" } } }
         shortInstrumentName = \markup { \column { "DI" \line { "TI" } \line { "A" } } }
+        instrumentName = \markup { \column { "Сопрано" "Альт" } }
+        shortInstrumentName = \markup { \column { "С" "А" } }        
         midiInstrument = "voice oohs"
       } <<
         \new Voice = "soprano" { \voiceOne \sopvoice }
@@ -248,6 +251,8 @@ devab = \lyricmode {
       \new Staff \with {
         instrumentName = \markup { \column { "Дискант II" \line { "Тенор II" } \line { "Бас" } } }
         shortInstrumentName = \markup { \column { "DII" \line { "TII" } \line { "B" } } }
+        instrumentName = \markup { \column { "Тенор" "Бас" } }
+        shortInstrumentName = \markup { \center-column { "Т" "Б" } }
         midiInstrument = "voice oohs"
       } <<
           \new Voice = "tenor" { \voiceOne \clef bass \tenorvoice }
@@ -294,6 +299,8 @@ devab = \lyricmode {
     \new Staff \with {
       instrumentName = \markup { \column { "Дискант I" \line { "Тенор I" } \line { "Альт" } } }
       shortInstrumentName = \markup { \center-column { "ДI" \line { "TI" } \line { "A" } } }
+      instrumentName = \markup { \column { "Сопрано" "Альт" } }
+      shortInstrumentName = \markup { \column { "С" "А" } }   
       midiInstrument = "voice oohs"
     } <<
       \new Voice = "soprano" { \voiceOne \sopdevo }
@@ -304,6 +311,8 @@ devab = \lyricmode {
     \new Staff \with {
       instrumentName = \markup { \column { "Дискант II" \line { "Тенор II" } \line { "Бас" } } }
       shortInstrumentName = \markup { \center-column { "ДII" \line { "TII" } \line { "Б" } } }
+      instrumentName = \markup { \column { "Тенор" "Бас" } }
+      shortInstrumentName = \markup { \center-column { "Т" "Б" } }
       midiInstrument = "voice oohs"
     } <<
         \new Voice = "tenor" { \voiceOne \clef bass \tenordevo }

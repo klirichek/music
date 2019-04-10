@@ -31,7 +31,7 @@ global = {
   \numericTimeSignature
   \time 2/4
   \tempo 4=88
-  \override MultiMeasureRest.expand-limit = #2
+  \override MultiMeasureRest.expand-limit = #1
   \set Score.skipBars = ##t
   \set Score.markFormatter = #format-mark-circle-alphabet
 }
@@ -43,12 +43,11 @@ mark-versetwo = { \bar "||" \mark \markup \ellipse \small "Verse 2" }
 mark-intertwo = { \bar "||" \mark \markup \ellipse \small "Interlude 2" }
 mark-versethree = { \bar "||" \mark \markup \ellipse \small "Verse 3" }
 
-tmpl = \relative c'' {
+tmplf = \relative c'' {
   \global
   \partial 8
   \tempo 4=88
-  \tiny fis16^\markup\tiny"Flute" e |
-%  s8 |
+  s8 
   s2*4 \mark-verseone
   s2*19 \mark-interone
   s2*5 \mark-versetwo
@@ -56,6 +55,11 @@ tmpl = \relative c'' {
   s2*5 \mark-versethree
   s2*19 \bar "|."
 }
+
+tmpl = \relative c'' <<
+  \tmplf
+  { \tiny fis16^\markup\tiny"Flute" e \normalsize }
+>>
 
 violin = \relative c''' {
   \global
@@ -289,8 +293,275 @@ cello = \relative c {
   
 }
 
+
+flute = \relative c'' {
+  \global
+  fis16\f( e |
+  d8) d'4( b8) |
+  a8.( g16) fis8( g) |
+  a4 a |
+  d2 |
+  R2 |
+  r8 a,16\mf a a8 r |
+  r a'4 g8 |
+  fis8 a16 g fis8 r |
+  
+  r g16 g g8 r |
+  r g16 g g8 a16 g |
+  fis8 a16 g fis8 r |
+  R2*3 |
+  r4 r8 fis,16 a |
+  d8 a16 d fis8 d |
+  a'4 r |
+  cis,8 a16 cis e8 cis |
+  
+  a8 g'16 fis g8 fis16 e |
+  d8 a'4 g8 |
+  fis4 r |
+  R2*2 |
+  d8 a'4 b8 |
+  a16 g fis e d4 |
+  d8 a'4 g16 fis |
+  e fis g e a g fis e |
+  
+  d2 |
+  R2*19 |
+  d8 a'4 b8 |
+  a16 g fis e d4 |
+  d8 a'4 g16 fis |
+  e fis g e a g fis e |
+  
+  %d2 
+  cis2
+  
+  %\key es \major
+  d4 cis16 d cis b |
+  a b a g fis a g a |
+  fis g a d e fis g e |
+  fis g fis e d4 |
+  R2 |
+  a16 b cis d cis8 a |
+  fis16 g a g fis8 r |
+  
+  r4 r8 a |
+  d4 r8 d |
+  fis4 r8 fis |
+  a4 r8 a |
+  d r r4 |
+  d,16 e fis g a8 g16 fis |
+  
+  e a g a e fis e d |
+  cis d e fis g8 fis16 e |
+  d8^\markup\bold"rit." d'4 b8 |
+  a16 b a g fis8 g |
+  a16 b a fis e8 g
+  fis2\fermata
+  
+}
+
+
+rup = \relative c' {
+  \global
+  \oneVoice
+  fis16\f e |
+  d8 <fis d'>4 <g b>8 |
+  <fis a>8. <e g>16 <d fis>8 <e g b> |
+  <d fis a>4 <cis e g a cis> |
+  <d fis a d>2 |
+  
+  % verse 1
+  <fis d'>4\mf <a cis>8. <g b>16 |
+  <fis a>4. <e g>8 |
+  <d fis>4 <cis e> |
+  d4. a'8 | \abr
+  
+  <g b>4. q8 |
+  <cis, e g cis>4. <g' cis>8 |
+  <fis d'>4. q8 |
+  q <a cis> <g b> <fis a> |
+  <a, cis fis a>8. <e' g>16 <a, d fis>8 <fis' d'> |
+  q <a cis> <g b> <fis a> |
+  q8. <e g>16 <d fis>8 <d' fis>16 a |
+  <d fis>16 a <d fis> a <d fis> a <d fis> <e g> | \abr
+  
+  <d fis a> a <d fis a> a <d fis a> a <e' g> <d fis> |
+  <cis e> <g a> <cis e> <g a> <cis e> <g a> <cis e> <d fis> |
+  <cis e g> <g a> <cis e> <g a> <cis e> <g a> <d' fis> e |
+  fis8 <fis, d' fis a>4 <g b d fis b>8 |
+  <fis a d fis a>8. <e g g'>16 <d fis fis'>8 <e g g'> |
+  <d fis a d fis>4 <cis e g cis e> |
+  <d fis a d>2 | \abr
+  
+  % interlude
+  r4. fis16\f e |
+  d8 <fis d'>4 <g b>8 |
+  <fis a>8. <e g>16 <d fis>8 <e g b> |
+  <d fis a>4 <cis e g a cis> |
+  <d fis a d>2 |
+  
+  % verse 2
+  <fis d'>4\mf <a cis>8. <g b>16 |
+  <fis a>4. <e g>8 |
+  <d fis>4 <cis e> |
+  d4. a'8 |
+  <g b>4. q8 | \abr
+  
+  <g cis>4. q8 |
+  <fis d'>4. q8 |
+  q <a cis> <g b> <fis a> |
+  q8. <e g>16 <d fis>8 <fis d'> |
+  q <a cis> <g b> <fis a> |
+  q8. <e g>16 <d fis>8 <d' fis>16 a |
+  <d fis> a <d fis> a <d fis> a <d fis> <e g> |
+  <d fis a> a <d fis a> a <d fis a> a <d fis> <b e g> | \abr
+  
+  <d fis a> a < a d fis a> a <d fis a> a <a d fis a> <g' b> |
+  <e g a cis> e <g a cis> e <g a cis> e <cis g' b> a'  |
+  <d, fis a d>8 <fis, d'>4 <g b>8 |
+  <fis a>8. <e g>16 <d fis>8 <e g> |
+  <d fis>4 <cis e> |
+  d2
+  
+  <bes' d>8 <c e> <d f> <c e> |
+  <bes d> <c e> <d f> <d e> |
+  <bes d> <c e> <d f> <e g> |
+  <fis a>2
+  s2
+  
+%  \key es \major
+  <fis, d'>4 <a cis>8. <g b>16 |
+  <fis a>4. <e g>8 |
+  <d fis>4 <cis e> |
+  d4. a'8 |
+  <g b>4. q8 |
+  <g cis>4. q8 | \abr
+  <fis d'>4. q8 |
+  q <a cis> <g b> <fis a> |
+  q8. <e g>16 <d fis>8 <fis d'> |
+  q <a cis> <g b> <fis a> |
+  q8. <e g>16 <d fis>8 q |
+  \repeat unfold 4 { fis16 d' a d } | \abr
+  \repeat unfold 4 { a e' cis e } | 
+  fis8^\markup\bold"rit." <fis, d'>4 <g b>8 |
+  <fis a>8. <e g>16 <d fis>8 <e g> |
+  <d fis>4 <cis e> |
+  d2\fermata  
+}
+
+rdown = \relative c'' {
+  \global 
+}
+
+lup = \relative c {
+  \global
+  \oneVoice
+  r8 |
+  <d fis a>8 q4 <g b d>8 |
+  <d fis a d>4 r |
+  <a d fis a>4 <a cis e g> |
+  <d, fis a d>2 |
+  
+  % verse 1
+  <d' a'>4 <d d'>8. q16 |
+  q4. <g b>8 |
+  << { a4. g8 } \\ { a,4 a } >> \oneVoice |
+  <d fis>4. <fis d'>8 | \abr
+  
+  <g d'>4. q8 |
+  <a, cis e g a>4. a'8 |
+  <d, d'>4. r8 |
+  <d d'> <fis a> <g b> <fis a> |
+  <a, a'>8. q16 d4 |
+  <d d'>8 <fis a> <g b> <fis a> |
+  <a, a'>8. q16 d4 |
+  <d fis a d>4. r8 | \abr
+  
+  <d fis a d>4. cis'16 b |
+  <a, e' g a>4 <g' a cis e>8 e' |
+  <cis, e g a>4 a |
+  d'8 <d, a'>4 <d g b d>8 |
+  <d fis a d>4. <g, b'>8 |
+  <a d fis a>4 << { a'8 g} \\ <a, cis e g> >> \oneVoice |
+  <d fis>2 |
+  
+  %interlude 1
+    r2 |
+  <d fis a>8 q4 <g b d>8 |
+  <d fis a d>4 r |
+  <a d fis a>4 <a cis e g> |
+  <d, fis a d>2 |
+  
+  % verse 2
+  <d' a'>4 <d d'>8. q16 |
+  q4. <g, b'>8 |
+  << { a'4. g8 } \\ { a,4 a } >> \oneVoice |
+  <d fis>4. <fis d'>8 | 
+  <g d'>4. q8 | \abr
+  a4. a8 |
+  <d, d'>4. r8 |
+  <d d'> <fis a> <g b> <fis a> |
+  <a, a'>8. q16 d4 |
+  <d d'>8 <fis a> <b d> <fis a> |
+  <a, a'>8. q16 d4 |
+  <d fis a>4 a' |
+  <d, fis a> d' | \abr
+  <d, fis a d>4. <d fis a>8 |
+  <a cis e g a>4 r
+  <d fis a d>8 <d a'>4 <d g b d>8 |
+  <d d'>4. <g, b'>8 |
+  << { a' a8 g } \\ { a,4 a } >> \oneVoice |
+  <d fis>2 |
+  <bes bes'>2 |
+  q |
+  <g g'> |
+  <d' d'> |
+  s |
+  
+ % \key es \major
+  <d a'>4 <d d'>8. q16 |
+  q4. <g b>8 |
+  << { a4. g8} \\ { a,4 a } >> \oneVoice |
+  <d fis>4. <fis d'>8 |
+  <g d'>4. q8 |
+  a4. a8 | \abr
+  
+  <d, d'>4. r8 |
+  R2*4 |
+  d'4. d16 e |
+  d4. e16 fis | \abr
+  e4. e16 fis |
+  g4. fis16 e |
+  d8 <d, a'>4 <d d'>8 |
+  q4. <g, b'>8 |  
+  << { a'4 a8 g} \\ { a,4 a } >> \oneVoice |
+  <d fis>2
+}
+
+ldown = \relative c'
+{
+  \global
+}
+
+right = \relative c' {
+  \global
+  << << \rup \tmplf >> \\ \rdown >>
+}
+
+left = \relative c {
+  \global
+  << \lup \\ \ldown >>
+}  
+
+pianoPart = \new PianoStaff \with {
+  instrumentName = "Organ"
+  midiInstrument = "church organ"
+} <<
+  \new Staff = "right"  \right
+  \new Staff = "left"  { \clef bass \left }
+>>
+
 violinPart = \new Staff \with {
-  instrumentName = "V-no"
+  instrumentName = "V2"
   midiInstrument = "violin"
 } << \violin \tmpl >>
 
@@ -304,12 +575,18 @@ celloPart = \new Staff \with {
   midiInstrument = "cello"
 }  << \cello \tmpl >>
 
+flutePart = \new Staff \with {
+  instrumentName = "V1"
+  midiInstrument = "violin"
+}  << \flute \tmplf >>
+
 \bookpart {
   \header {
-    piece = "Violin"
+    piece = "Violini"
   }
   \score {
     <<
+      \flutePart
       \violinPart
     >>
     \layout { }
@@ -342,13 +619,27 @@ celloPart = \new Staff \with {
 
 \bookpart {
   \header {
+    piece = "Organ"
+  }
+  \score {
+    <<
+      \pianoPart
+    >>
+    \layout { }
+  }
+}
+
+\bookpart {
+  \header {
     piece = "Midi"
   }
   \score {
     <<
+      \flutePart
       \violinPart
       \violaPart
       \celloPart
+      \pianoPart
     >>
     \midi {
       \tempo 4=88

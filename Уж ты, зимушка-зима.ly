@@ -56,7 +56,7 @@ bassvoice = \relative c' {
   r8 r4 a8 \( d\) r8 r4
   R2*4 | r8 a a g | f8. f16 f8 f | f f f f | f8. f16 f8 f |
   f g16 g g g g g | f8 f16 f f f f f e8 a a g | f8. f16 f8 e | d[ e] f d |
-  a'4 a8. g16 | a8 r d, d | d4 d8 d | c d16 d d8 d16 d |
+  a'4 a8. g16 | a8 r d, d | d4 bes8 bes | c d16 d d8 d16 d |
   bes8 d16 d d8 d16 d | bes8 c16 c c c c c | c c c c c c c c |
   c4 d8 d a'8. g16 a8 b | c a16 a a a a a | g8\p a16 a a a a a |
   g8 a16 a a a a a | g g a a a8 a16 a | a8 bes?16 bes bes bes bes bes | bes bes bes bes bes8 bes16 bes |

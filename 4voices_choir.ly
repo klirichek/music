@@ -13,6 +13,8 @@
   tagline = ##f
 }
 
+breathes = { \once \override BreathingSign.text = \markup { \musicglyph #"scripts.tickmark" } \breathe }
+
 global = {
   \key d \minor
   \time 4/4
@@ -24,6 +26,8 @@ sopvoice = \relative c'' {
   \dynamicUp
   \autoBeamOff
   \override Score.BarNumber.break-visibility = #end-of-line-invisible
+  \override Score.BarNumber.X-offset = #1
+  \override Score.BarNumber.self-alignment-X = #LEFT
   \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
   d4 d d d
 }
