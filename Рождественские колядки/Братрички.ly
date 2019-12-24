@@ -190,7 +190,27 @@ flnotes = \relative c''' {
   f d16 bes c a bes4 f'16 d |
   bes8-. bes-. d-. bes-. bes-. f'-. |
   bes,-. bes-. a-. bes-. bes'-. bes-. |
-  \time 3/8 bes4.--
+  \time 3/8 bes4.-- \abr
+  
+  %page 3
+  \time 6/8
+  bes8-. d-. a-. r4 r8 |
+  a4 f8 r4 r8 |
+  bes8 f g f es d |
+  es f g f4 d16 c | \abr
+  
+  % page 4
+  bes4 c8 d4 es8 |
+  f8 d16 bes c a bes4 r8 |
+  d8.( es16) f8-. f-- es-. d-. |
+  es-. f-. g-. es4.-- | \abr
+  
+  %page 5
+  c8.--( d16) es8-. es-- d-. c-. |
+  d-- es-. f-. d4-- r8 |
+  bes8--\mf bes16 a bes8 g4. |
+  g4.\mp f | \abr
+    
 }
 
 flpart = {
@@ -206,32 +226,6 @@ flscore = \new Staff \with {
   \flpart
 }
 
-vinotes = \relative c''' {
-  bes4-- f8-. d4.-- |
-  a'8-. c-. es,~ es4 r8 |
-  bes'8-. f-. g-. f-. es-. d-. |
-  es-. f-. g-. f4--( d16 c)
-  
-  bes4 c8 d4 es8 |
-  f d16 bes c a bes4 f'16 d |
-  bes8 bes d bes bes f' |
-  bes, bes a bes bes' bes |
-  \time 3/8 bes4.--
-}
-
-vipart = {
-  \global
-  \vinotes
-}
-
-viscore = \new Staff \with {
-  instrumentName = "V1"
-  shortInstrumentName = "V1"
-  midiInstrument = "violin"
-} {
-  \vipart
-}
-
 vinotes = \relative c'' {
   
   bes8-. d-. f,-. r4 r8 |
@@ -245,6 +239,26 @@ vinotes = \relative c'' {
   bes-. bes-. f-. bes-. bes-. a-. |
   bes-. bes-. a-. bes-. d-. d-. |
   \time 3/8 d4.--
+  
+   % page 3
+  \time 6/8 f,4 f8 bes-. d-. f,-. |
+  f4 f8 a-. c-. f,-. |
+  bes4.~ bes~ |
+  bes~ bes4 a8 |
+  
+  % page 4
+  g4 a8 bes4 bes8 |
+  bes f f f4 r8 |
+  f4. bes |
+  a a |
+  
+  % page 5
+  f f |
+  f f8--\mf es16-> c-> d8-> |
+  d4. bes |
+  c'8--\mf c16 bes c8 a4. |
+  
+  % page 6
 }
 
 vipart = {
@@ -272,6 +286,26 @@ viinotes = \relative c' {
   d f d f d f d f d f es f |
   d8-. f-. f-. f-. bes-. bes-.
   \time 3/8 bes4.--
+  
+  %page 3
+  \time 6/8 d,4 d8 d4 r8 |
+  a'8-. c-. f,-. f4 f8 |
+  f4 g8 f es d |
+  g f es f4 f8 |
+  
+  % page 4
+  d4 f8 f4. |
+  f4 es8 d4 r8 |
+  bes8.\f( c16) d8-. d-- c-. bes-. |
+  c-. d-. es-. c4.--
+  
+  %page 5
+  a8.--( bes16) c8-. c-- bes-. a-. |
+  bes-- c-. d-. bes4-- r8 |
+  g'4.\p g8--\mf g16 f g8 |
+  es4.\p f8--\mf f16 es f8 |
+  
+  
 }
 
 viipart = {
@@ -299,6 +333,26 @@ viiinotes = \relative c {
   bes  bes |
   f'8-. f-. es-. d-. f-. f-. |
   \time 3/8 f4.--
+  
+  % page 3
+  \time 6/8 f,8 g-. a-. bes4 r8 |
+  r f-. g-. a4. |
+  bes4.~ bes~ |
+  bes~ bes4 a8 |
+  
+  %page 4
+  g4 f8 bes4 c8|
+  d8 bes a bes4 r8 |
+  bes4 r8 d8 r4 |
+  f4. f |
+  
+  % page 5
+  c4. f,8-. g-. a-. |
+  bes-.\> a-. g-. f8\p r4 |
+  g4 r8 bes4 r8 |
+  c4 r8 c4 r8 |
+  
+  
 }
 
 viiipart = {
@@ -325,6 +379,25 @@ vcnotes = \relative c {
    bes bes |
    bes8-. bes-. f-. bes-. bes-. bes-. |
    \time 3/8 bes4.
+   
+   % page 3
+   \time 6/8 bes,4 f'8 bes4 r8 |
+   f4 c8 f,4 r8 |
+   bes4 c8 d-. es-. f-. |
+   g-. f-. es-. d4 f8 |
+   
+   % page 4
+   g4 f8 bes4 c8 |
+   d-. f,-. a-. bes-. f-. d-. |
+   bes4 r8 f'4 r8 |
+   a4 r8 es-. d-. c-. |
+   
+   % page 5
+   bes8-. a-. g-. f4.-- |
+   bes4 r8 r4 r8 |
+   g'4 r8 bes4 r8 |
+   c,4-- es8-> f4.-- |
+   
 }
 
 vcpart = {
@@ -352,6 +425,24 @@ rightnotes = \relative c'' {
   <d f bes>4 <c es a>8 <d bes'>4 r8 |
   \time 3/8 r4 r8
   
+  % page 3
+  \time 6/8 <d f bes>4. <d f> |
+  <c f a> <c f>4 r8 |
+  <d f bes>4. <d f> |
+  << { <bes bes'>4. } \\ { es8 f g } >> <bes, f' bes>4 f'8 |
+  
+  % page 4
+  <d g bes>4 <f a c>8 <f bes d>4 <f bes es>8 |
+  <f bes f'>8 <d f bes> <es f a> <d f bes>4 r8 |
+  <f bes d>4. <d f bes> |
+  <c f a> <a c f>\p |
+  
+  %page 5
+  <f' a>4. <f a c> |
+  <d f bes> <d f>4 r8 |
+  <d g bes>4 r8 <d g>4 r8 |
+  <es g c>4 r8 <c f a>4 r8 |
+  
 }
 
 leftnotes = \relative c {
@@ -366,6 +457,24 @@ leftnotes = \relative c {
   bes bes |
   bes4 <f f,>8 <bes bes,>4 r8 |
   \time 3/8 r4 r8
+  
+  % page 3
+  \time 6/8 bes,4. bes'4 r8 |
+  << { f4 g8 a4 } \\ { f,4.~ f8 } >> r8 |
+  bes4 c8 d es f |
+  g f es d4 <f a>8 |
+  
+  % page 4
+  g4 f8 bes,4 c8 |
+  d16 es f8 f bes4 r8 |
+  <bes, bes'>4. <f f'> |
+  <a a'> <f f'> |
+  
+  % page 5
+  <c' c'>4. << { f8 g a } \\ f,4. >> |
+  <bes bes'>4.~ q8 r4 |
+  <g g'>4. <bes bes'> |
+  <c c'> <f, f'>
 }
 
 rightpart = {
