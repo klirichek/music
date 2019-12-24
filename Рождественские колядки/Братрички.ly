@@ -174,7 +174,7 @@ choirscore = \new ChoirStaff <<
       \new Lyrics \lyricsto "alto" { \lyricscoreaII }
 
       
-      % or: \new Lyrics \lyricsto "soprano" { \lyricscore }
+      % or: \new Lyricsm \lyricsto "soprano" { \lyricscore }
       % alternative lyrics above up staff
       %\new Lyrics \with {alignAboveContext = "upstaff"} \lyricsto "soprano" \lyricst
     >>
@@ -184,12 +184,12 @@ flnotes = \relative c''' {
   bes4-- f8-. d4.-- |
   a'8-. c-. es,~ es4 r8 |
   bes'8-. f-. g-. f-. es-. d-. |
-  es-. f-. g-. f4--( d16 c)
+  es-. f-. g-. f4--( d16 c) \abr
   
   bes4 c8 d4 es8 |
   f d16 bes c a bes4 f'16 d |
-  bes8 bes d bes bes f' |
-  bes, bes a bes bes' bes |
+  bes8-. bes-. d-. bes-. bes-. f'-. |
+  bes,-. bes-. a-. bes-. bes'-. bes-. |
   \time 3/8 bes4.--
 }
 
@@ -236,14 +236,14 @@ vinotes = \relative c'' {
   
   bes8-. d-. f,-. r4 r8 |
   c'4-- r8 a-. c-. f,-. |
-  d'4. bes~ |
-  bes~ bes
+  d'4 es8 bes4.~ |
+  bes~ bes4 a8
 
   % page 2
   g4 a8 bes4 c8 |
   d bes a bes bes bes |
-  bes bes f bes bes a |
-  bes bes a bes d d |
+  bes-. bes-. f-. bes-. bes-. a-. |
+  bes-. bes-. a-. bes-. d-. d-. |
   \time 3/8 d4.--
 }
 
@@ -263,14 +263,14 @@ viscore = \new Staff \with {
 viinotes = \relative c' {
   d4. f |
   es f4 r8 |
-  f4. d |
-  bes4.~ bes
+  f4 es8 f4. |
+  es8 f g f4.
   
   % page 2
   d4 f8 f4 f8 |
   d16 es f8 f d16 f d f d f |
   d f d f d f d f d f es f |
-  d8 f f f bes bes
+  d8-. f-. f-. f-. bes-. bes-.
   \time 3/8 bes4.--
 }
 
@@ -291,13 +291,13 @@ viiinotes = \relative c {
   f8--( g-.) a-. bes4. |
   r8 f-. g-. a4. |
   bes4.~ bes~ |
-  bes~ bes |
+  bes~ bes4 a8 |
   
   % page 2
-  bes4 a8 bes4 a8 |
+  g4 f8 bes4 c8 |
   bes8 bes a bes4. |
   bes  bes |
-  f'8 f es d f f |
+  f'8-. f-. es-. d-. f-. f-. |
   \time 3/8 f4.--
 }
 
@@ -323,7 +323,7 @@ vcnotes = \relative c {
    g4 f8 bes,4 c8 |
    d8 f16 bes f a bes4. |
    bes bes |
-   bes,8 bes f bes bes bes |
+   bes8-. bes-. f-. bes-. bes-. bes-. |
    \time 3/8 bes4.
 }
 
@@ -342,15 +342,15 @@ vcscore = \new Staff \with {
 rightnotes = \relative c'' {
   r4 r8 bes8-. d-. f,-. |
   <a c,>4 f8 <f c a>4 r8 |
-  <d f bes>4. <d f> |
-  << { es8 f g } \\ bes,4. >> <bes f'>4. |
+  << { bes8 a g f es d } \\ { d4 es8 bes4. } >>
+  << { es8 f g  f bes f } \\ { bes,4. bes } >>
   
   % page 2
-  <d g bes>4 <f a c>8 << { d'4 es8 } \\ <f, bes>4. >> |
-  <f bes f'>8 bes a <d, f bes>4 <d f>8 |
+  <d g bes>4 <f a c>8 << { <bes d>4 <a es'>8 } \\ f4. >> |
+  <f bes f'>8 bes a <f bes>4 <d f>8 |
   <d f bes>4 <c es f>8 <d f> bes' <f es> |
-  <d f bes>8 q <c es a> <bes d bes'> <d f bes> q |
-  \time 3/8 q4.--
+  <d f bes>4 <c es a>8 <d bes'>4 r8 |
+  \time 3/8 r4 r8
   
 }
 
@@ -358,14 +358,14 @@ leftnotes = \relative c {
   <bes bes'>4.~ q4 r8 |
   <f f'>4.~ q4 r8 |
   bes4 c8 d es f |
-  g f es d4 f8 |
+  g f es d4 <f a>8 |
   
   % page 2
   g4 f8 bes,4 c8 |
-  d f f bes4. |
+  d f16 bes f c' <bes d>4. |
   bes bes |
-  <bes bes,>4 <f f,>8 <bes bes,> q q |
-  \time 3/8 q 4.--
+  bes4 <f f,>8 <bes bes,>4 r8 |
+  \time 3/8 r4 r8
 }
 
 rightpart = {
