@@ -21,6 +21,7 @@ global = {
   \numericTimeSignature
   \set Score.skipBars = ##t
   \override MultiMeasureRest.expand-limit = #1
+  \set Score.markFormatter = #format-mark-box-numbers
 }
 
 %make visible number of every 2-nd bar
@@ -193,6 +194,7 @@ flnotes = \relative c''' {
   \time 3/8 bes4.-- \abr
   
   %page 3
+  \mark \default
   \time 6/8
   bes8-. d-. a-. r4 r8 |
   a4 f8 r4 r8 |
@@ -210,6 +212,40 @@ flnotes = \relative c''' {
   d-- es-. f-. d4-- r8 |
   bes8--\mf bes16 a bes8 g4. |
   g4.\mp f | \abr
+  
+  % page 6
+  bes4 c8 d4 es8 |
+  f d16 bes c a bes4 r8 |
+  r4 r8 bes8.-- a16 bes8 |
+  g4. a8-- a16 g a8 |
+  
+  % page 7
+  f4. g |
+  r r |
+  bes8-. d-. f,-. r4 r8 |
+  c'4\p r8 f4 r8 |
+  
+  % page 8
+  bes,8-. a-. g-. f-. es-. d-. |
+  es-. f-. g-. f4. |
+  bes4 c8 d4 es8 |
+  f bes, a bes4 r8 |
+  
+  % page 9
+  bes4. bes |
+  a f8 g a |
+  f4. f8 g a |
+  f4. d16( f g a bes c |
+  
+  % page 10
+  d8) r4 g,8-- g16( f g8) |
+  es4. f8-- f16( es f8) |
+  d4 f8 bes4 c8 |
+  d bes a bes16( c d es f bes |
+  
+  % page 11
+  f4.) f, |
+  f'4 a8-. bes4 r8
     
 }
 
@@ -234,7 +270,7 @@ vinotes = \relative c'' {
   bes~ bes4 a8
 
   % page 2
-  g4 a8 bes4 c8 |
+  g4 a8 bes4 a8 |
   d bes a bes bes bes |
   bes-. bes-. f-. bes-. bes-. a-. |
   bes-. bes-. a-. bes-. d-. d-. |
@@ -254,11 +290,43 @@ vinotes = \relative c'' {
   
   % page 5
   f f |
-  f f8--\mf es16-> c-> d8-> |
+  f f8-- es16-> c-> d8-> |
   d4. bes |
   c'8--\mf c16 bes c8 a4. |
   
   % page 6
+  f4 a8 bes4 c8 |
+  bes bes f d16 f g a bes c |
+  d8. -- c16 d8 bes4 r8 |
+  es8.-- d16 es8 c4 r8 |
+  
+  % page 7
+  d8. es16 f8 g a bes |
+  d,4--\p bes8-. c4-- a8-. |
+  bes4. r4 r8 |
+  a8-. c-. f,-. r4 r8 |
+  
+  % page 8
+  bes4\pp bes16 bes bes4 bes16 bes |
+  bes4. f8--\mf( es16 c d8-.) |
+  g4 f8 bes4 bes8 |
+  bes bes f f4 r8 |
+  
+  % page 9
+  d'8. es16 f8 f es d |
+  es f g es4. |
+  c8. d16 es8 es d c |
+  d es f d4 r8 |
+  
+  % page 10
+  bes8-- bes16( a bes8) g4. |
+  c8-- c16( bes c8) a4. |
+  bes4 c8 d4 es8 |
+  f8( d16 bes c a) bes4. |
+  
+  % page 11
+  a4. bes16( c d es f bes |
+  f4) es8-. d4 r8
 }
 
 vipart = {
@@ -305,6 +373,39 @@ viinotes = \relative c' {
   g'4.\p g8--\mf g16 f g8 |
   es4.\p f8--\mf f16 es f8 |
   
+  % page 6
+  d4 f8 bes4 c8 |
+  d g, f f4 r8 |
+  f16 g f8 f bes16 c bes a g f |
+  es4. f |
+  
+  % page 7
+  bes8. c16 d8 es f g |
+  bes,4--\p g8-. g4-- f8-. |
+  f4. bes8-. d-. f,-. |
+  r4 r8 a-. c-. f,-. |
+  
+  % page 8
+  d4 es8 f es d |
+  es f g f4. |
+  d4 f8 f4 es8 |
+  f f es d4 r8 |
+  
+  % page 9
+  bes'8. c16 d8 d c bes |
+  c d es c16( d c bes a g |
+  f8.) bes16 c8 c bes a |
+  bes c d bes4 r8 |
+  
+  % page 10
+  g4 g8 d4. |
+  g4 g8 f4 f8 |
+  f4. f |
+  bes8 g es d4.
+  
+  % page 11
+  f'16( g f es d c bes4.) |
+  a4 c8-. bes4 r8
   
 }
 
@@ -352,6 +453,39 @@ viiinotes = \relative c {
   g4 r8 bes4 r8 |
   c4 r8 c4 r8 |
   
+  % page 6
+  d4 f8 f4 g8 |
+  f8 g f f4 r8 |
+  d8-. es-. f-. g4. |
+  g4 g8 f8-. g-. a-. |
+  
+  % page 7
+  bes4. bes, |
+  f'4--\p d8-. c4-. c8-. |
+  d4.~ d4 r8 |
+  r f,8-. g-. a4. |
+  
+  % page 8
+  bes4.~ bes~ |
+  bes bes4 a8 |
+  g4 c8 s4 es8 |
+  d4 c8 bes8.( c16 d es |
+  
+  % page 9
+  f4.) f |
+  f c |
+  a a |
+  bes r16 d,( es f g a |
+  
+  % page 10
+  bes8) d4 d4. |
+  c4 c8 c4 c8 |
+  bes4 bes8 bes4. |
+  bes4 f'8-. bes a-. g-. |
+  
+  %page 11
+  a-. es-. c-. d4. |
+  f4 f8-. f4 r8
   
 }
 
@@ -375,7 +509,7 @@ vcnotes = \relative c {
   
    % page 2
    g4 f8 bes,4 c8 |
-   d8 f16 bes f a bes4. |
+   d8 f16 bes f c' bes4. |
    bes bes |
    bes8-. bes-. f-. bes-. bes-. bes-. |
    \time 3/8 bes4.
@@ -398,6 +532,39 @@ vcnotes = \relative c {
    g'4 r8 bes4 r8 |
    c,4-- es8-> f4.-- |
    
+   % page 6
+   bes,4 f'8 bes4 es,8 |
+   d-. g-. f-. bes4 r8 |
+   bes4-- bes8 g8.-- f16 d8 |
+   c8.-- d16 es8 f16 g f es d c |
+   
+   % page 7
+   bes4. es |
+   f4-- g8-. es4-- f8-.  |
+   bes,4-. f'8-. bes4.-. |
+   f4-. c8-. f,4.-. |
+   
+   % page 8
+   bes4 es8 d c bes |
+   c d es d4 f8 |
+   g4 a8 bes4 g8 |
+   f4 f8 bes,4 r8 |
+   
+   % page 9
+   bes4 f8-. bes4 f8-. |
+   a4 f8-. c'4 f,8 |
+   c'4. f,8 g a |
+   bes4. f'4 r8 |
+   
+   % page 10
+   r4 g8-. bes4. |
+   r4 c,8-. f16( g f es d c |
+   bes4.~) bes4 c8 |
+   d g-. f-. bes4. |
+   
+   % page 11
+   f4. bes8 a-. g-. |
+   f16( g f es d c bes4) r8
 }
 
 vcpart = {
@@ -416,7 +583,7 @@ rightnotes = \relative c'' {
   r4 r8 bes8-. d-. f,-. |
   <a c,>4 f8 <f c a>4 r8 |
   << { bes8 a g f es d } \\ { d4 es8 bes4. } >>
-  << { es8 f g  f bes f } \\ { bes,4. bes } >>
+  << { es8 f-. g-.  f bes-. f-. } \\ { bes,4. bes } >>
   
   % page 2
   <d g bes>4 <f a c>8 << { <bes d>4 <a es'>8 } \\ f4. >> |
@@ -443,13 +610,47 @@ rightnotes = \relative c'' {
   <d g bes>4 r8 <d g>4 r8 |
   <es g c>4 r8 <c f a>4 r8 |
   
+  % pagd 6
+  <d f bes>4 <f a c>8 <f bes d>4 <g c es>8 |
+  <f bes f'>8 <bes, d g> <c f a> <d f bes>4 r8 |
+  <f bes d>4. <d g bes> |
+  <es g c> <f a c> |
+  
+  % page 7
+  <d f bes>4. <es g bes> |
+  <f bes d>4\mp <g bes>8-. <g c>4 <f a>8-. |
+  <d f bes>4. <d f>4 r8 |
+  <c~ f~ a>4. <c f> |
+  
+  % page 8
+  <d f>4 <es g>8 << { f8 es d} \\ bes4. >> |
+  << { es8 f g } \\ bes,4. >> <bes f'>4 f'8 |
+  <d g bes>4 <c f c'>8 <f d'>4 <bes es>8 |
+  <bes f'> <f bes> <f a> <d f bes>4 r8 | 
+  
+  % page 9
+  bes'8 <d, f>4 bes'8 <d, f>4 |
+  << {a'4 c8 } \\ { r8 <c, f>4 } >> <a c f>4. |
+  <a f'>8. bes'16 c8 << { <c es>8 <bes d> <a c> } \\ f4. >> |
+  <bes d>8 f4 <d f bes>4 r8 |
+  
+  % page 10
+  <d g bes>8 d4 <d g>4. |
+  <es g c>8 es4 <c f a>4. |
+  <d f bes>4 c'8 <f, bes d>4 es'8 |
+  <f, bes d>8 <d g bes> <f a> <d f bes>4. |
+  
+  % page 11
+  <f a c>4. <d f bes> |
+  <c f a>4 <c es f>8-. <d f bes>4 r8
+  
 }
 
 leftnotes = \relative c {
   <bes bes'>4.~ q4 r8 |
   <f f'>4.~ q4 r8 |
-  bes4 c8 d es f |
-  g f es d4 <f a>8 |
+  bes4 c8 d-. es-. f-. |
+  g-. f-. es-. d4 <f a>8 |
   
   % page 2
   g4 f8 bes,4 c8 |
@@ -461,8 +662,8 @@ leftnotes = \relative c {
   % page 3
   \time 6/8 bes,4. bes'4 r8 |
   << { f4 g8 a4 } \\ { f,4.~ f8 } >> r8 |
-  bes4 c8 d es f |
-  g f es d4 <f a>8 |
+  bes4 c8 d-. es-. f-. |
+  g-. f-. es d4 <f a>8 |
   
   % page 4
   g4 f8 bes,4 c8 |
@@ -475,6 +676,41 @@ leftnotes = \relative c {
   <bes bes'>4.~ q8 r4 |
   <g g'>4. <bes bes'> |
   <c c'> <f, f'>
+  
+  % page 6
+  bes4 f'8 bes4 es,8 |
+  d g-. f-. bes4 r8 |
+  bes4. g8. f16 d8 |
+  c8. d16 es8 f4. \abr
+  
+  % page 7
+  bes,4. es |
+  f4 <g d'>8-. <es c'>4 <f c'>8 |
+  \mark \default
+  bes,4 f'8 bes4. |
+  f4 c8 f,4. | \abr
+  
+  % page 8
+  bes4 es8 d c bes |
+  c d es d4 <f a>8 |
+  g4 a8 <bes d>4 <g es'>8 |
+  <f d'>4 <f f,>8 bes,4 r8 | \abr
+  
+  % page 9
+  bes4 f8-. bes4 f8-. |
+  a4 f8-. c'4 f,8-. |
+  c'4. f,8 g a |
+  bes4. f'4 r8 | \abr
+  
+  % page 10
+  r4 g8 bes4. |
+  r4 c,8 f4. |
+  <bes bes,>4. bes |
+  d,8 g-. f-. bes4. | \abr
+  
+  % page 11
+  f4. bes8 a-. g-. |
+  f4 <f f,>8 <bes bes,>4 r8 \bar "||"
 }
 
 rightpart = {
