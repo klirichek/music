@@ -152,13 +152,22 @@ refrain = \lyricmode {
 }
 
 verseone = \lyricmode {
-  O come, all ye faith -- ful
+  \set stanza = "1. " O come, all ye faith -- ful
     Joy -- ful and tri -- um -- thant
     O come ye, O come ye to Beth -- le -- hem;
     Come and be -- hold him Born the King of An -- gels:
    \refrain
     Glo -- ry to God in the high -- est:
     \refrain
+}
+
+verseonelatin = \lyricmode {
+  \set stanza = "3. " A -- de -- ste fi -- de -- les læ -- ti tri -- u -- mpha -- ntes,
+Ve -- ni -- te, ve -- ni -- te in Be -- thle -- hem.
+Na -- tum vi -- de -- te re -- gem a -- nge -- lo -- rum.
+Ve -- ni -- te a -- do -- re -- mus
+Ve -- ni -- te a -- do -- re -- mus
+Ve -- ni -- te a -- do -- re -- mus Do -- mi -- num!
 }
 
 versesolo = \lyricmode {
@@ -168,7 +177,7 @@ versesolo = \lyricmode {
 }
 
 versetwohalf = \lyricmode {
-  Sing, __ choirs of an -- gels, __  Sing in ex -- ul -- ta -- tion,
+  \set stanza = "2. " Sing, __ choirs of an -- gels, __  Sing in ex -- ul -- ta -- tion,
   Sing, __ all ye cit -- i -- zens of heav'n__ a -- bove;
 }
 
@@ -399,6 +408,7 @@ choirPart =   \new ChoirStaff  <<
       \new Voice = "Alto" { \voiceTwo \alto \showStaffSwitch \change Staff= "tb" \stemUp b4^\markup { \dynamic mf " A2+T"} \hideStaffSwitch \change Staff="sa" \voiceTwo \altooneend }
     >>
     \new Lyrics \lyricsto "Sop" { \verseone }
+    \new Lyrics \lyricsto "Sop" { \verseonelatin }
     
     \new Staff \with {
       instrumentName = #"Alto" 

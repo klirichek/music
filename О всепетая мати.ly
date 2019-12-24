@@ -205,9 +205,11 @@ lyricdown = \lyricmode {
   top-margin = 15
   left-margin = 15
   right-margin = 10
-  bottom-margin = 15
+  bottom-margin = 35
   indent = 10
   ragged-bottom = ##f
+  ragged-last = ##f
+  ragged-last-bottom = ##f
 }
 \score {
   %  \transpose c bes {

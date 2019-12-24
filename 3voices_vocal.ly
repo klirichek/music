@@ -7,18 +7,17 @@
 %#(set-global-staff-size 18)
 
 \header {
-  title = "Title"
-  composer = "Composer"
+  title = ""
+  %composer = "Composer"
   % Удалить строку версии LilyPond 
   tagline = ##f
 }
 
-
-%abr = { \break }
+abr = { \break }
 abr = {}
 
-%pbr = { \pageBreak }
-pbr = {}
+pbr = { \pageBreak }
+%pbr = {}
 
 breathes = { \once \override BreathingSign.text = \markup { \musicglyph #"scripts.tickmark" } \breathe }
 
@@ -51,52 +50,45 @@ nat = { \once \hide Accidental }
 partiall = { \set Timing.measurePosition = #(ly:make-moment -1/4) }
 
 global = {
-  \key d \minor
-  \time 4/4
+  \key f \major
+  \time 3/4
   \numericTimeSignature
   \override Score.BarNumber.break-visibility = #end-of-line-invisible
   \override Score.BarNumber.X-offset = #1
   \override Score.BarNumber.self-alignment-X = #LEFT
-  \override DynamicText.X-offset = #-2.5
   \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
-  \set Score.markFormatter = #format-mark-box-numbers
-  \set Score.skipBars = ##t
-
+    \set Score.skipBars = ##t
+  \override MultiMeasureRest.expand-limit = #1
+   \autoBeamOff
+  \dynamicNeutral
 }
 
-sopvoice = \relative c'' {
+voiceone = \relative c'' {
   \global
-  \dynamicUp
-  \autoBeamOff
-  d4 d d d
+  c c c
 }
 
-
-altvoice = \relative c' {
+voicetwo = \relative c'' {
   \global
-  \dynamicUp
-  \autoBeamOff
-  d4 d d d
+  c c c
 }
 
-
-tenorvoice = \relative c' {
+voicethree = \relative c'' {
   \global
-  \dynamicUp
-  \autoBeamOff
-  c4 c c c
+  c c c
 }
 
 
-bassvoice = \relative c {
-  \global
-  \dynamicUp
-  \autoBeamOff
-  c4 c c c
+lyricone = \lyricmode {
+  one	
 }
 
-lyricscore = \lyricmode {
-  bas bas bas
+lyrictwo = \lyricmode {
+  two
+}
+
+lyricthree = \lyricmode {
+  three
 }
 
 
@@ -106,34 +98,47 @@ lyricscore = \lyricmode {
   left-margin = 15
   right-margin = 10
   bottom-margin = 15
-  indent = 20
+  indent = 15
   ragged-bottom = ##f
-%  system-separator-markup = \slashSeparator
-
+  ragged-last-bottom = ##f
+  
 }
 \score {
   %  \transpose c bes {
     \new ChoirStaff <<
-      \new Staff = "upstaff" \with {
-        instrumentName = \markup { \right-column { "Сопрано" "Альт"  } }
-        shortInstrumentName = \markup { \right-column { "С" "А"  } }
+      \new Staff = "staffone" \with {
+        instrumentName = ""
+        shortInstrumentName = ""
         midiInstrument = "voice oohs"
       } <<
-        \new Voice = "soprano" { \voiceOne \sopvoice }
-        \new Voice  = "alto" { \voiceTwo \altvoice }
+        \new Voice = "voiceone" { \oneVoice \voiceone }
       >> 
       
-      \new Lyrics \lyricsto "soprano" { \lyricscore }
-  
-      \new Staff = "downstaff" \with {
-        instrumentName = \markup { \right-column { "Тенор" "Бас" } }
-        shortInstrumentName = \markup { \right-column { "Т" "Б" } }
+      \new Lyrics \lyricsto "voiceone" { \lyricone }
+      
+      \new Staff = "stafftwo" \with {
+        instrumentName = ""
+        shortInstrumentName = ""
         midiInstrument = "voice oohs"
       } <<
-        \new Voice = "tenor" { \voiceOne \clef bass \tenorvoice }
-        \new Voice = "bass" { \voiceTwo \bassvoice }
-      >>
+        \new Voice = "voicetwo" { \oneVoice \voicetwo }
+      >> 
+      
+      \new Lyrics \lyricsto "voicetwo" { \lyrictwo }
+      
+      \new Staff = "staffthree" \with {
+        instrumentName = ""
+        shortInstrumentName = ""
+        midiInstrument = "voice oohs"
+      } <<
+        \new Voice = "voicethree" { \oneVoice \voicethree }
+      >> 
+      
+      \new Lyrics \lyricsto "voicethree" { \lyricthree }
+  
+
     >>
+
     %  }  % transposeµ
   \layout { 
     \context {
@@ -141,6 +146,8 @@ lyricscore = \lyricmode {
     }
     \context {
       \Staff
+        \RemoveEmptyStaves
+      \override VerticalAxisGroup.remove-first = ##t
     }
   %Metronome_mark_engraver
   }
