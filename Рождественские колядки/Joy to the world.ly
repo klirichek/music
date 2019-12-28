@@ -601,10 +601,12 @@ vinotes = \relative c''' {
   % page 12
   d d, e fis g a b cis d g, a b cis d e fis |
   g8-. g-. g-. fis16-> e-> d8-> a-> d-> e-> |
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 1)
   fis8-. fis16-> g-> a8-> g16-> fis-> e8-> a,-> e'-> a-> |
   
   a16 d, e fis g a b cis d2\fermata \bar "||"
-  d1~\fermata \< |
+  \set Score.currentBarNumber = #67
+  a16 d, e fis g a b cis \repeat tremolo 8 d16~
   d16-.->\! r r8 r4 r2 \bar "|."
   
 }
@@ -720,10 +722,12 @@ viinotes = \relative c'' {
   % page 12
   fis8-. fis16-> g-> a4-> g-> e-> |
   d-> d-> a8-> fis-> a-> cis-> |
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 1)
   d8-. d16-> e-> fis8-> e16-> d-> e8-> a,-> e'-> d-> |
   
   e8-> e16-> e-> e8-> e-> fis2-> |
-  fis1~\fermata \< |
+  \set Score.currentBarNumber = #67
+  e8-> e16-> e-> e8-> e-> \repeat tremolo 8 fis16~ |
   fis16-.->\! r r8 r4 r2
   
 }
@@ -839,10 +843,12 @@ viiinotes = \relative c'' {
   % page 12
   d'8-. d16-> e-> fis4-> d b |
   b b fis8-> d-> fis-> a-> |
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 1)
   a4-^ e-^ \repeat tremolo 8 fis16 |
   
   fis8-> fis16-> fis-> fis-> fis fis-> fis fis2-> | \bar "||"
-  fis1~\fermata \< |
+  \set Score.currentBarNumber = #67
+  fis8-> fis16-> fis-> fis-> fis fis-> fis \repeat tremolo 8 fis16~
   fis16-.->\! r r8 r4 r2 \bar "|."
 }
 
@@ -956,10 +962,12 @@ vcnotes = \relative c {
   % page 12
   d'4-> d8.-> d16-> d2 |
   d4 d8 d16 d d4-^ cis8.-^  b16-^ |
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 1)
   a2-^ a8 a16 a a8 a |
   
   a4-> a,8-> a d2->\fermata | \bar "||"
-  d1\fermata \< |
+  \set Score.currentBarNumber = #67
+  a'4-> a,8-> a \repeat tremolo 8 d16~
   d16-.->\! r r8 r4 r2 \bar "|."
   
   
@@ -1077,10 +1085,13 @@ scoreInstrRight = \relative c' {
   % page 12
   <d fis a>4. <e g>16-> <d fis>-> <g, b d e>8-> q q << { e'16-> fis-> } \\ <g, b>8 >> |
   <b e g>4-> <g b e> <fis a d>-^ <a cis>8.-^ <g b>16-^ |
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 1)
   <fis a>4-^ <fis a d> << { e'8 e16 e } \\ <a, d>4 >> <a d e>8 q |
   
   <a d e>8 <a d fis> <g a cis e>4\fff -> <d fis a d>2\fermata | \bar "||"
-  << <d fis a d>1\fermata { s8\< s s2 s8 s\! } >> |
+  \set Score.currentBarNumber = #67
+  
+  <a' d e>8 <a d fis> <g a cis e>4 -> <d fis a d>2\fermata |
   R1
 }
 
@@ -1186,8 +1197,10 @@ scoreInstrLeft = \relative c, {
   <g g,> <a a,> |
   q q |
   
-  q <d, d,>\fermata |
-  \repeat tremolo 16 { d,32\fermata d' } |
+  q <d, d,>\fermata | \ottava 0
+  
+  \ottava -1
+  <a' a,>2 \repeat tremolo 8 { d,,32 d' } |
   d,16-.-> \ottava 0 r r8 r4 r2
   
 }

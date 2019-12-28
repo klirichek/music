@@ -1637,6 +1637,14 @@ clarinetPart = \new Staff \with {
      \oneVoice \clarinet
   >>
 
+AltPart = \new Staff \with {
+  instrumentName = \markup { \right-column { "Alt" \line { "(Clarinet)" \smaller \flat } } }
+  shortInstrumentName = \markup { A (Cl) }
+  midiInstrument = "viola"
+} <<
+     \clef alto \oneVoice \clarinet
+  >>
+  
 clarinetPartB = \new Staff \with {
   instrumentName = \markup { \right-column { "Clarinet" \line { "in B" \smaller \flat } } }
   shortInstrumentName = \markup { Cl B\smaller\flat }
@@ -1796,13 +1804,15 @@ pianoPart = \new PianoStaff \with {
 }
 
 \bookpart {
-  \header { piece = "Clarinet in B, Viola" }
+%  \header { piece = "Clarinet in B, Viola" }
+   \header { piece = "Alt, Viola" }
   \score {
     %  \transpose c bes {
     <<
       \set Score.skipBars = ##t
       \markss
-      \clarinetPartB
+%      \clarinetPartB
+      \AltPart
       \altoPartS
     >>
     %  }  % transposeµ
@@ -1902,7 +1912,7 @@ pianoPart = \new PianoStaff \with {
     <<
     \markss
     \flutePart
-    \clarinetPart
+    \AltPart
     \violiniPart
     \altoPart
     \pianoPart      
@@ -1931,7 +1941,7 @@ pianoPart = \new PianoStaff \with {
       \markss
       \choirPart 
       \flutePart
-      \clarinetPart
+      \AltPart
       \violiniPart
       \altoPart
       \pianoPart
@@ -1963,7 +1973,7 @@ pianoPart = \new PianoStaff \with {
       \markss
       \choirPart 
       \flutePart
-      \clarinetPart
+      \AltPart
       \violiniPart
       \altoPart
       \pianoPart

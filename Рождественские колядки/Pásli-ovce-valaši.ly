@@ -4,7 +4,7 @@
 #(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
-#(set-global-staff-size 16)
+#(set-global-staff-size 18)
 
 \header {
   title = "Pásli ovce valaši"
@@ -621,6 +621,11 @@ ChoirPart = {
   \header {
       piece = "Violini"
   }
+  
+  \paper {
+    ragged-last-bottom = ##f
+  }
+
   \score {
     %  \transpose c bes {
     \ViolaPart

@@ -36,7 +36,7 @@ secondbar = {
 abr = { \break }
 
 % uncommend next line when finished
-%abr = {}
+abr = {}
 
 %once hide accidental (runaround for cadenza
 nat = { \once \hide Accidental }
@@ -182,8 +182,10 @@ choirscore = \new ChoirStaff <<
     
     
 flnotes = \relative c''' {
+  
+  
   bes4-- f8-. d4.-- |
-  a'8-. c-. es,~ es4 r8 |
+  a'8-. c-. es, r4 r8 |
   bes'8-. f-. g-. f-. es-. d-. |
   es-. f-. g-. f4--( d16 c) \abr
   
@@ -196,6 +198,7 @@ flnotes = \relative c''' {
   %page 3
   \mark \default
   \time 6/8
+  
   bes8-. d-. a-. r4 r8 |
   a4 f8 r4 r8 |
   bes8 f g f es d |
@@ -222,6 +225,7 @@ flnotes = \relative c''' {
   % page 7
   f4. g |
   r r |
+  \mark \default
   bes8-. d-. f,-. r4 r8 |
   c'4\p r8 f4 r8 |
   
@@ -246,11 +250,13 @@ flnotes = \relative c''' {
   % page 11
   f4.) f, |
   f'4 a8-. bes4 r8
+  \bar "||"
     
 }
 
 flpart = {
   \global
+  \secondbar
   \flnotes
 }
 
@@ -271,12 +277,13 @@ vinotes = \relative c'' {
 
   % page 2
   g4 a8 bes4 a8 |
-  d bes a bes bes bes |
+  bes bes a bes bes bes |
   bes-. bes-. f-. bes-. bes-. a-. |
   bes-. bes-. a-. bes-. d-. d-. |
   \time 3/8 d4.--
   
    % page 3
+   \mark \default
   \time 6/8 f,4 f8 bes-. d-. f,-. |
   f4 f8 a-. c-. f,-. |
   bes4.~ bes~ |
@@ -290,7 +297,7 @@ vinotes = \relative c'' {
   
   % page 5
   f f |
-  f f8-- es16-> c-> d8-> |
+  f f8--( es16 c d8-.) |
   d4. bes |
   c'8--\mf c16 bes c8 a4. |
   
@@ -303,6 +310,7 @@ vinotes = \relative c'' {
   % page 7
   d8. es16 f8 g a bes |
   d,4--\p bes8-. c4-- a8-. |
+  \mark \default
   bes4. r4 r8 |
   a8-. c-. f,-. r4 r8 |
   
@@ -327,10 +335,12 @@ vinotes = \relative c'' {
   % page 11
   a4. bes16( c d es f bes |
   f4) es8-. d4 r8
+  \bar "||"
 }
 
 vipart = {
   \global
+  \secondbar
   \vinotes
 }
 
@@ -362,7 +372,7 @@ viinotes = \relative c' {
   g f es f4 f8 |
   
   % page 4
-  d4 f8 f4. |
+  d4 f8 f4 f8 |
   f4 es8 d4 r8 |
   bes8.\f( c16) d8-. d-- c-. bes-. |
   c-. d-. es-. c4.--
@@ -411,6 +421,7 @@ viinotes = \relative c' {
 
 viipart = {
   \global
+  \secondbar
   \viinotes
 }
 
@@ -436,6 +447,7 @@ viiinotes = \relative c {
   \time 3/8 f4.--
   
   % page 3
+  \mark \default
   \time 6/8 f,8 g-. a-. bes4 r8 |
   r f-. g-. a4. |
   bes4.~ bes~ |
@@ -462,13 +474,14 @@ viiinotes = \relative c {
   % page 7
   bes4. bes, |
   f'4--\p d8-. c4-. c8-. |
+  \mark \default
   d4.~ d4 r8 |
   r f,8-. g-. a4. |
   
   % page 8
   bes4.~ bes~ |
   bes bes4 a8 |
-  g4 c8 s4 es8 |
+  g4 c8 bes4 es8 |
   d4 c8 bes8.( c16 d es |
   
   % page 9
@@ -487,10 +500,13 @@ viiinotes = \relative c {
   a-. es-. c-. d4. |
   f4 f8-. f4 r8
   
+  \bar "||"
+  
 }
 
 viiipart = {
   \global
+  \secondbar
   \viiinotes
 }
 
@@ -515,6 +531,7 @@ vcnotes = \relative c {
    \time 3/8 bes4.
    
    % page 3
+   \mark \default
    \time 6/8 bes,4 f'8 bes4 r8 |
    f4 c8 f,4 r8 |
    bes4 c8 d-. es-. f-. |
@@ -541,6 +558,7 @@ vcnotes = \relative c {
    % page 7
    bes4. es |
    f4-- g8-. es4-- f8-.  |
+   \mark \default
    bes,4-. f'8-. bes4.-. |
    f4-. c8-. f,4.-. |
    
@@ -565,10 +583,13 @@ vcnotes = \relative c {
    % page 11
    f4. bes8 a-. g-. |
    f16( g f es d c bes4) r8
+   
+   \bar "||"
 }
 
 vcpart = {
   \global
+  \secondbar
   \vcnotes
 }
 
@@ -588,11 +609,12 @@ rightnotes = \relative c'' {
   % page 2
   <d g bes>4 <f a c>8 << { <bes d>4 <a es'>8 } \\ f4. >> |
   <f bes f'>8 bes a <f bes>4 <d f>8 |
-  <d f bes>4 <c es f>8 <d f> bes' <f es> |
+  <d f bes>4. <d f>8 bes' <f es> |
   <d f bes>4 <c es a>8 <d bes'>4 r8 |
   \time 3/8 r4 r8
   
   % page 3
+  \mark \default
   \time 6/8 <d f bes>4. <d f> |
   <c f a> <c f>4 r8 |
   <d f bes>4. <d f> |
@@ -619,6 +641,7 @@ rightnotes = \relative c'' {
   % page 7
   <d f bes>4. <es g bes> |
   <f bes d>4\mp <g bes>8-. <g c>4 <f a>8-. |
+  \mark \default
   <d f bes>4. <d f>4 r8 |
   <c~ f~ a>4. <c f> |
   
@@ -715,6 +738,7 @@ leftnotes = \relative c {
 
 rightpart = {
   \global
+  \secondbar
   \rightnotes
 }
 
@@ -764,6 +788,110 @@ pianoscore =   \new PianoStaff \with {
 }
 
 \bookpart {
+  \header { piece = "Flute" }
+  \score {
+ %     \transpose es f {
+ <<
+    \flscore
+ >>
+ %     }  % transposeµ
+    \layout { 
+      \context {
+        \Score
+      }
+      \context {
+        \Staff
+        \accidentalStyle modern-voice-cautionary
+      }
+    }
+  }
+}
+
+\bookpart {
+  \paper { system-separator-markup = \slashSeparator  }
+  \header { piece = "Violini" }
+  \score {
+ %     \transpose es f {
+ <<
+    \viscore
+    \viiscore
+ >>
+ %     }  % transposeµ
+    \layout { 
+      \context {
+        \Score
+      }
+      \context {
+        \Staff
+        \accidentalStyle modern-voice-cautionary
+      }
+    }
+  }
+}
+
+\bookpart {
+  \header { piece = "Alt" }
+  \score {
+ %     \transpose es f {
+ <<
+    \viiiscore
+ >>
+ %     }  % transposeµ
+    \layout { 
+      \context {
+        \Score
+      }
+      \context {
+        \Staff
+        \accidentalStyle modern-voice-cautionary
+      }
+    }
+  }
+}
+
+\bookpart {
+  \header { piece = "Cello" }
+  \score {
+ %     \transpose es f {
+ <<
+    \vcscore
+ >>
+ %     }  % transposeµ
+    \layout { 
+      \context {
+        \Score
+      }
+      \context {
+        \Staff
+        \accidentalStyle modern-voice-cautionary
+      }
+    }
+  }
+}
+
+\bookpart {
+  \header { piece = "Piano" }
+  \score {
+ %     \transpose es f {
+ <<
+    \pianoscore
+ >>
+ %     }  % transposeµ
+    \layout { 
+      \context {
+        \Score
+      }
+      \context {
+        \Staff
+        \accidentalStyle modern-voice-cautionary
+      }
+    }
+  }
+}
+
+\bookpart {
+  \paper { system-separator-markup = \slashSeparator  }
+  \header { piece = "Instruments" }
   \score {
  %     \transpose es f {
  <<
@@ -787,6 +915,8 @@ pianoscore =   \new PianoStaff \with {
   }
 }
 
+
+% midi only
 \bookpart {
   \score {
     \unfoldRepeats

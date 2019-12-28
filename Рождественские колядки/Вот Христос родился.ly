@@ -16,12 +16,12 @@
 }
 
 global = {
-  \key e \major
   \time 2/2
   \numericTimeSignature
   \autoBeamOff
-      \set Score.skipBars = ##t
-    \override MultiMeasureRest.expand-limit = #1
+  \set Score.skipBars = ##t
+  \override MultiMeasureRest.expand-limit = #1
+  \set Score.markFormatter = #format-mark-box-numbers
 }
 
 %make visible number of every 2-nd bar
@@ -46,6 +46,7 @@ breathes = { \once \override BreathingSign.text = \markup { \musicglyph #"script
 
 sopvoice = \relative c'' {
   \global
+  \key d \major
   \dynamicUp
   \secondbar  
   
@@ -88,6 +89,7 @@ sopvoice = \relative c'' {
 
 altvoice = \relative c' {
   \global
+  \key d \major
   \dynamicDown
   
   \repeat volta 3
@@ -185,7 +187,11 @@ scorechoir = \new ChoirStaff
     \new Voice  = "alto" { \oneVoice \altvoice }
   >> 
 >>
+
+
+abr = {}
 pianonotesrightup = \relative c' {
+  \key e \major
   <e gis b>2 q |
   <e a cis> q |
   <fis b dis> q |
@@ -193,6 +199,7 @@ pianonotesrightup = \relative c' {
   <e~ gis>2 <e fis> |
   <gis, b e>1 |  \bar "||" \abr
   
+  \mark \default
   b'4 e, <cis' e>4. <a cis>8 |
   <a cis>2 <gis b> |
   gis a4 fis |
@@ -221,6 +228,7 @@ pianonotesrightup = \relative c' {
   <e~ gis>2 <e fis> |
   <gis, b e>1 |
   
+    \mark \default
   \repeat volta 2 {
    b'4 e, <cis' e>2 |
    <a cis> b |
@@ -249,6 +257,7 @@ pianonotesrightup = \relative c' {
   <e b gis e>1 \bar "||" \abr
   
   % verse 3
+    \mark \default
   <e gis>4 b <e a> cis |
   <a' cis>2 b4 gis |
   e2~ e |
@@ -275,12 +284,13 @@ pianonotesrightup = \relative c' {
   dis~ dis |
   e e |
   e dis |
-  e1
+  e1 \bar "|."
   
   
 }
 
 pianonotesrightdown = \relative c'' {
+  \key e \major
   s1 |
   s |
   s |
@@ -376,6 +386,7 @@ pianonotesrightdown = \relative c'' {
 }
 
 pianonotesleftup = \relative c, {
+  \key e \major
   \oneVoice <e e'>1
   <a a'>2. <gis gis'>4 |
   <fis fis'>2 <b b'>4 <a a'> |
@@ -473,6 +484,7 @@ pianonotesleftup = \relative c, {
 }
 
 pianonotesleftdown = \relative c {
+  \key e \major
   s1
   s
   s
