@@ -52,7 +52,7 @@ nat = { \once \hide Accidental }
 pause = {  \global 
  R1*9 }
 
-tmpo = { \tempo "Moderato" 4=130 }
+tmpo = { \tempo "Moderato" 4=104 }
 
 verseonesoprano = \relative c'' {
     b4 b b b8[ d] |
