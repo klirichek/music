@@ -550,7 +550,7 @@ flutenotes = \relative c'' {
   
   % page a6
   b4 c d fis |
-  g4 fis8 e d4. c8 |
+  g2 b,4. c8 |
   d4 a g2 |
   
   % page a7
@@ -1463,7 +1463,7 @@ pianoleftnotes = \relative c' {
   % refrain 1
   
   <g' g'>2 <e e'> |
-  <fis fis'> <d d'> |
+  <a a'> <d, d'> |
   <g g'> <c, c'> | \abr
   
   <d d'>4 <c a'> <d d'> <c c'> |
