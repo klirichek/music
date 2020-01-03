@@ -6,6 +6,8 @@
 #(set-default-paper-size "a4")
 #(set-global-staff-size 18)
 
+\include "articulate.ly"
+
 \header {
   title = "Angels we have heard on high"
   composer = " "
@@ -1760,9 +1762,9 @@ fullscore = <<
 
 \bookpart {
   \score {
-    << \fullscore >>
+   \unfoldRepeats \articulate << \fullscore >>
     \midi {
-      \tempo 4=130
+      \tempo 4=90
     }
   }      
 }
