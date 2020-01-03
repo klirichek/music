@@ -6,6 +6,8 @@
 #(set-default-paper-size "a4")
 #(set-global-staff-size 18)
 
+\include "articulate.ly"
+
 \header {
   title = "Joy to the world"
   poet = "Isaac Watts (1719)"
@@ -1008,10 +1010,18 @@ scoreInstrRight = \relative c' {
   
   < d d,>4.\f\<) <d g b>8 <cis e a>4 <b d fis>8 <b e g>\! |
   <a d fis>4-> <a cis e>-> <fis a  d>4.-- r8 | 
-  R1 \abr
   
-  R1*2
-  \mark \default
+  \tag #'pure { R1 \abr R1*2 }
+  \tag #'rehearsal { << R1*3 \new Staff \with {
+      \remove "Time_signature_engraver"
+      fontSize = #-3
+      \override StaffSymbol.staff-space = #(magstep -3)
+      \override StaffSymbol.thickness = #(magstep -3)
+    } << \relative c'' {\key d \major fis4--( e8.-.) d16( cis8) a-. e'4--~\< |
+      e8-.\! d4-- g8-. g--( fis16 e fis8-.) e-. |  d4\startTrillSpan d8-.\stopTrillSpan cis-. cis8-- e16( d cis b a g) } 
+                        \\ \relative c'' { d4--_"Rehearsal only" a e a | a\< g a2\! | fis4 gis a8-- cis16  b a g fis e} >> >> }
+
+\mark \default
   <fis' a>4--\mf^\markup\italic"dolce" a8. <a d>16 <a cis>4.-- <a e'>8 | \abr
   
   << { a8 d4 cis8 } \\ {a4 g } >> <fis d'>4 r8 a,8\< |
@@ -1116,9 +1126,16 @@ scoreInstrLeft = \relative c, {
   
   d,16-> e-> fis4-> g8-> a4-> b8-. g-. |
   a4-> a,-> d4.-- r8 |
-  R1 |
+
+  \tag #'pure { R1 \abr R1*2 }
+  \tag #'rehearsal { << R1*3 \new Staff \with {
+      \remove "Time_signature_engraver"
+      fontSize = #-3
+      \override StaffSymbol.staff-space = #(magstep -3)
+      \override StaffSymbol.thickness = #(magstep -3)
+    } << \relative c'' { \clef bass \key d \major a4-- e2 cis4 | d4.\< cis8 d4 r4\! | d2 e4-- r} \\ 
+                        \relative c' {d4--( cis8.-.) b16( a4.--) g8 | fis4-- e-- d4.-- cis8-> | b2-- a4-- r} >> >> }
   
-  R1*2 |
   d''4-> <cis e>8. b16 a4.-- g8 |
   
   fis4 e d r8 <fis fis,>8 |
@@ -1211,11 +1228,23 @@ scoreInstrPart =   \new PianoStaff \with {
   } <<
     \new Staff = "right" \with {
       midiInstrument = "acoustic grand"
-    } \scoreInstrRight
+    } \keepWithTag #'pure \scoreInstrRight
     \new Staff = "left" \with {
       midiInstrument = "acoustic grand"
-    } { \clef bass \scoreInstrLeft }
+    } { \clef bass \keepWithTag #'pure \scoreInstrLeft }
   >>
+  
+scoreInstrRehersalPart =   \new PianoStaff \with {
+    instrumentName = "Piano"
+    shortInstrumentName = "P-no"
+  } <<
+    \new Staff = "right" \with {
+      midiInstrument = "acoustic grand"
+    } \keepWithTag #'rehearsal \scoreInstrRight
+    \new Staff = "left" \with {
+      midiInstrument = "acoustic grand"
+    } { \clef bass \keepWithTag #'rehearsal \scoreInstrLeft }
+  >>  
 
 
 abr = { \break }
@@ -1262,7 +1291,7 @@ abr = {}
   <<
 %    \choirscore
     \choirscore
-    \scoreInstrPart
+    \scoreInstrRehersalPart
   >>
     %  }  % transposeµ
   \layout {
@@ -1409,6 +1438,23 @@ abr = {}
     }
   %Metronome_mark_engraver
   }
+}
+}
+
+\bookpart {
+\score {
+  %  \transpose c bes {
+  \unfoldRepeats \articulate <<
+%    \choirscore
+    
+    \viscore
+    \viiscore
+    \viiiscore
+    \vcscore
+    \choirscore
+    \scoreInstrPart
+  >>
+    %  }  % transposeµ
   \midi {
     \tempo 4=90
   }
