@@ -2,7 +2,7 @@
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 #(set-global-staff-size 18)
@@ -16,7 +16,7 @@
 }
 
 global = {
-    \set Score.markFormatter = #format-mark-circle-numbers
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
   \key bes \major
   \time 3/2
   \numericTimeSignature
@@ -121,7 +121,7 @@ vobaritone = \relative c' {
   \co f4 f f f f f2 \cof
   \co f4 f f f f f bes2( a f) f1 \cof \bar "||"
   
-  \mark \default \co f2. f4 f2( bes g4) b g2 \cof
+  \mark \default \co f2. f4 f2( bes g4) g g2 \cof
   \co bes!2 bes4( g8[ bes]~ bes2) g4 \bar ""
   g g g1 \cof
   \co bes!2. g8[( bes]) bes2( g) g g g \cof
@@ -190,7 +190,7 @@ lyricscore = \lyricmode {
   
   Це -- рковь Ру -- сска -- я, кра -- су -- йся
   и ли -- куй: __ се бо ча -- да Тво -- я
-  пре -- сто -- лу Вла -- ды -- чно во сла -- ве пре -- дсто -- ят ра -- ду -- ю -- ще -- ся.
+  пре -- сто -- лу Вла -- ды -- чню во сла -- ве пре -- дсто -- ят ра -- ду -- ю -- ще -- ся.
   
   Со -- бо -- ре Свя -- тых Ру -- сских, По -- лче Бо -- же -- 
   стве -- нный, мо -- ли -- те -- ся ко Го -- спо -- ду о зе -- мном О --

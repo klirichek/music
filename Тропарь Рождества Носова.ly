@@ -1,7 +1,20 @@
  \version "2.18.0"
+#(ly:set-option 'point-and-click #f)
+#(ly:set-option 'midi-extension "mid")
+
+%make visible number of every 2-nd bar
+secondbar = {
+  \override Score.BarNumber.break-visibility = #end-of-line-invisible
+  \override Score.BarNumber.X-offset = #1
+  \override Score.BarNumber.self-alignment-X = #LEFT
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+}
+
+% move dynamics a bit left (to be not up/under the note, but before)
+placeDynamicsLeft = { \override DynamicText.X-offset = #-2.5 }
 
 justkey = { \key c \major }
-keyTime = { \justkey \time 4/4 }
+keyTime = { \justkey \secondbar \placeDynamicsLeft \time 4/4 }
 
 soprano = \relative c''  {
 	\autoBeamOff
@@ -9,7 +22,7 @@ soprano = \relative c''  {
 	\tempo "Торжественно"
 	\dynamicUp
 	b8.\f b16 | c4 d c c8 d | c4\> b c\! r4 |
-    R1*4
+    R1*4 \break
     g'4^\markup {\halign #RIGHT \italic Tutti \dynamic f} g8 g fis4 f | e8. c16 c8 c c4 c8 c |
     c4 b c r8 <c e>^\markup {\halign #RIGHT \italic Соло \dynamic p } |
     <c e>[(\< <a c> <b d> <c e>])\! <d f>[ <c e>]\> <b d> c\! |
@@ -20,7 +33,7 @@ soprano = \relative c''  {
     r8 <a c>^\markup {\halign #RIGHT \italic tutti \dynamic mf} q <c e> <b d>8. b16 b8 r |
     r8 <b g'> q f' <c e>4. q8 | <b d>4 b8\< b\! e[ d] c[\> b]\! | c4 c c c8 c | c4( b8[ a]) b4\> b\! |
     c8 <e g> <d f> <c e> <b d>4\f <a c>8\> <b d>\! | <c e>4 r g' g8 f | e4 r f2(\f |
-    e4 f8[ e] d4) c | b2(^> c4) d | c2^> c4\> b\! | c c^> c^> c^> | c1\fermata \bar "|."
+    e4 f8[ e] d4) c \break | b2(^> c4) d | c2^> c4\> b\! | c c^> c^> c^> | c1\fermata \bar "|."
 }
 
 alto = \relative a' {
@@ -66,13 +79,15 @@ bass = \relative a {
 
 
 troparsop = \lyricmode {
-	Ро -- жде -- ство Тво -- е Хри -- сте Бо -- же наш.
+	\repeat unfold 10 \skip 1
 	
-	"В нем" бо звез -- дам слу -- жа -- щи -- и зве -- здо -- ю у -- ча -- ху -- ся.
-	Те -- бе кла -- ня -- ти -- ся Те -- бе кла -- ня -- ти -- ся солн -- цу, солн -- цу пра -- вды.
-	И Те -- бе ве -- де -- ти, и Те -- бе ве -- де -- ти "с вы" -- со -- ты во -- сто -- ка:
-	Го -- спо -- ди, Сла -- ва Те -- бе, Го -- спо -- ди, Сла -- ва Те -- бе,
-	Сла -- ва Те -- бе, Сла -- ва, Сла -- ва, Сла -- ва Те -- бе, Сла -- ва Те -- бе.
+	\repeat unfold 15 \skip 1
+%	Те -- бе кла -- ня -- ти -- ся Те -- бе кла -- ня -- ти -- ся солн -- цу, солн -- цу пра -- вды.
+	\repeat unfold 18 \skip 1
+	\repeat unfold 18 \skip 1
+	\repeat unfold 7 \skip 1
+	
+	Го -- спо -- ди, 
 }
 
 troparalt = \lyricmode {
@@ -88,25 +103,19 @@ troparalt = \lyricmode {
 }
 
 tropartenor = \lyricmode {
-	Ро -- жде -- ство Тво -- е Хри -- сте Бо -- же наш.
-	Воз -- си -- я ми -- ро -- ви свет ра -- зу -- ма,
-	воз -- си -- я ми -- ро -- ви свет ра -- зу -- ма.
-	"В нем" бо звез -- дам слу -- жа -- щи -- и зве -- здо -- ю у -- ча -- ху -- ся.
-	И Те -- бе ве -- де -- ти, и Те -- бе ве -- де -- ти "с вы" -- со -- ты во -- сто -- ка:
-	Го -- спо -- ди, Сла -- ва Те -- бе, Сла -- ва Те -- бе,
-	Го -- спо -- ди, Сла -- ва Те -- бе, Сла -- ва, Сла -- ва, Сла -- ва Те -- бе, 
-	Сла -- ва Те -- бе.
+	\repeat unfold 45 \skip 1
+	
+	\repeat unfold 18 \skip 1
+	\repeat unfold 11 \skip 1
+	Го -- спо -- ди, 
 }
 
 troparbass = \lyricmode {
-	Ро -- жде -- ство Тво -- е Хри -- сте Бо -- же наш.
-	Воз -- си -- я свет ра -- зу -- ма,
+	
+	\repeat unfold 10 \skip 1 Воз -- си -- я свет ра -- зу -- ма,
 	ми -- ро -- ви свет ра -- зу -- ма.
-	"В нем" бо звез -- дам слу -- жа -- щи -- и зве -- здо -- ю у -- ча -- ху -- ся.
-	И Те -- бе ве -- де -- ти, и Те -- бе ве -- де -- ти "с вы" -- со -- ты во -- сто -- ка:
-	Го -- спо -- ди, Сла -- ва Те -- бе, Сла -- ва Те -- бе,
-	Сла -- ва Те -- бе, Сла -- ва, Сла -- ва, Сла -- ва Те -- бе, 
-	Сла -- ва Те -- бе.
+	\repeat unfold 15 \skip 1
+	И Те -- бе ве -- де -- ти, и Те -- бе ве -- де -- ти 
 }
 
 #(set-default-paper-size "a4") 
@@ -122,7 +131,7 @@ troparbass = \lyricmode {
 \header {
 	  title = #"Тропарь Рождества"
 		subtitle = #" "
-          composer = #"муз. Носова"
+          composer = #"муз. П. Носова"
 	  tagline = ##f
 	}
 	
@@ -131,8 +140,8 @@ troparbass = \lyricmode {
 
 	% Партия сопрано и альта
     \new Staff = "sa" <<
-	\set Staff.instrumentName = \markup { \column { "S" \line { "A" } } }
-	\set Staff.shortInstrumentName = \markup { \column { "S" \line { "A" } } }
+	\set Staff.instrumentName = \markup { \column { "С" \line { "А" } } }
+	\set Staff.shortInstrumentName = \markup { \column { "С" \line { "А" } } }
       \clef treble
       \new Voice = "Sop" { \voiceOne \keyTime \soprano }
       \new Voice = "Alto" { \voiceTwo \alto }
@@ -142,8 +151,8 @@ troparbass = \lyricmode {
     
 	% партия баса и тенора
     \new Staff = "tb" <<
-	\set Staff.instrumentName = \markup { \column { "T" \line { "B" } } }
-	\set Staff.shortInstrumentName = \markup { \column { "T" \line { "B" } } }
+	\set Staff.instrumentName = \markup { \column { "Т" \line { "Б" } } }
+	\set Staff.shortInstrumentName = \markup { \column { "Т" \line { "Б" } } }
       \clef "bass"
       \new Voice = "Tenor" { \voiceOne \keyTime \tenor }
       \new Voice = "Bass" { \voiceTwo \bass }

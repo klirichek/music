@@ -1,8 +1,9 @@
-\version "2.18.2"
+\version "2.20.0"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 #(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
+#(ly:set-option 'embed-source-code #t) % внедряем исходник как аттач к pdf
 #(set-default-paper-size "a4")
 #(set-global-staff-size 17)
 
@@ -23,22 +24,24 @@ pbr = {}
 
 breathes = { \once \override BreathingSign.text = \markup { \musicglyph #"scripts.tickmark" } \breathe }
 
-bort = {  % Динамика: вместо f, p пишем по-русски гр., т. и т.д.
+bort = {  % Динамика: вместо f, p пишем по-русски гр., т. и т.д. - для более аутентичного набора Бортнянского и т.д.
   \override DynamicText.stencil = #(lambda (grob)(
-    grob-interpret-markup grob (                         
-      let (( dyntxt (ly:grob-property grob 'text ) )  )
-      ( set! dyntxt (cond
-        (( equal? dyntxt "f" ) "гр." ) 
-        (( equal? dyntxt "p" ) "т." )
-      )) #{ \markup \normal-text \italic $dyntxt #} )
-    )) }
-
+                                                   grob-interpret-markup grob (                         
+                                                                                let (( dyntxt (ly:grob-property grob 'text ) )  )
+                                                                                ( set! dyntxt (cond
+                                                                                               (( equal? dyntxt "ff" ) "оч. гр." ) 
+                                                                                               (( equal? dyntxt "f" ) "гр." )
+                                                                                               (( equal? dyntxt "mf" ) "ум." )
+                                                                                               (( equal? dyntxt "mp" ) "ум." )
+                                                                                               (( equal? dyntxt "p" ) "т." )
+                                                                                               )) #{ \markup \normal-text \italic $dyntxt #} )
+                                                   )) }
 
 
 melon = { \set melismaBusyProperties = #'() }
 meloff = { \unset melismaBusyProperties }
 solo = ^\markup\italic"Соло"
-tutti =  ^\markup\italic"Все"
+tutti =  ^\markup\italic"tutti"
 
 co = \cadenzaOn
 cof = \cadenzaOff
@@ -49,20 +52,38 @@ stemOff = { \hide Staff.Stem }
 nat = { \once \hide Accidental }
 %stemOn = { \unHideNotes Staff.Stem }
 
+% alternative breathe
+breathes = { \once \override BreathingSign.text = \markup { \musicglyph #"scripts.tickmark" } \breathe }
+
+% alternative partial - for repeats
 partiall = { \set Timing.measurePosition = #(ly:make-moment -1/4) }
+
+% compress multi-measure rests
+multirests = { \override MultiMeasureRest.expand-limit = #1 \set Score.skipBars = ##t }
+
+% mark with numbers in squares
+squaremarks = {  \set Score.markFormatter = #format-mark-box-numbers }
+
+% move dynamics a bit left (to be not up/under the note, but before)
+placeDynamicsLeft = { \override DynamicText.X-offset = #-2.5 }
+
+%make visible number of every 2-nd bar
+secondbar = {
+  \override Score.BarNumber.break-visibility = #end-of-line-invisible
+  \override Score.BarNumber.X-offset = #1
+  \override Score.BarNumber.self-alignment-X = #LEFT
+  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
+}
 
 global = {
   \key d \minor
   \time 4/4
   \numericTimeSignature
-  \override Score.BarNumber.break-visibility = #end-of-line-invisible
-  \override Score.BarNumber.X-offset = #1
-  \override Score.BarNumber.self-alignment-X = #LEFT
-  \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
-  \set Score.markFormatter = #format-mark-box-numbers
-    \set Score.skipBars = ##t
-  \override MultiMeasureRest.expand-limit = #1
-   \autoBeamOff
+  \secondbar
+  \squaremarks
+  \multirests
+  \autoBeamOff
+  \placeDynamicsLeft
   \dynamicNeutral
 }
 
@@ -148,10 +169,6 @@ vsolofirst = \relative c' {
   r2. \bar "" f8 g |
   as as as bes c4 g8 as |
   f2.\fermata r4\fermata \bar "|."
-  
-  
-  
-  
 }
 
 vsolosecond = \relative c' {
@@ -187,7 +204,6 @@ vsolosecond = \relative c' {
   f2 s2
   s1*4
   s1*7
-  
 }
 
 tenorfirst = \relative c' {
@@ -253,8 +269,6 @@ tenorfirst = \relative c' {
   as g\< f es f4~\ff f~\sp~ |
   f2.\fermata\>\laissezVibrer s4\! |
   \oneVoice R1*2
-  
-  
 }
 
 tenorsecond = \relative c {
@@ -317,8 +331,6 @@ tenorsecond = \relative c {
   es es c c des4~ des~ |
   des2.\laissezVibrer s4
   s1*2
-  
-  
 }
 
 baritone = \relative c {
@@ -379,8 +391,6 @@ baritone = \relative c {
   c bes\< as g as4~\ff as\sp~ |
   as2.\> \laissezVibrer s4\! |
   \oneVoice R1*2
-  
-  
 }
 
 bass = \relative c, {
@@ -445,9 +455,6 @@ bass = \relative c, {
    as bes c c des4~ des~ |
    des2.\laissezVibrer s4 |
    s1*2
-  
-  
-  
 }
 
 
@@ -476,9 +483,6 @@ lyricone = \lyricmode {
   та -- я рожь, да ку -- дря -- вый лён… Я влю -- блён в_те -- бя, Ро -- сси -- я, влю -- блён!
 
    Мы и -- дём с_ко -- нём по по -- лю вдво -- ём…
-  
-  
-  
 }
 
 lyrictwo = \lyricmode {
@@ -545,9 +549,9 @@ lyricthreetwo = \lyricmode {
   indent = 15
   ragged-bottom = ##f
   ragged-last-bottom = ##f
-  system-separator-markup = \slashSeparator
-  
+  system-separator-markup = \slashSeparator 
 }
+
 \score {
   %  \transpose c bes {
      <<

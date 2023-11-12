@@ -15,7 +15,7 @@ codd = { \cadenzaOff \bar "||" \cadenzaOn }
   title = "Блажен муж"
   %composer = "С. Мокраняц"
   % Удалить строку версии LilyPond 
-  tagline = ##f
+  tagline = ##f 
 }
 
 global = {

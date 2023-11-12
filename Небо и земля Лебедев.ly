@@ -1,7 +1,7 @@
-\version "2.18.2"
+\version "2.24.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 %#(set-global-staff-size 19)
@@ -17,10 +17,14 @@
 abr = { \break }
 abr= {}
 
+% move dynamics a bit left (to be not up/under the note, but before)
+placeDynamicsLeft = { \override DynamicText.X-offset = #-2.5 }
+
 global = {
   \key g \major
   \time 4/4
   \numericTimeSignature
+  \placeDynamicsLeft
 }
 
 sopvoice = \relative c'' {
@@ -134,11 +138,11 @@ altvoice = \relative c'' {
   g4 ( e ) g8( [ fis) ] e4 | % 32
   fis1 | % 36
   R1*3  |
-  r2 r4 e | % 37
-  e1 ~ | % 38
+  r2 r4 e | \abr % 37
+  e1 ~ |  % 38
   e2 e4 e | % 39
   e2 e4 e | \barNumberCheck #40
-  e4 e e e | % 41
+  e4 e e e \abr | % 41
   e4 e r2 | % 42
   b'2 b4 b | % 43
   b2 b4 b | % 44
@@ -161,8 +165,8 @@ altvoice = \relative c'' {
   g2 g4 g | % 61
   g2. g4 | % 62
   g4 g g g | % 63
-  \once \override TupletBracket #'stencil = ##f
-  \once \override TupletNumber #'stencil = ##f
+  %\once \override TupletBracket.stencil = ##f
+  %\once \override TupletNumber.stencil = ##f
   \times 2/3  {
     g2 g4
   }
@@ -321,8 +325,8 @@ bassvoice = \relative c' {
   g2 g4 g | % 61
   f2. f4 | % 62
   e4 e d d | % 63
-  \once \override TupletBracket #'stencil = ##f
-  \once \override TupletNumber #'stencil = ##f
+  %\once \override TupletBracket.stencil = ##f
+  %\once \override TupletNumber.stencil = ##f
   \times 2/3  {
     d4 ( c ) b
   }
@@ -369,7 +373,7 @@ lyricdown = \lyricmode {
   top-margin = 15
   left-margin = 15
   right-margin = 10
-  bottom-margin = 15
+  bottom-margin = 30
   indent = 20
   %ragged-bottom = ##f
   ragged-last-bottom = ##f
@@ -411,7 +415,7 @@ lyricdown = \lyricmode {
   %Metronome_mark_engraver
   }
   \midi {
-    \tempo 4=90
+    \tempo 4=120
   }
 }
 }

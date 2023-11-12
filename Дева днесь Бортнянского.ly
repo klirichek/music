@@ -38,11 +38,11 @@ sopvoice = \relative c'' {
   <c e>4) q  <b d>2 | <c e>1 | <b d>2( <c e> | <b d>4 <g b> <a c>) <b d> | <c e>2 q4 r | <c e>( <b d> <c e>) <c fis> | <b g'>1\arpeggio | q2\arpeggio r | \break
   
   <c e>1\arpeggio | <b d>2.( <c e>4 | <b d>2 <a c>) | <gis b> r | <a c> <b d> | <c e> r | <c e> <b d> <c e> <d f> | \break
-  <c e>4 q  <b d>4. q8 | <c e>1 | <b d>2 <c e> | <b d>4( <g b> <a c> <b d> | <c e>4.) q8 q4 r | <c e>( <b d> <c e>) <c fis> | <b g'>2. q4 | q2 r | \break
+  <c e>4 q  <b d>4. q8 | <c e>1 | <b d>2( <c e> | <b d>4 <g b> <a c>) <b d> | <c e>4. q8 q4 r | <c e>( <b d> <c e>) <c fis> | <b g'>2. q4 | q2 r | \break
   
   <c e>1\arpeggio | <b d>2.(\arpeggio <c e>4) | <b d>2( <a c>) | <gis b> r | <a c>( <b d>) | <c e> q4 r | <c e>2 <b d> | <c e>( <d f>) |
   <c e>2( <b d>) | <c e>1 | <b d>2( <c e>) | <b d>4( <g b> <a c>) <b d> | <c e>2 r | <c e>4( <b d>) <c e> <c fis> | <b g'>2 \breathe <c g'> |
-  << { <d f?>1\arpeggio~ <d f>2 }  {s1( b2) } >> <b d>2 | <c e>1\arpeggio\fermata
+  << { <d f?>1\arpeggio~ <d f>2\fermata }  {s1( b2) } >> <b d>2\fermata \breathe | <c e>1\arpeggio\fermata
   
   \bar "|."
 
@@ -60,9 +60,9 @@ altvoice = \relative f' {
   
   g1~ | g~ | g2 e | e r | e g | g r | g g | g g~ | g4 g g2 | g1 | g~ | g2. g4 | g2 g4 r |  a2. a4 | d,1 d2 r |
   
-  g1 | g( | g2 e) | e r | e g | g r |  g g | g g | g4 g g4. g8 | g1 | g2 g | g1~ | g4. g8 g4 r | a2. a4 | d,2. d4 | d2 r |
+  g1 | g( | g2 e) | e r | e g | g r |  g g | g g | g4 g g4. g8 | g1 | g2( g | g2.) g4 | g4. g8 g4 r | a2. a4 | d,2. d4 | d2 r |
   
-  g1 | g | g2( e) | e r | e( g) | g g4 r | g2 g | g1 | g | g | g | g2. g4 | g2 r | a2 a4 a | d,2 g | a1( | g2) g | g1\fermata
+  g1 | g | g2( e) | e r | e( g) | g g4 r | g2 g | g1 | g | g | g | g2. g4 | g2 r | a2 a4 a | d,2 g | a1( | g2) g | g1
   
   
   \bar "|."
@@ -83,10 +83,10 @@ bassvoice = \relative c {
   c4) e g2 | c,4( d e f)  \break | g2( c | g2.) g4 | c2 c,4 r | a'2. d,4 | g1 | g,2 r |
   
   c'1 | g2.( c4 | g2 a) | e r | a g | c, r | c' g | e b | 
-  c4 e g4. g,8 | c4( d e f) | g2 c | g1( | c4.) c,8 c4 r | a'2. d,4 | g2. g,4 | g2 r |
+  c4 e g4. g,8 | c4( d e f) | g2( c | g2.) g4 | c4. c,8 c4 r | a'2. d,4 | g2. g,4 | g2 r |
   
   c'1 | g2.( c4) | g2( a) | e r | a( g) | c2 c,4 r | c'2 g | e( b) | 
-  c4( e g2) | c,4( d e f) | g2( c) | g2. g4 | c2 r | a2 a4 d,4 | g2 \breathe e | f1( | g2) g, | c1\fermata 
+  c4( e g2) | c,4( d e f) | g2( c) | g2. g4 | c2 r | a2 a4 d,4 | g2 \breathe e | f1( | g2)\fermata g,\fermata \breathe | c1\fermata 
   
   \bar "|."
 }

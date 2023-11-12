@@ -1,8 +1,10 @@
-\version "2.20.0"
+-*- template; template-run;
+\version "2.22.0"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 %#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
+#(ly:set-option 'embed-source-code #t) % внедряем исходник как аттач к pdf
 #(set-default-paper-size "a4")
 %#(set-global-staff-size 18)
 

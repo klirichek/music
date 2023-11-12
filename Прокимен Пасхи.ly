@@ -18,7 +18,7 @@ soprano = \relative c''  {
         R2.*3 |
         r4 \breathe c8 c d e |
         f4( e) d |
-        c2.
+        c2.\fermata
         \bar "|."
 }
 
@@ -65,8 +65,7 @@ bass = \relative c {
 	d4) c b |
 	c4\breathe c8 bes a g |
 	f4( g) g, |
-	c2.
-	     
+	c2.\fermata
 }
 
 

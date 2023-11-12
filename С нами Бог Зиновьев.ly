@@ -1,7 +1,7 @@
-\version "2.18.2"
+\version "2.24.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 #(set-global-staff-size 19)
@@ -23,7 +23,7 @@
 }
 
 global = {
-  \set Score.markFormatter = #format-mark-box-numbers
+  \set Score.rehearsalMarkFormatter = #format-mark-box-numbers
   \key c \major
   \time 4/4
   \dynamicUp
@@ -520,7 +520,7 @@ tenorVerse = \lyricmode {
 
 bassVerse = \lyricmode {
   % Набирайте слова здесь
-  С_на -- ми Бог, __ s1
+  С_на -- ми Бог, _
   \repeat unfold 261 \skip 1
   С_на -- ми, с_на -- ми Бог.
 }
@@ -540,7 +540,7 @@ choirPart = \new ChoirStaff <<
   >>
   \new Lyrics \with {
     alignBelowContext = "sa"
-    \override VerticalAxisGroup #'staff-affinity = #CENTER
+    \override VerticalAxisGroup.staff-affinity = #CENTER
   } \lyricsto "soprano" \sopranoVerse
   \new Lyrics \lyricsto "alto" \altoVerse
   \new Staff = "tb" \with {
@@ -553,7 +553,7 @@ choirPart = \new ChoirStaff <<
   >>
   \new Lyrics \with {
     alignBelowContext = "tb"
-    \override VerticalAxisGroup #'staff-affinity = #CENTER
+    \override VerticalAxisGroup.staff-affinity = #CENTER
   } \lyricsto "tenor" \tenorVerse
   \new Lyrics \lyricsto "bass" \bassVerse
 >>

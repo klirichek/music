@@ -23,14 +23,15 @@ global = {
 %abr = { \break }
 abr = {}
 
-% вместо знака альтерации однократно пишем текст сбоку от ноты (голос)
+% вместо знака дыхания однократно пишем текст сбоку в рамке
 aside =  #(define-music-function 
            (parser location  x-y text)
            (pair? markup?)
            #{
-              \once \override Accidental.extra-offset = #x-y
-              \once \override Accidental.stencil = #ly:text-interface::print
-              \once \override Accidental.text = \markup {\rotate #90 \rounded-box \pad-x #2 #text } 
+              \once \override BreathingSign.extra-offset = #x-y
+              \once \override BreathingSign.stencil = #ly:text-interface::print
+              \once \override BreathingSign.text = \markup {\rotate #90 \rounded-box \pad-x #1 #text } 
+              \breathe
            #}
            )
 
@@ -67,9 +68,10 @@ sopvoice = \relative c' {
   bes f8[( g]) as4 g |
   f1 |
   
-  \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3
-  \aside #'( 1 . -8 ) "Аллилуия" es!2 \bar "!"
-  \newSpacingSection \revert Score.SpacingSpanner.spacing-increment
+%  \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3
+  es2 \bar "!"
+  \aside #'( 1.5 . -12 ) "Аллилуия" \break
+%  \newSpacingSection \revert Score.SpacingSpanner.spacing-increment
   
   c'4\f es |
   f2 es8[( f]) es[( des]) |
@@ -80,9 +82,10 @@ sopvoice = \relative c' {
   c1\p\< |
   f2\mf f4 f |
   
-  \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3
-  \aside #'( 1 . -8 ) "Аллилуия" es!2 \bar "!" 
-  \newSpacingSection \revert Score.SpacingSpanner.spacing-increment
+%  \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3
+  es!2 \bar "!" 
+  \aside #'( 1.5 . -12 ) "Аллилуия"
+%  \newSpacingSection \revert Score.SpacingSpanner.spacing-increment
   
   c'4\f es |
   f2  es8[( f]) es[( des]) |
@@ -92,7 +95,7 @@ sopvoice = \relative c' {
   es4) des c( es) |
   f2 f4 des |
   
-  \aside #'( 1 . -11 ) "Аллилуия" es!2 s2 \bar "|."
+   es2 \aside #'( 2 . -11 ) "Аллилуия" \bar "|."
   
   
 }
@@ -199,7 +202,7 @@ tenorvoice = \relative c' {
   es( des8[ c] des4 c |
   bes) des es2 |
   c4.( bes8) c4 des |
-  bes2 s2
+  bes2
   
 }
 
@@ -251,7 +254,7 @@ bassvoice = \relative c {
   f,2( bes4 as |
   g) bes as( g) |
   f4.( g8) as4 bes |
-  es,2 s2
+  es,2
   
   
 }

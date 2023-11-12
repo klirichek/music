@@ -1,7 +1,7 @@
-\version "2.18.2"
+\version "2.24.0"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-global-staff-size 18)
 
@@ -33,7 +33,7 @@ global = {
   \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
   \arpeggioBracket
   \accidentalStyle neo-modern-voice-cautionary
-  \set Score.markFormatter = #format-mark-box-numbers
+  \set Score.rehearsalMarkFormatter = #format-mark-box-numbers
 
 }
 
@@ -133,7 +133,7 @@ sopvoice = \relative c'' {
   \bar "||" \time 3/4 d4 c8 c bes a |
   bes c d d d c | \abr
   d4 d8 d d d |
-  c4 c8 c a4( |
+  c4 c8 bes a4( |
   bes8[ a]) g[( fis]) g4\fermata | \abr
   
   
@@ -158,8 +158,8 @@ sopvoice = \relative c'' {
   bes8[( a g a] bes[ a g fis]) | \pbr
   
   g4 bes8 c d4-> d8 c |
-  bes[( a] bes4) f2 |
-  \fbr f4 f8 f bes( c4-> bes8 | \abr
+  bes[( a] bes4) a2 |
+  \fbr a4 a8 a bes( c4-> bes8 | \abr
   
   g4) g a r |
   bes8-> a bes c d[( es d e]) | \abr
@@ -209,7 +209,7 @@ sopvoice = \relative c'' {
   
   <c es>4 <b d> <c es>-> r8 \fbr c |
   \bar "||" \time 3/4 d4. d8 d d |
-  \bar "||" \time 4/4 d4 bes a g8 fis | \pbr
+  \bar "||" \time 4/4 c4 bes a g8 fis | \pbr
   
   \bar "||" \time 3/4 g4\fermata
   
@@ -324,7 +324,7 @@ altvoice = \relative c' {
   f f bes bes bes a |
   
   bes4 bes8 bes bes bes |
-  a4 a8 a f4~( |
+  a4 a8 g f4~( |
   f8[ es]) d4 d |
   
   bes'2 bes |
@@ -807,13 +807,13 @@ bassvoice = \relative c' {
 }
 
 ijLyrics = {
-  \override Lyrics.LyricText #'font-shape = #'italic
-  \override Lyrics.LyricText #'font-series = #'bold
+  \override Lyrics.LyricText.font-shape = #'italic
+  \override Lyrics.LyricText.font-series = #'bold
 }
 
 normalLyrics = {
-  \revert Lyrics.LyricText #'font-shape
-  \revert Lyrics.LyricText #'font-series
+  \revert Lyrics.LyricText.font-shape
+  \revert Lyrics.LyricText.font-series
 }
 
 lleft = \once \override LyricText.self-alignment-X = #LEFT

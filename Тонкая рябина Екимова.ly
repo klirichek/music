@@ -1,10 +1,12 @@
-\version "2.18.2"
+\version "2.24.0"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
-#(set-global-staff-size 17)
+#(set-global-staff-size 18)
+
+\include "articulate.ly"
 
 \header {
   title = "Тонкая рябина"
@@ -19,7 +21,7 @@
   top-margin = 15
   left-margin = 15
   right-margin = 10
-  bottom-margin = 15
+  bottom-margin = 45
   indent = 15
   ragged-bottom = ##f
   ragged-last-bottom = ##f
@@ -75,7 +77,7 @@ global = {
   \override Score.BarNumber.self-alignment-X = #LEFT
   \override DynamicText.X-offset = #-2.5
   \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
-  \set Score.markFormatter = #format-mark-box-numbers
+  \set Score.rehearsalMarkFormatter = #format-mark-box-numbers
   \set Score.skipBars = ##t
   \override MultiMeasureRest.expand-limit = #1
   \autoBeamOff
@@ -881,8 +883,8 @@ lyricsopup = \lyricmode {
   \repeat unfold 2 \skip 1
   Го -- ло -- вой скло -- ня -- ясь…
   до са -- мо -- го ты -- на?
-  А че -- рез до -- ро -- гу
-  дуб сто -- ит вы -- со -- кий,
+  А че -- рез до -- ро -- гу,
+  за ре -- кой ши -- ро -- кой,
   
   \repeat unfold 12 \skip 1
   Как бы мне, ря -- би -- не,
@@ -910,10 +912,10 @@ lyricsop = \lyricmode {
 
 lyricalt = \lyricmode {
   \repeat unfold 48 \skip 1
-  Так же о -- ди -- но -- ко Дуб сто -- ит вы -- со -- кий
+  так же о -- ди -- но -- ко дуб сто -- ит вы -- со -- кий.
   
   \repeat unfold 18 \skip 1
-  Гну -- ться и ка -- ча -- ться.
+  гну -- ться и ка -- ча -- ться.
   Тон -- ки -- ми ве -- твя -- ми
   я_б к_не -- му при -- жа -- лась
   и с_е -- го ли -- ста -- ми
@@ -939,26 +941,26 @@ lyrictenup = \lyricmode {
 }
 
 lyricten = \lyricmode {
- А… дуб… вы -- со -- кий
+ А… за… ши -- ро -- кой,
  \repeat unfold 12 \skip 1
  \set associatedVoice = "tenup" Ву… …ря -- би -- 
  \set associatedVoice = "tentwo" не к_ду -- бу пе -- ре -- бра -- ться
  я_б то -- гда не ста -- ла
  
  \repeat unfold 30 \skip 1
- Но нель -- зя ря -- би -- не к_ду -- бу пе -- ре -- бра -- ться,
- знать, ей си -- ро -- ти -- \set associatedVoice = "tenup" не
+ Но нель -- зя ря -- би -- не к_ду -- бу пе -- ре -- бра -- ться.
+ Знать, ей си -- ро -- ти -- \set associatedVoice = "tenup" не
  век од -- ной ка -- ча -- ться. Мм…
 }
 
 lyricbass = \lyricmode {
   Мм… А…
-  дуб сто -- ит вы -- со -- кий
+  за ре -- кой ши -- ро -- кой,
   \repeat unfold 25 \skip 1
   …не ста -- ла
   
   \repeat unfold 3 \skip 1 А… А…
-  Я_б к_не -- му при -- жа -- лась, Ой…
+  Я_б к_не -- му при -- жа -- лась, ой…
   и с_е -- го ли -- ста -- ми, ли -- ста -- ми
   \repeat unfold 30 \skip 1
   Мм… Ой… А…
@@ -1040,8 +1042,46 @@ lyricbass = \lyricmode {
     }
   %Metronome_mark_engraver
   }
+}
+
+\score {
+  %  \transpose c bes { 
+  \articulate
+    \new ChoirStaff <<
+    
+      \new Staff = "staffone" \with {
+        midiInstrument = "voice oohs"
+      } <<
+        \new Voice = "sopup" { \voiceOne \sopone }
+        \new Voice = "soptwo" { \soptwo }
+      >>
+
+     \new Staff = "stafftwo" \with {
+        midiInstrument = "voice oohs"
+      } <<
+        \new Voice = "AlternativeAlt" { \voiceOne \altone }
+        \new Voice = "alttwo" { \alttwo }
+      >> 
+
+    \new Lyrics = "tenup"      
+      \new Staff = "staffthree" \with {
+        midiInstrument = "voice oohs"
+      } <<
+        \new Voice = "tenup" { \voiceOne  \tenone }
+        \new Voice = "tentwo" { \clef "treble_8" \tentwo }
+      >>       
+
+      \new Staff = "stafffour" \with {
+        midiInstrument = "voice oohs"
+      } <<
+        \new Voice = "bassone" { \voiceOne  \bassone }
+        \new Voice = "basstwo" { \clef "bass" \basstwo }
+      >>     
+    >>
+    %  }  % transposeµ
     \midi {
       \tempo 4=126
     }
-}      
+}  
+
 }
