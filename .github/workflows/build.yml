@@ -17,11 +17,11 @@ jobs:
           echo "::set-output name=files::$(find ${{github.workspace}} -name "${{ env.LILYPOND_FILES }}" -printf "%P\n" | xargs)"
       - name: LILYPOND files considered echo output
         run: |
-          echo ${{ steps.getfile.outputs.files }}
+          echo "${{ steps.getfile.outputs.files }}"
       - name: Generate PDF music sheets
         uses: alexandre-touret/lilypond-github-action@master
         with:
-            args: -V -fpdf -fpng -fmidi ${{ steps.getfile.outputs.files }}
+            args: -V -fpdf -fpng -fmidi "${{ steps.getfile.outputs.files }}"
       - name: Push Local Changes
         run: |
           git config --local user.email "a.n.vinogradov@gmail.com"
