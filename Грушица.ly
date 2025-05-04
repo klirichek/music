@@ -419,7 +419,7 @@ scoreInstrPart =   \new PianoStaff \with {
 %  piece = "Fis-dur"
   }
   \score {
-    \transpose cis c
+    \transpose cis d
     <<
       \new ChoirStaff <<
         \scoreVoicePart

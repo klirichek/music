@@ -190,7 +190,7 @@ tenorvoice = \relative c' {
    d8 d d4 e8~8 |
    e4 d d |
    d d d8~8 |
-   d4 d c |
+   d4 d d |
    
    b8 b16 c b8 fis |
    g b16 b b8 b |

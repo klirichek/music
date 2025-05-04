@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.24.0"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
 %#(ly:set-option 'point-and-click #f)
@@ -8,10 +8,9 @@
 %#(set-global-staff-size 18)
 
 \header {
-  title = "Трисвятое"
-  subtitle = "(староболгарского распева)"
-  %composer = "Composer"
-  % Удалить строку версии LilyPond  
+  title = "Title"
+  composer = "Composer"
+  % Удалить строку версии LilyPond 
   tagline = ##f
 }
 
@@ -63,7 +62,7 @@ partiall = { \set Timing.measurePosition = #(ly:make-moment -1/4) }
 multirests = { \override MultiMeasureRest.expand-limit = #1 \set Score.skipBars = ##t }
 
 % mark with numbers in squares
-squaremarks = {  \set Score.markFormatter = #format-mark-box-numbers }
+squaremarks = {  \set Score.rehearsalMarkFormatter = #format-mark-box-numbers }
 
 % move dynamics a bit left (to be not up/under the note, but before)
 placeDynamicsLeft = { \override DynamicText.X-offset = #-2.5 }
@@ -77,89 +76,24 @@ secondbar = {
 }
 
 global = {
-%  \numericTimeSignature
+  \numericTimeSignature
   \secondbar
   \multirests
   \placeDynamicsLeft
-  \set Score.rehearsalMarkFormatter = #format-mark-box-numbers
-  \key e \minor
+  
+  \key a \minor
   \time 4/4
 }
 
-sopvoice = \relative c'' {
+sopvoice = \relative c' {
   \global
   \dynamicUp
   \autoBeamOff
-  \mark \default
-  g2 b4( a) |
-  g( fis8[ g]) e4( fis) |
-  g2 b4( a) |
-  g( fis8[ g]) e4.( fis8) \abr
+  <e, a d g b e>1^"tune"
+  <e a d g b e>1^"tune"
   
-  g4( fis8[ g]) a[( b]) a[( b]) |
-  c[( d c b ]) b4 a |
-  c8[( b a g] a[ b]) c4 |
-  b1 | \bar "||"
-  
-  %\break
-  
-  \mark \default
-  g2 b4( a) |
-  g( fis8[ g]) e4( fis) |
-  g2 b4( a) |
-  g( fis8[ g]) e4( fis) \abr
-  
-  g4( fis8[ g]) a[( b]) a[( b]) | 
-  
-  c[( d c b ]) b4 a |
-  c8[( b a g] a[ b]) c4 |
-  b1 | \bar "||"
-  
-  \abr
- % \break
-  
-  \mark \default
-    g2 b4( a) |
-  g( fis8[ g]) e4( fis) |
-  g2 b4( a) |
-  g( fis8[ g]) e4( fis) 
-  g4( fis8[ g]) a[( b]) a[( b]) | \abr
-  
-  c[( d c b ]) b4 a |
-  g2 fis
-  e1 | \bar "||"
-  g\breve \bar "||"
-  
-  %\break
-  
-  
-  g4( fis8[ g]) a[( b]) a[( b]) | 
-  
-  c[( d c b ]) b4 a |
-  g2 fis
-  e1
-  \bar "||"
-  \abr
-  
-  \mark \default
-  
-  << {e'2 e  e <e a,> b b |
-     c a |
-     b2 } \new Voice {\voiceThree g4( a) b( a) 
-                      
-  g4 fis8[( g]) s2 
-  g4( a) b( a) |
-  g4( fis8[ g]) s2 |
-  g4( fis8[ g])} >>
-  \voiceOne
-  a8[( b]) a[( b]) |
-  c([ d c b])
-  b4 a |
-  << { c8[( b a <b g>] c4) } \new Voice { \voiceThree s2 fis,8[ g] } >>
-   
-   \voiceOne <a d>4 |
-   <g e'>1
-  \bar "||" 
+  <a e' a c e>1^"Am"
+  <d a' d f>1^"Dm"
 }
 
 
@@ -167,55 +101,6 @@ altvoice = \relative c' {
   \global
   \dynamicUp
   \autoBeamOff
-  e2 g4( fis) |
-  e2 e |
-  e g4( fis) |
-  e2 e |
-  
-  e fis8[( g]) fis[( g]) |
-  e2 e4 e |
-  e2. e4 |
-  e1 |
-  
-  e4( fis) g( fis) |
-  e2 e |
-  e4( fis) g( fis) |
-  e2 c |
-  e2 fis8[( g]) fis[( g]) |
-  
-  e2 e4 e |
-  e2. e4 |
-  e1 |
-  
-  e4( fis) g( fis) |
-  e2 c |
-  e4( fis) g( fis) |
-  e2 c |
-  
-  e2 fis8[( g]) fis[( g]) |
-  
-  e2 e4 e |
-  e2 d? |
-  b1 |
- 
- e\breve
-  
- e2 e4 e |
- e2 e4 e |
- e2 d? |
- b1
- 
- e4( fis) g( fis) |
- e2 e4( fis) |
- e( fis) g( fis) |
- e2 e4( fis) |
- 
- e2 fis8[( g]) fis[( g]) |
- e2 e4 e |
- e2. d4 |
- e1
-  
-  
 }
 
 
@@ -224,51 +109,7 @@ tenorvoice = \relative c' {
   \dynamicUp
   \autoBeamOff
   \bort
-  b2 b |
-  c c |
-  b b |
-  c c |
-  b b4 b |
-  c2 b4 c |
-  c2. a4 |
-  b1 |
-  
-  b2 b |
-  c c |
-  b b |
-  c c8[( b] a4) |
-  b2 b4 b |
-  c2 b4 c |
-  c2. a4 |
-  b1 |
-  
-  b2 b |
-  c c8[( b] a4) |
-  b2 b |
-  c c8[( b] a4) |
-  
-  b2 b4 b |
-  c2 b4 c |
-  b2 b4( a) |
-  g1 |
-  
-  b\breve
-  
-  b2 c4 c8[( b]) |
-  a2 b4 c |
-  b2 b4( a) |
-  g1
-  
-  b2 b |
-  c c8[( d c a]) |
-  b2 b |
-  c c8[( b] c4) |
-  b2 c4 c8[( b]) |
-  c2 b4 c |
-  fis,8[( g a b] c4)  a4 
-  
-  b1
-  
+  s
 }
 
 
@@ -276,68 +117,10 @@ bassvoice = \relative c {
   \global
   \dynamicUp
   \autoBeamOff
-  e2 e |
-  a, a |
-  e' e |
-  a, a |
-  e' e4 e |
-  a2 g4 g |
-  fis8[( g a b] a[ g]) fis4 |
-  e1
-  
-    e2 e |
-  a, a |
-  e' e |
-  a, a |
-  e' e4 e |
-  a2 g4 g |
-  fis8[( g a b] a[ g]) fis4 |
-  e1
-  
-  e2 e |
-  a, a |
-  e' e |
-  a, a |
-  e' e4 e |
-  <e a,>2 <e g,>4 <e a,> |
-  b2 b |
-  e1
-  
-  e\breve |
-  
-  e2 a4 a8[( g]) |
-  fis2 g4 a |
-  b2 b, |
-  e1
-  
-  <e e,>2 q |
-  <e a,> q |
-  <e e,> e2 |
-  <e a,> q |
-  
-  e2 e4 e |
-  <e a,>2 <e g,>4 <e a,> |
-  q2. <fis fis,>4 |
-  <e e,>1
+  s
 }
 
 lyricscore = \lyricmode {
-  \override LyricText.self-alignment-X = #LEFT
-  \set stanza = "1. " Свя -- ты́й Бо -- же, Свя -- ты́й Креп -- кий,
-  Свя -- ты́й без -- смерт -- ный, по -- ми -- луй нас.
-  
-    \set stanza = "2. " Свя -- ты́й Бо -- же, Свя -- ты́й Креп -- кий,
-  Свя -- ты́й без -- смерт -- ный, по -- ми -- луй нас.
-  
-  \set stanza = "3. " Свя -- ты́й Бо -- же, Свя -- ты́й Креп -- кий,
-  Свя -- ты́й без -- смерт -- ный, по -- ми -- луй нас.
-  
-  Слава…_и_ныне…_Аминь:
-  
-  Свя -- ты́й без -- смерт -- ный, по -- ми -- луй нас.
-  
-    \set stanza = "4. " Свя -- ты́й Бо -- же, Свя -- ты́й Креп -- кий,
-  Свя -- ты́й без -- смерт -- ный, по -- ми -- луй нас.
 }
 
 
@@ -346,10 +129,9 @@ lyricscore = \lyricmode {
     top-margin = 15
     left-margin = 15
     right-margin = 10
-    bottom-margin = 25
+    bottom-margin = 15
     indent = 20
-    %ragged-bottom = ##t
-    ragged-last-bottom =  ##f
+    ragged-bottom = ##f
     %  system-separator-markup = \slashSeparator
     
   }
@@ -361,6 +143,7 @@ lyricscore = \lyricmode {
         instrumentName = \markup { \right-column { "Сопрано" "Альт"  } }
         shortInstrumentName = \markup { \right-column { "С" "А"  } }
         midiInstrument = "voice oohs"
+        %        \consists Merge_rests_engraver
         %        \RemoveEmptyStaves
       } <<
         \new Voice = "soprano" { \voiceOne \sopvoice }
@@ -389,7 +172,8 @@ lyricscore = \lyricmode {
       \context {
         \Staff
         %        \RemoveEmptyStaves
-        %        \RemoveAllEmptyStaves
+        \RemoveAllEmptyStaves
+        \consists Merge_rests_engraver
       }
       %Metronome_mark_engraver
     }

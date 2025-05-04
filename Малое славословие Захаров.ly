@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 #(set-default-paper-size "a4")
 #(set-global-staff-size 17.8)
@@ -135,7 +135,7 @@ altvoice = \relative c'' {
    r4 a a |
    a2 a4 |
    a2 a4 |
-   g2. |
+   a2. |
    r4 a a |
    bes( a) bes |
    a2 r4 |

@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 % закомментируйте строку ниже, чтобы получался pdf с навигацией
-#(ly:set-option 'point-and-click #f)
+%#(ly:set-option 'point-and-click #f)
 #(ly:set-option 'midi-extension "mid")
 
 \paper {
@@ -34,7 +34,7 @@ sopvoice = \relative c'' {
   \co c8\mf[ bes] c[ d] ees2 d8[( ees] d4) c2 \cb
   \co d4 ees8[ d] c([ d] ees4) d2 c \cb
   \co c8[ bes] c[ d] ees2 f8[( ees] d[ ees]) f4 ees2 \cb
-  \co f4( ees) bes8[( c] d4) d2 bes \cb
+  \co f4( ees) bes8[( c] d4) c2 bes \cb
   \co ees2( f4 d f) ees2 \cb
   \co c8[ d] ees4( c8[ d]) \bar"" c[ bes] c2 c4 bes2 \cb
   \co bes4 bes aes! c bes(\< c) d ees2\! \cb
