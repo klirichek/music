@@ -2,7 +2,7 @@ name: Generate Lilypond music sheets
 on:
   push:
     branches:
-      - master
+      - master-pdf
 jobs:
   build_sheets:
     runs-on: ubuntu-latest
@@ -14,14 +14,14 @@ jobs:
       - name: Get changed files
         id: getfile
         run: |
-          echo "::set-output name=files::$(find ${{github.workspace}} -iname "${{ env.LILYPOND_FILES }}" -printf '\\"%P\\"\0' | xargs -r0)"
+          echo "::set-output name=files::$(find ${{github.workspace}} -iname "${{ env.LILYPOND_FILES }}" -printf '"%P"\0' | xargs -r0)"
       - name: LILYPOND files considered echo output
         run: |
-          echo ${{ steps.getfile.outputs.files }}
+          echo '${{ steps.getfile.outputs.files }}'
       - name: Generate PDF music sheets
         uses: alexandre-touret/lilypond-github-action@master
         with:
-            args: -V -fpdf -fpng -fmidi ${{ steps.getfile.outputs.files }}
+            args: -V -fpdf -fpng -fmidi '${{ steps.getfile.outputs.files }}'
       - name: Push Local Changes
         run: |
           git config --local user.email "a.n.vinogradov@gmail.com"
@@ -35,5 +35,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: master
+          branch: master-pdf
           github_token: ${{ secrets.GITHUB_TOKEN }}
